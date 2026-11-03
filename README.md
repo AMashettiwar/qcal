@@ -375,9 +375,9 @@ Real-hardware datasets are not redistributed. `scripts/fetch_willow.py` download
 ## How to cite / contact
 If you use qcal, please cite the repository:
 
-> Ankith Mashettiwar. *qcal: calibrated confidence and risk-controlled rejection for QEC decoders.* 2026. Software, version 0.4.0. URL: _to be added_.
+> Ankith Mashettiwar. *qcal: calibrated confidence and risk-controlled rejection for QEC decoders.* 2026. Software, version 0.4.0. URL: https://github.com/AMashettiwar/qcal.
 
-Contact: _to be added_. Issues and pull requests on the repository are welcome.
+Contact: [github.com/AMashettiwar](https://github.com/AMashettiwar). Issues and pull requests on the repository are welcome.
 
 ## License
 MIT. See [LICENSE](LICENSE).
