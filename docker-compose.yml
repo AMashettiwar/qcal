@@ -1,0 +1,12 @@
+services:
+  qcal:
+    build: .
+    ports: ["127.0.0.1:8000:8000"]   # local only; put a TLS proxy in front before exposing
+    environment:
+      QCAL_API_KEY: ${QCAL_API_KEY:?set QCAL_API_KEY}
+      QCAL_RATE_PER_MIN: "120"
+      QCAL_MAX_BODY_MB: "200"
+    volumes: ["qcal_data:/data"]
+    restart: unless-stopped
+volumes:
+  qcal_data:

@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+[project]
+name = "qcal"
+version = "0.4.0"
+description = "Calibrated logical-error probabilities and risk-controlled rejection for QEC decoders"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [{name = "Ankith Mashettiwar"}]
+readme = "README.md"
+dependencies = ["stim", "pymatching>=2", "numpy", "scipy", "scikit-learn", "matplotlib", "torch", "remotezip", "fastapi", "uvicorn", "pydantic>=2", "httpx"]
+[project.scripts]
+qcal = "qcal.cli:main"
+[tool.setuptools]
+packages = ["qcal"]
+[project.optional-dependencies]
+dev = ["pytest"]
+ibm = ["qiskit>=2", "qiskit-ibm-runtime", "qiskit-aer"]

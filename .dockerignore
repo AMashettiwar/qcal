@@ -1,0 +1,6 @@
+data
+qcal_store
+out
+.git
+**/__pycache__
+*.zip

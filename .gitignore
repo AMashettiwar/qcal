@@ -1,0 +1,10 @@
+__pycache__/
+*.egg-info/
+.pytest_cache/
+.venv/
+venv/
+data/
+qcal_store/
+out/cache*/
+*.zip
+.env
