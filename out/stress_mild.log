@@ -1,0 +1,63 @@
+{
+ "drift+mon_x1.1": {
+  "trials": 50,
+  "test_ler": 0.018277,
+  "batch_alarm_rate": 0.41960000000000003,
+  "0.002": {
+   "certified": 50,
+   "covered": 42,
+   "coverage": 0.84,
+   "ci95": [
+    0.7148551903823401,
+    0.9166267863791231
+   ],
+   "coverage_vs_alpha_eff": 0.74,
+   "mean_accept": 0.4922346,
+   "mean_acc_ler": 0.0013527337310799436,
+   "worst_acc_ler": 0.0027068594278683482
+  },
+  "0.005": {
+   "certified": 50,
+   "covered": 44,
+   "coverage": 0.88,
+   "ci95": [
+    0.7619492111337642,
+    0.9438247628937535
+   ],
+   "coverage_vs_alpha_eff": 0.48,
+   "mean_accept": 0.5380168000000001,
+   "mean_acc_ler": 0.004049916181803831,
+   "worst_acc_ler": 0.005894729205209127
+  }
+ },
+ "drift_x1.1": {
+  "trials": 50,
+  "test_ler": 0.018277,
+  "0.002": {
+   "certified": 50,
+   "covered": 42,
+   "coverage": 0.84,
+   "ci95": [
+    0.7148551903823401,
+    0.9166267863791231
+   ],
+   "coverage_vs_alpha_eff": 0.74,
+   "mean_accept": 0.8462766,
+   "mean_acc_ler": 0.0013780921349973447,
+   "worst_acc_ler": 0.0029198863131716848
+  },
+  "0.005": {
+   "certified": 50,
+   "covered": 41,
+   "coverage": 0.82,
+   "ci95": [
+    0.6920368054529739,
+    0.902299172675462
+   ],
+   "coverage_vs_alpha_eff": 0.46,
+   "mean_accept": 0.925639,
+   "mean_acc_ler": 0.004099428141603647,
+   "worst_acc_ler": 0.005840568271507498
+  }
+ }
+}

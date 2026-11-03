@@ -1,0 +1,6 @@
+surface_code_bZ_d3_r05_center_3_5 {'matching_ler': 0.15144, 'nn_simtrained_ler_all': 0.14044, 'secs': 25.57315230369568}
+surface_code_bZ_d3_r11_center_3_5 {'matching_ler': 0.29764, 'nn_simtrained_ler_all': 0.31708, 'secs': 27.12485694885254}
+surface_code_bX_d3_r11_center_5_7 {'matching_ler': 0.28012, 'nn_simtrained_ler_all': 0.29038, 'secs': 27.49339747428894}
+surface_code_bZ_d5_r05_center_5_5 {'matching_ler': 0.14376, 'nn_simtrained_ler_all': 0.24958, 'secs': 32.70742630958557}
+surface_code_bZ_d5_r11_center_5_5 {'matching_ler': 0.28834, 'nn_simtrained_ler_all': 0.46618, 'secs': 51.26677393913269}
+surface_code_bX_d5_r11_center_5_5 {'matching_ler': 0.30508, 'nn_simtrained_ler_all': 0.48206, 'secs': 48.0109326839447}

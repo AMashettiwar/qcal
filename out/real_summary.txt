@@ -1,0 +1,72 @@
+surface_code_bZ_d3_r05_center_3_5  shots=50000  raw LER=0.1514  agree w/ Google PyMatching=1.0000
+  gap_platt (baseline)   ECE=0.0222 Brier=0.1080 AUC=0.8069 | a=0.02: 0.350/0.0191  a=0.05: 0.566/0.0483  a=0.1: 0.815/0.0910
+  logreg+iso             ECE=0.0117 Brier=0.1068 AUC=0.8156 | a=0.02: 0.385/0.0225 FAIL  a=0.05: 0.579/0.0468  a=0.1: 0.828/0.0950
+  mlp_bce+iso            ECE=0.0135 Brier=0.1072 AUC=0.8155 | a=0.02: 0.349/0.0172  a=0.05: 0.592/0.0464  a=0.1: 0.809/0.0902
+  window LER: 0.1533 0.1518 0.1513 0.1523 0.1485
+  drift static  a=0.02: w2:0.33/0.0157 w3:0.35/0.0209! w4:0.34/0.0167
+  drift static  a=0.05: w2:0.52/0.0422 w3:0.54/0.0427 w4:0.52/0.0373
+  drift static  a=0.1: w2:0.79/0.0896 w3:0.80/0.0924 w4:0.79/0.0812
+  drift rolling a=0.02: w2:0.33/0.0157 w3:0.31/0.0136 w4:0.30/0.0113
+  drift rolling a=0.05: w2:0.52/0.0422 w3:0.56/0.0472 w4:0.50/0.0352
+  drift rolling a=0.1: w2:0.79/0.0896 w3:0.84/0.1027! w4:0.79/0.0812
+
+surface_code_bZ_d3_r11_center_3_5  shots=50000  raw LER=0.2976  agree w/ Google PyMatching=1.0000
+  gap_platt (baseline)   ECE=0.0265 Brier=0.1945 AUC=0.6846 | a=0.02: 0.000/nan  a=0.05: 0.043/0.0185  a=0.1: 0.225/0.1057 FAIL
+  logreg+iso             ECE=0.0175 Brier=0.1915 AUC=0.6982 | a=0.02: 0.000/nan  a=0.05: 0.089/0.0479  a=0.1: 0.259/0.0992
+  mlp_bce+iso            ECE=0.0173 Brier=0.1918 AUC=0.6967 | a=0.02: 0.000/nan  a=0.05: 0.073/0.0404  a=0.1: 0.261/0.0974
+  window LER: 0.2941 0.2973 0.3016 0.2975 0.2977
+  drift static  a=0.02: w2:0.00/nan w3:0.00/nan w4:0.00/nan
+  drift static  a=0.05: w2:0.08/0.0480 w3:0.09/0.0520! w4:0.08/0.0367
+  drift static  a=0.1: w2:0.18/0.0825 w3:0.20/0.0833 w4:0.17/0.0610
+  drift rolling a=0.02: w2:0.00/nan w3:0.00/nan w4:0.00/nan
+  drift rolling a=0.05: w2:0.08/0.0480 w3:0.00/nan w4:0.05/0.0305
+  drift rolling a=0.1: w2:0.18/0.0825 w3:0.19/0.0793 w4:0.19/0.0671
+
+surface_code_bX_d3_r11_center_5_7  shots=50000  raw LER=0.2801  agree w/ Google PyMatching=1.0000
+  gap_platt (baseline)   ECE=0.0240 Brier=0.1801 AUC=0.7071 | a=0.02: 0.000/nan  a=0.05: 0.069/0.0447  a=0.1: 0.165/0.0971
+  logreg+iso             ECE=0.0202 Brier=0.1779 AUC=0.7205 | a=0.02: 0.000/nan  a=0.05: 0.060/0.0375  a=0.1: 0.180/0.0962
+  mlp_bce+iso            ECE=0.0169 Brier=0.1779 AUC=0.7221 | a=0.02: 0.000/nan  a=0.05: 0.056/0.0334  a=0.1: 0.233/0.0910
+  window LER: 0.2867 0.2803 0.2811 0.2741 0.2784
+  drift static  a=0.02: w2:0.00/nan w3:0.00/nan w4:0.00/nan
+  drift static  a=0.05: w2:0.05/0.0171 w3:0.05/0.0059 w4:0.05/0.0142
+  drift static  a=0.1: w2:0.16/0.0727 w3:0.17/0.0638 w4:0.17/0.0633
+  drift rolling a=0.02: w2:0.00/nan w3:0.00/nan w4:0.00/nan
+  drift rolling a=0.05: w2:0.05/0.0171 w3:0.07/0.0091 w4:0.12/0.0486
+  drift rolling a=0.1: w2:0.16/0.0727 w3:0.24/0.0793 w4:0.30/0.0934
+
+surface_code_bZ_d5_r05_center_5_5  shots=50000  raw LER=0.1438  agree w/ Google PyMatching=1.0000
+  gap_platt (baseline)   ECE=0.0115 Brier=0.0989 AUC=0.8332 | a=0.02: 0.451/0.0142  a=0.05: 0.656/0.0478  a=0.1: 0.853/0.0942
+  logreg+iso             ECE=0.0089 Brier=0.0985 AUC=0.8362 | a=0.02: 0.472/0.0150  a=0.05: 0.665/0.0465  a=0.1: 0.859/0.0933
+  mlp_bce+iso            ECE=0.0091 Brier=0.0990 AUC=0.8346 | a=0.02: 0.463/0.0144  a=0.05: 0.667/0.0480  a=0.1: 0.862/0.0950
+  window LER: 0.1350 0.1514 0.1521 0.1389 0.1414
+  drift static  a=0.02: w2:0.38/0.0098 w3:0.39/0.0117 w4:0.38/0.0098
+  drift static  a=0.05: w2:0.61/0.0462 w3:0.63/0.0400 w4:0.62/0.0375
+  drift static  a=0.1: w2:0.82/0.0940 w3:0.84/0.0845 w4:0.83/0.0855
+  drift rolling a=0.02: w2:0.38/0.0098 w3:0.44/0.0163 w4:0.44/0.0153
+  drift rolling a=0.05: w2:0.61/0.0462 w3:0.60/0.0343 w4:0.68/0.0482
+  drift rolling a=0.1: w2:0.82/0.0940 w3:0.81/0.0793 w4:0.86/0.0951
+
+surface_code_bZ_d5_r11_center_5_5  shots=50000  raw LER=0.2883  agree w/ Google PyMatching=0.9998
+  gap_platt (baseline)   ECE=0.0234 Brier=0.1809 AUC=0.7077 | a=0.02: 0.000/nan  a=0.05: 0.146/0.0347  a=0.1: 0.318/0.0893
+  logreg+iso             ECE=0.0180 Brier=0.1795 AUC=0.7138 | a=0.02: 0.000/nan  a=0.05: 0.168/0.0428  a=0.1: 0.342/0.0912
+  mlp_bce+iso            ECE=0.0182 Brier=0.1800 AUC=0.7105 | a=0.02: 0.000/nan  a=0.05: 0.177/0.0429  a=0.1: 0.335/0.0932
+  window LER: 0.2833 0.2901 0.2848 0.2897 0.2938
+  drift static  a=0.02: w2:0.00/nan w3:0.00/nan w4:0.00/nan
+  drift static  a=0.05: w2:0.22/0.0502! w3:0.20/0.0554! w4:0.20/0.0587!
+  drift static  a=0.1: w2:0.35/0.0954 w3:0.34/0.1022! w4:0.34/0.0994
+  drift rolling a=0.02: w2:0.00/nan w3:0.00/nan w4:0.00/nan
+  drift rolling a=0.05: w2:0.22/0.0502! w3:0.18/0.0435 w4:0.16/0.0528!
+  drift rolling a=0.1: w2:0.35/0.0954 w3:0.33/0.0945 w4:0.32/0.0937
+
+surface_code_bX_d5_r11_center_5_5  shots=50000  raw LER=0.3051  agree w/ Google PyMatching=0.9998
+  gap_platt (baseline)   ECE=0.0204 Brier=0.1905 AUC=0.6957 | a=0.02: 0.000/nan  a=0.05: 0.063/0.0336  a=0.1: 0.216/0.0888
+  logreg+iso             ECE=0.0209 Brier=0.1885 AUC=0.7055 | a=0.02: 0.000/nan  a=0.05: 0.115/0.0427  a=0.1: 0.257/0.0934
+  mlp_bce+iso            ECE=0.0215 Brier=0.1895 AUC=0.7016 | a=0.02: 0.000/nan  a=0.05: 0.121/0.0409  a=0.1: 0.256/0.0984
+  window LER: 0.3090 0.3048 0.3112 0.3035 0.2969
+  drift static  a=0.02: w2:0.00/nan w3:0.00/nan w4:0.00/nan
+  drift static  a=0.05: w2:0.15/0.0581! w3:0.17/0.0611! w4:0.17/0.0482
+  drift static  a=0.1: w2:0.26/0.0933 w3:0.28/0.0942 w4:0.28/0.0890
+  drift rolling a=0.02: w2:0.00/nan w3:0.00/nan w4:0.00/nan
+  drift rolling a=0.05: w2:0.15/0.0581! w3:0.17/0.0668! w4:0.08/0.0201
+  drift rolling a=0.1: w2:0.26/0.0933 w3:0.28/0.0944 w4:0.28/0.0924
+

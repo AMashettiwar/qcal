@@ -1,0 +1,6 @@
+static        certified 203/270 covered 173 cov=0.852 (seed mean 0.852±0.030) accept(all)=0.278 accept(cert)=0.369
+rolling       certified 202/270 covered 186 cov=0.921 (seed mean 0.921±0.019) accept(all)=0.277 accept(cert)=0.371
+cumulative    certified 222/270 covered 183 cov=0.824 (seed mean 0.825±0.020) accept(all)=0.289 accept(cert)=0.351
+rolling_m     certified 186/270 covered 183 cov=0.984 (seed mean 0.983±0.014) accept(all)=0.232 accept(cert)=0.337
+cumulative_m  certified 205/270 covered 199 cov=0.971 (seed mean 0.971±0.019) accept(all)=0.243 accept(cert)=0.321
+ks_guard      certified 191/270 covered 185 cov=0.969 (seed mean 0.969±0.021) accept(all)=0.211 accept(cert)=0.298

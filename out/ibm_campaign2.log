@@ -1,0 +1,23 @@
+qiskit_runtime_service._discover_account:WARNING:2026-11-03 12:12:09,081: Loading account with the given token. A saved account will not be used.
+12:12:12 job 0: instance usage 92s, estimate 41s
+qiskit_runtime_service._discover_account:WARNING:2026-11-03 12:12:13,279: Loading account with the given token. A saved account will not be used.
+submitted dbl408onceqs73amvoeg
+12:12:19 dbl408onceqs73amvoeg QUEUED
+12:13:19 dbl408onceqs73amvoeg DONE
+saved dbl408onceqs73amvoeg {'job_id': 'dbl408onceqs73amvoeg', 'qpu_charge_seconds': 30, 'circuits_execution_s': 28.193718272, 'timestamps': {'created': '2026-11-03T20:12:19.156292Z', 'finished': '2026-11-03T20:12:57.343562Z', 'running': '2026-11-03T20:12:20.59599Z'}, 'fetched': 1793736799.923349}
+qiskit_runtime_service._discover_account:WARNING:2026-11-03 13:26:01,934: Loading account with the given token. A saved account will not be used.
+13:26:05 job 1: instance usage 122s, estimate 41s
+qiskit_runtime_service._discover_account:WARNING:2026-11-03 13:26:06,591: Loading account with the given token. A saved account will not be used.
+submitted dbl52st8ft8s738sahl0
+13:26:12 dbl52st8ft8s738sahl0 QUEUED
+13:27:12 dbl52st8ft8s738sahl0 DONE
+saved dbl52st8ft8s738sahl0 {'job_id': 'dbl52st8ft8s738sahl0', 'qpu_charge_seconds': 30, 'circuits_execution_s': 28.193718016, 'timestamps': {'created': '2026-11-03T21:26:11.491916Z', 'finished': '2026-11-03T21:26:48.103069Z', 'running': '2026-11-03T21:26:13.039093Z'}, 'fetched': 1793741232.2914767}
+qiskit_runtime_service._discover_account:WARNING:2026-11-03 13:58:25,362: Loading account with the given token. A saved account will not be used.
+13:58:29 job 2: instance usage 152s, estimate 41s
+qiskit_runtime_service._discover_account:WARNING:2026-11-03 13:58:30,465: Loading account with the given token. A saved account will not be used.
+submitted dbl5i2t8mdtc73d5e900
+13:58:36 dbl5i2t8mdtc73d5e900 QUEUED
+14:22:46 dbl5i2t8mdtc73d5e900 DONE
+saved dbl5i2t8mdtc73d5e900 {'job_id': 'dbl5i2t8mdtc73d5e900', 'qpu_charge_seconds': 30, 'circuits_execution_s': 28.193718016, 'timestamps': {'created': '2026-11-03T21:58:35.753509Z', 'finished': '2026-11-03T22:14:00.558003Z', 'running': '2026-11-03T22:12:55.273655Z'}, 'fetched': 1793744567.5128539}
+qiskit_runtime_service._discover_account:WARNING:2026-11-03 14:22:48,243: Loading account with the given token. A saved account will not be used.
+campaign done; usage 182

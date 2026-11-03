@@ -1,0 +1,42 @@
+ok d7_at_q6_7/X/r10
+ok d7_at_q6_7/X/r30
+ok d7_at_q6_7/Z/r10
+ok d7_at_q6_7/Z/r30
+ok d5_at_q6_5/X/r10
+ok d5_at_q6_5/X/r30
+ok d5_at_q6_5/Z/r10
+ok d5_at_q6_5/Z/r30
+ok d3_at_q6_7/X/r10
+ok d3_at_q6_7/X/r30
+ok d3_at_q6_7/Z/r10
+ok d3_at_q6_7/Z/r30
+done d7_at_q6_7/X/r10 0.03302
+done d7_at_q6_7/X/r30 0.11432
+done d7_at_q6_7/Z/r10 0.0267
+done d7_at_q6_7/Z/r30 0.11222
+done d5_at_q6_5/X/r10 0.05304
+done d5_at_q6_5/X/r30 0.17092
+done d5_at_q6_5/Z/r10 0.04232
+done d5_at_q6_5/Z/r30 0.16604
+done d3_at_q6_7/X/r10 0.1213
+done d3_at_q6_7/X/r30 0.29938
+done d3_at_q6_7/Z/r10 0.09304
+done d3_at_q6_7/Z/r30 0.24984
+static        certified 473/720 covered 382 cov=0.808 accept(cert)=0.685
+rolling       certified 473/720 covered 402 cov=0.850 accept(cert)=0.684
+cumulative    certified 531/720 covered 410 cov=0.772 accept(cert)=0.637
+rolling_m     certified 427/720 covered 425 cov=0.995 accept(cert)=0.687
+cumulative_m  certified 485/720 covered 471 cov=0.971 accept(cert)=0.641
+ks_guard      certified 446/720 covered 445 cov=0.998 accept(cert)=0.634
+d7_at_q6_7/X/r10 LER=0.0330 AUC=0.948 ECE=0.0036 a=0.005:5/5 acc=0.84 kept_LER=0.0034173530211228007 a=0.01:5/5 acc=0.91 kept_LER=0.008324318072484713 a=0.02:5/5 acc=0.96 kept_LER=0.017959074148995748 a=0.05:5/5 acc=1.00 kept_LER=0.0325608427790372
+d7_at_q6_7/X/r30 LER=0.1143 AUC=0.846 ECE=0.0116 a=0.005:0/0 acc=0.00 kept_LER=None a=0.01:5/5 acc=0.37 kept_LER=0.0078066267604103585 a=0.02:4/5 acc=0.54 kept_LER=0.017237957514446935 a=0.05:2/5 acc=0.77 kept_LER=0.0487799395849374
+d7_at_q6_7/Z/r10 LER=0.0267 AUC=0.951 ECE=0.0046 a=0.005:5/5 acc=0.85 kept_LER=0.0033979889935957103 a=0.01:4/5 acc=0.92 kept_LER=0.007874340503933404 a=0.02:3/5 acc=0.98 kept_LER=0.018047119956758652 a=0.05:5/5 acc=1.00 kept_LER=0.026988181737352186
+d7_at_q6_7/Z/r30 LER=0.1122 AUC=0.854 ECE=0.0093 a=0.005:0/1 acc=0.07 kept_LER=0.005090054815974941 a=0.01:3/5 acc=0.41 kept_LER=0.008300713972230481 a=0.02:5/5 acc=0.56 kept_LER=0.016310171273794784 a=0.05:4/5 acc=0.78 kept_LER=0.04705732837173109
+d5_at_q6_5/X/r10 LER=0.0530 AUC=0.909 ECE=0.0063 a=0.005:4/5 acc=0.65 kept_LER=0.0043277033761667735 a=0.01:3/5 acc=0.78 kept_LER=0.010261118958537421 a=0.02:3/5 acc=0.87 kept_LER=0.0189071161315797 a=0.05:4/5 acc=0.98 kept_LER=0.046915173635969636
+d5_at_q6_5/X/r30 LER=0.1709 AUC=0.794 ECE=0.0149 a=0.005:0/0 acc=0.00 kept_LER=None a=0.01:0/0 acc=0.00 kept_LER=None a=0.02:5/5 acc=0.25 kept_LER=0.013952696200700079 a=0.05:3/5 acc=0.49 kept_LER=0.045635942067092455
+d5_at_q6_5/Z/r10 LER=0.0423 AUC=0.923 ECE=0.0049 a=0.005:4/5 acc=0.74 kept_LER=0.004245591056590336 a=0.01:4/5 acc=0.83 kept_LER=0.008805519931913995 a=0.02:5/5 acc=0.92 kept_LER=0.018270352966046566 a=0.05:5/5 acc=1.00 kept_LER=0.04232225096679557
+d5_at_q6_5/Z/r30 LER=0.1660 AUC=0.796 ECE=0.0140 a=0.005:0/0 acc=0.00 kept_LER=None a=0.01:1/1 acc=0.03 kept_LER=0.0035971223021582736 a=0.02:4/5 acc=0.23 kept_LER=0.014707039915995096 a=0.05:4/5 acc=0.49 kept_LER=0.0433864165672818
+d3_at_q6_7/X/r10 LER=0.1213 AUC=0.818 ECE=0.0112 a=0.005:0/0 acc=0.00 kept_LER=None a=0.01:4/5 acc=0.26 kept_LER=0.006822498435629772 a=0.02:4/5 acc=0.35 kept_LER=0.013583718560690109 a=0.05:5/5 acc=0.68 kept_LER=0.046287412279829764
+d3_at_q6_7/X/r30 LER=0.2994 AUC=0.691 ECE=0.0184 a=0.005:0/0 acc=0.00 kept_LER=None a=0.01:0/0 acc=0.00 kept_LER=None a=0.02:0/0 acc=0.00 kept_LER=None a=0.05:2/3 acc=0.02 kept_LER=0.045814785033306715
+d3_at_q6_7/Z/r10 LER=0.0930 AUC=0.841 ECE=0.0088 a=0.005:0/0 acc=0.00 kept_LER=None a=0.01:5/5 acc=0.31 kept_LER=0.007005918692743175 a=0.02:5/5 acc=0.49 kept_LER=0.016669570185148964 a=0.05:5/5 acc=0.85 kept_LER=0.044814196609518867
+d3_at_q6_7/Z/r30 LER=0.2498 AUC=0.736 ECE=0.0195 a=0.005:0/0 acc=0.00 kept_LER=None a=0.01:0/0 acc=0.00 kept_LER=None a=0.02:0/0 acc=0.00 kept_LER=None a=0.05:2/3 acc=0.04 kept_LER=0.03670982006336767

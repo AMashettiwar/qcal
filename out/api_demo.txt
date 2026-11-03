@@ -1,0 +1,35 @@
+calibrate w0: status=ok pool=50000 batch LER=0.0145
+    alpha=0.001  NOT certified: calibration split has 12500 shots; certifying alpha_eff=0.0008 at delta=0.1 needs at least 2878 accepted shots with zero errors (in practice ~5x that)
+    alpha=0.003  threshold=0.02521 cal_accept=0.907
+    alpha=0.01   threshold=0.1304 cal_accept=0.976
+    alpha=0.03   threshold=0.4211 cal_accept=1.000
+    alpha=0.05   threshold=0.4211 cal_accept=1.000
+    alpha=0.1    threshold=0.4211 cal_accept=1.000
+calibrate w1: status=ok pool=100000 batch LER=0.0141
+    alpha=0.001  threshold=0.00565 cal_accept=0.811
+    alpha=0.003  threshold=0.03483 cal_accept=0.913
+    alpha=0.01   threshold=0.1674 cal_accept=0.980
+    alpha=0.03   threshold=1 cal_accept=1.000
+    alpha=0.05   threshold=1 cal_accept=1.000
+    alpha=0.1    threshold=1 cal_accept=1.000
+calibrate w2: status=ok pool=150000 batch LER=0.0146
+    alpha=0.001  threshold=0.007143 cal_accept=0.855
+    alpha=0.003  threshold=0.03409 cal_accept=0.926
+    alpha=0.01   threshold=0.1798 cal_accept=0.980
+    alpha=0.03   threshold=0.5 cal_accept=1.000
+    alpha=0.05   threshold=0.5 cal_accept=1.000
+    alpha=0.1    threshold=0.5 cal_accept=1.000
+calibrate w3: status=ok pool=200000 batch LER=0.0143
+    alpha=0.001  threshold=0.01933 cal_accept=0.863
+    alpha=0.003  threshold=0.04884 cal_accept=0.926
+    alpha=0.01   threshold=0.2087 cal_accept=0.980
+    alpha=0.03   threshold=0.4225 cal_accept=1.000
+    alpha=0.05   threshold=0.4225 cal_accept=1.000
+    alpha=0.1    threshold=0.4225 cal_accept=1.000
+
+fresh batch: 100000 shots
+alpha=0.001: raw LER=0.01394  accept rate=0.8607  accepted LER=0.00052 (45/86074)  certified=True alpha_eff=0.0008 cal_size=50000
+alpha=0.003: raw LER=0.01394  accept rate=0.9249  accepted LER=0.00204 (189/92489)  certified=True alpha_eff=0.0024 cal_size=50000
+alpha=0.01: raw LER=0.01394  accept rate=0.9789  accepted LER=0.00713 (698/97894)  certified=True alpha_eff=0.008 cal_size=50000
+
+profile history: [('w0', 50000), ('w1', 100000), ('w2', 150000), ('w3', 200000)]

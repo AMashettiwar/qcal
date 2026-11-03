@@ -1,0 +1,384 @@
+{
+ "cal_jobs": [
+  "dbl408onceqs73amvoeg"
+ ],
+ "test_jobs": [
+  "dbl52st8ft8s738sahl0",
+  "dbl5i2t8mdtc73d5e900"
+ ],
+ "configs": [
+  {
+   "device": "ibm_n3_r5_L0",
+   "n": 3,
+   "rounds": 5,
+   "logical": 0,
+   "chain": [
+    44,
+    45,
+    46,
+    47,
+    57
+   ],
+   "cal_pool": 25000,
+   "cal_pool_ler": 0.00052,
+   "status": "ok",
+   "reason": null,
+   "certificates": {
+    "0.002": {
+     "certified": true,
+     "threshold": 0.49999999998975386,
+     "alpha_eff": 0.0016,
+     "cal_accept_rate": 1.0,
+     "cal_accepted": 6250,
+     "cal_accepted_errors": 4
+    },
+    "0.005": {
+     "certified": true,
+     "threshold": 0.49999999998975386,
+     "alpha_eff": 0.004,
+     "cal_accept_rate": 1.0,
+     "cal_accepted": 6250,
+     "cal_accepted_errors": 4
+    },
+    "0.01": {
+     "certified": true,
+     "threshold": 0.49999999998975386,
+     "alpha_eff": 0.008,
+     "cal_accept_rate": 1.0,
+     "cal_accepted": 6250,
+     "cal_accepted_errors": 4
+    },
+    "0.02": {
+     "certified": true,
+     "threshold": 0.49999999998975386,
+     "alpha_eff": 0.016,
+     "cal_accept_rate": 1.0,
+     "cal_accepted": 6250,
+     "cal_accepted_errors": 4
+    }
+   },
+   "test_shots": 50000,
+   "test_raw_flip": 0.00362,
+   "test_ler_majority": 6e-05,
+   "test_ler_pymatching": 0.00056,
+   "alphas": {
+    "0.002": {
+     "certified_batches": 25,
+     "refused_batches": 0,
+     "n_batches": 25,
+     "accept_rate": 0.99998,
+     "accepted": 49999,
+     "accepted_errors": 28,
+     "accepted_ler": 0.0005600112002240045,
+     "wilson95_upper": 0.0008092671723815938,
+     "cap_held": true
+    },
+    "0.005": {
+     "certified_batches": 25,
+     "refused_batches": 0,
+     "n_batches": 25,
+     "accept_rate": 0.99998,
+     "accepted": 49999,
+     "accepted_errors": 28,
+     "accepted_ler": 0.0005600112002240045,
+     "wilson95_upper": 0.0008092671723815938,
+     "cap_held": true
+    },
+    "0.01": {
+     "certified_batches": 25,
+     "refused_batches": 0,
+     "n_batches": 25,
+     "accept_rate": 0.99998,
+     "accepted": 49999,
+     "accepted_errors": 28,
+     "accepted_ler": 0.0005600112002240045,
+     "wilson95_upper": 0.0008092671723815938,
+     "cap_held": true
+    },
+    "0.02": {
+     "certified_batches": 25,
+     "refused_batches": 0,
+     "n_batches": 25,
+     "accept_rate": 0.99998,
+     "accepted": 49999,
+     "accepted_errors": 28,
+     "accepted_ler": 0.0005600112002240045,
+     "wilson95_upper": 0.0008092671723815938,
+     "cap_held": true
+    }
+   }
+  },
+  {
+   "device": "ibm_n3_r5_L1",
+   "n": 3,
+   "rounds": 5,
+   "logical": 1,
+   "chain": [
+    44,
+    45,
+    46,
+    47,
+    57
+   ],
+   "cal_pool": 25000,
+   "cal_pool_ler": 0.02864,
+   "status": "ok",
+   "reason": null,
+   "certificates": {
+    "0.002": {
+     "certified": false,
+     "reason": "calibration split has 6250 shots; certifying alpha_eff=0.0016 at delta=0.1 needs at least 1438 accepted shots with zero errors (in practice ~5x that)",
+     "alpha_eff": 0.0016
+    },
+    "0.005": {
+     "certified": true,
+     "threshold": 0.024250159125217725,
+     "alpha_eff": 0.004,
+     "cal_accept_rate": 0.63696,
+     "cal_accepted": 3981,
+     "cal_accepted_errors": 5
+    },
+    "0.01": {
+     "certified": true,
+     "threshold": 0.024250159125217725,
+     "alpha_eff": 0.008,
+     "cal_accept_rate": 0.63696,
+     "cal_accepted": 3981,
+     "cal_accepted_errors": 5
+    },
+    "0.02": {
+     "certified": true,
+     "threshold": 0.546099290639813,
+     "alpha_eff": 0.016,
+     "cal_accept_rate": 0.97568,
+     "cal_accepted": 6098,
+     "cal_accepted_errors": 83
+    }
+   },
+   "test_shots": 50000,
+   "test_raw_flip": 0.1341,
+   "test_ler_majority": 0.0536,
+   "test_ler_pymatching": 0.03702,
+   "alphas": {
+    "0.002": {
+     "certified_batches": 0,
+     "refused_batches": 5,
+     "n_batches": 25,
+     "accept_rate": 0.0,
+     "accepted": 0,
+     "accepted_errors": 0,
+     "accepted_ler": null,
+     "wilson95_upper": null,
+     "cap_held": null
+    },
+    "0.005": {
+     "certified_batches": 20,
+     "refused_batches": 5,
+     "n_batches": 25,
+     "accept_rate": 0.5118,
+     "accepted": 25590,
+     "accepted_errors": 33,
+     "accepted_ler": 0.0012895662368112544,
+     "wilson95_upper": 0.0018104218309497573,
+     "cap_held": true
+    },
+    "0.01": {
+     "certified_batches": 20,
+     "refused_batches": 5,
+     "n_batches": 25,
+     "accept_rate": 0.5118,
+     "accepted": 25590,
+     "accepted_errors": 33,
+     "accepted_ler": 0.0012895662368112544,
+     "wilson95_upper": 0.0018104218309497573,
+     "cap_held": true
+    },
+    "0.02": {
+     "certified_batches": 20,
+     "refused_batches": 5,
+     "n_batches": 25,
+     "accept_rate": 0.78016,
+     "accepted": 39008,
+     "accepted_errors": 663,
+     "accepted_ler": 0.016996513535684987,
+     "wilson95_upper": 0.018327628767947305,
+     "cap_held": true
+    }
+   }
+  },
+  {
+   "device": "ibm_n5_r5_L0",
+   "n": 5,
+   "rounds": 5,
+   "logical": 0,
+   "chain": [
+    44,
+    45,
+    46,
+    47,
+    57,
+    67,
+    66,
+    65,
+    64
+   ],
+   "cal_pool": 25000,
+   "cal_pool_ler": null,
+   "status": "not_certified",
+   "reason": "cumulative calibration pool has 25000 shots and 0 decoder errors; need at least 2000 shots and 10 errors to fit a calibrated head and certify. Send more calibration windows.",
+   "certificates": {},
+   "test_shots": 50000,
+   "test_raw_flip": 0.00354,
+   "test_ler_majority": 0.0,
+   "test_ler_pymatching": null,
+   "alphas": {
+    "0.002": {
+     "certified_batches": 0,
+     "refused_batches": 0,
+     "n_batches": 25,
+     "accept_rate": 0.0,
+     "accepted": 0,
+     "accepted_errors": 0,
+     "accepted_ler": null,
+     "wilson95_upper": null,
+     "cap_held": null
+    },
+    "0.005": {
+     "certified_batches": 0,
+     "refused_batches": 0,
+     "n_batches": 25,
+     "accept_rate": 0.0,
+     "accepted": 0,
+     "accepted_errors": 0,
+     "accepted_ler": null,
+     "wilson95_upper": null,
+     "cap_held": null
+    },
+    "0.01": {
+     "certified_batches": 0,
+     "refused_batches": 0,
+     "n_batches": 25,
+     "accept_rate": 0.0,
+     "accepted": 0,
+     "accepted_errors": 0,
+     "accepted_ler": null,
+     "wilson95_upper": null,
+     "cap_held": null
+    },
+    "0.02": {
+     "certified_batches": 0,
+     "refused_batches": 0,
+     "n_batches": 25,
+     "accept_rate": 0.0,
+     "accepted": 0,
+     "accepted_errors": 0,
+     "accepted_ler": null,
+     "wilson95_upper": null,
+     "cap_held": null
+    }
+   }
+  },
+  {
+   "device": "ibm_n5_r5_L1",
+   "n": 5,
+   "rounds": 5,
+   "logical": 1,
+   "chain": [
+    44,
+    45,
+    46,
+    47,
+    57,
+    67,
+    66,
+    65,
+    64
+   ],
+   "cal_pool": 25000,
+   "cal_pool_ler": 0.00724,
+   "status": "ok",
+   "reason": null,
+   "certificates": {
+    "0.002": {
+     "certified": false,
+     "reason": "calibration split has 6250 shots; certifying alpha_eff=0.0016 at delta=0.1 needs at least 1438 accepted shots with zero errors (in practice ~5x that)",
+     "alpha_eff": 0.0016
+    },
+    "0.005": {
+     "certified": true,
+     "threshold": 0.1499999998577019,
+     "alpha_eff": 0.004,
+     "cal_accept_rate": 0.98624,
+     "cal_accepted": 6164,
+     "cal_accepted_errors": 17
+    },
+    "0.01": {
+     "certified": true,
+     "threshold": 0.5094339622637655,
+     "alpha_eff": 0.008,
+     "cal_accept_rate": 1.0,
+     "cal_accepted": 6250,
+     "cal_accepted_errors": 36
+    },
+    "0.02": {
+     "certified": true,
+     "threshold": 0.5094339622637655,
+     "alpha_eff": 0.016,
+     "cal_accept_rate": 1.0,
+     "cal_accepted": 6250,
+     "cal_accepted_errors": 36
+    }
+   },
+   "test_shots": 50000,
+   "test_raw_flip": 0.13368,
+   "test_ler_majority": 0.05646,
+   "test_ler_pymatching": 0.01948,
+   "alphas": {
+    "0.002": {
+     "certified_batches": 0,
+     "refused_batches": 25,
+     "n_batches": 25,
+     "accept_rate": 0.0,
+     "accepted": 0,
+     "accepted_errors": 0,
+     "accepted_ler": null,
+     "wilson95_upper": null,
+     "cap_held": null
+    },
+    "0.005": {
+     "certified_batches": 0,
+     "refused_batches": 25,
+     "n_batches": 25,
+     "accept_rate": 0.0,
+     "accepted": 0,
+     "accepted_errors": 0,
+     "accepted_ler": null,
+     "wilson95_upper": null,
+     "cap_held": null
+    },
+    "0.01": {
+     "certified_batches": 0,
+     "refused_batches": 25,
+     "n_batches": 25,
+     "accept_rate": 0.0,
+     "accepted": 0,
+     "accepted_errors": 0,
+     "accepted_ler": null,
+     "wilson95_upper": null,
+     "cap_held": null
+    },
+    "0.02": {
+     "certified_batches": 0,
+     "refused_batches": 25,
+     "n_batches": 25,
+     "accept_rate": 0.0,
+     "accepted": 0,
+     "accepted_errors": 0,
+     "accepted_ler": null,
+     "wilson95_upper": null,
+     "cap_held": null
+    }
+   }
+  }
+ ]
+}

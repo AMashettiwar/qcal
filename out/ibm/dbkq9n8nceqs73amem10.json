@@ -1,0 +1,80 @@
+{
+ "tag": "main2",
+ "job_id": "dbkq9n8nceqs73amem10",
+ "backend": "ibm_kingston",
+ "shots": 25000,
+ "submitted": 1793696989.3027277,
+ "pubs": [
+  {
+   "n": 3,
+   "rounds": 5,
+   "logical": 0,
+   "chain": [
+    110,
+    109,
+    118,
+    129,
+    128
+   ],
+   "chain_score": 0.030293927748588773
+  },
+  {
+   "n": 3,
+   "rounds": 5,
+   "logical": 1,
+   "chain": [
+    110,
+    109,
+    118,
+    129,
+    128
+   ],
+   "chain_score": 0.030293927748588773
+  },
+  {
+   "n": 5,
+   "rounds": 5,
+   "logical": 0,
+   "chain": [
+    92,
+    91,
+    98,
+    111,
+    110,
+    109,
+    118,
+    129,
+    128
+   ],
+   "chain_score": 0.07639462040269074
+  },
+  {
+   "n": 5,
+   "rounds": 5,
+   "logical": 1,
+   "chain": [
+    92,
+    91,
+    98,
+    111,
+    110,
+    109,
+    118,
+    129,
+    128
+   ],
+   "chain_score": 0.07639462040269074
+  }
+ ],
+ "usage": {
+  "job_id": "dbkq9n8nceqs73amem10",
+  "qpu_charge_seconds": 30,
+  "circuits_execution_s": 28.193718016,
+  "timestamps": {
+   "created": "2026-11-03T09:09:49.201915Z",
+   "finished": "2026-11-03T13:09:38.416404Z",
+   "running": "2026-11-03T13:08:59.228274Z"
+  },
+  "fetched": 1793724145.1943848
+ }
+}

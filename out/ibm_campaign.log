@@ -1,0 +1,63 @@
+qiskit_runtime_service._discover_account:WARNING:2026-11-03 00:07:44,801: Loading account with the given token. A saved account will not be used.
+00:07:48 job 0: instance usage 2s, estimate 41s
+qiskit_runtime_service._discover_account:WARNING:2026-11-03 00:07:49,212: Loading account with the given token. A saved account will not be used.
+submitted dbkpcm8nceqs73amd39g
+00:07:54 dbkpcm8nceqs73amd39g QUEUED
+00:08:54 dbkpcm8nceqs73amd39g DONE
+saved dbkpcm8nceqs73amd39g {'job_id': 'dbkpcm8nceqs73amd39g', 'qpu_charge_seconds': 30, 'circuits_execution_s': 28.193718016, 'timestamps': {'created': '2026-11-03T08:07:53.976505Z', 'finished': '2026-11-03T08:08:31.204339Z', 'running': '2026-11-03T08:07:55.711883Z'}, 'fetched': 1793693335.2673855}
+qiskit_runtime_service._discover_account:WARNING:2026-11-03 00:37:10,102: Loading account with the given token. A saved account will not be used.
+00:37:15 job 1: instance usage 32s, estimate 41s
+qiskit_runtime_service._discover_account:WARNING:2026-11-03 00:37:16,878: Loading account with the given token. A saved account will not be used.
+submitted dbkpqh5gg49c73dje8p0
+00:37:24 dbkpqh5gg49c73dje8p0 QUEUED
+00:38:25 dbkpqh5gg49c73dje8p0 RUNNING
+00:39:25 dbkpqh5gg49c73dje8p0 DONE
+saved dbkpqh5gg49c73dje8p0 {'job_id': 'dbkpqh5gg49c73dje8p0', 'qpu_charge_seconds': 30, 'circuits_execution_s': 28.193718016, 'timestamps': {'created': '2026-11-03T08:37:24.656752Z', 'finished': '2026-11-03T08:38:39.684261Z', 'running': '2026-11-03T08:37:26.811591Z'}, 'fetched': 1793695166.038412}
+qiskit_runtime_service._discover_account:WARNING:2026-11-03 01:09:38,915: Loading account with the given token. A saved account will not be used.
+01:09:42 job 2: instance usage 62s, estimate 41s
+qiskit_runtime_service._discover_account:WARNING:2026-11-03 01:09:43,387: Loading account with the given token. A saved account will not be used.
+submitted dbkq9n8nceqs73amem10
+01:09:49 dbkq9n8nceqs73amem10 QUEUED
+01:10:49 dbkq9n8nceqs73amem10 QUEUED
+01:11:49 dbkq9n8nceqs73amem10 QUEUED
+01:12:50 dbkq9n8nceqs73amem10 QUEUED
+01:13:50 dbkq9n8nceqs73amem10 QUEUED
+01:14:50 dbkq9n8nceqs73amem10 QUEUED
+01:15:50 dbkq9n8nceqs73amem10 QUEUED
+01:16:51 dbkq9n8nceqs73amem10 QUEUED
+01:17:51 dbkq9n8nceqs73amem10 QUEUED
+01:18:51 dbkq9n8nceqs73amem10 QUEUED
+01:19:51 dbkq9n8nceqs73amem10 QUEUED
+01:20:52 dbkq9n8nceqs73amem10 QUEUED
+01:21:52 dbkq9n8nceqs73amem10 QUEUED
+01:22:52 dbkq9n8nceqs73amem10 QUEUED
+01:23:52 dbkq9n8nceqs73amem10 QUEUED
+01:24:53 dbkq9n8nceqs73amem10 QUEUED
+01:25:53 dbkq9n8nceqs73amem10 QUEUED
+01:26:53 dbkq9n8nceqs73amem10 QUEUED
+01:27:53 dbkq9n8nceqs73amem10 QUEUED
+01:28:54 dbkq9n8nceqs73amem10 QUEUED
+01:29:54 dbkq9n8nceqs73amem10 QUEUED
+01:30:54 dbkq9n8nceqs73amem10 QUEUED
+01:31:54 dbkq9n8nceqs73amem10 QUEUED
+01:32:55 dbkq9n8nceqs73amem10 QUEUED
+01:33:55 dbkq9n8nceqs73amem10 QUEUED
+01:34:55 dbkq9n8nceqs73amem10 QUEUED
+01:35:55 dbkq9n8nceqs73amem10 QUEUED
+01:36:56 dbkq9n8nceqs73amem10 QUEUED
+01:37:56 dbkq9n8nceqs73amem10 QUEUED
+01:38:56 dbkq9n8nceqs73amem10 QUEUED
+01:39:56 dbkq9n8nceqs73amem10 QUEUED
+01:40:56 dbkq9n8nceqs73amem10 QUEUED
+01:41:56 dbkq9n8nceqs73amem10 QUEUED
+01:42:56 dbkq9n8nceqs73amem10 QUEUED
+01:43:57 dbkq9n8nceqs73amem10 QUEUED
+01:44:57 dbkq9n8nceqs73amem10 QUEUED
+01:45:57 dbkq9n8nceqs73amem10 QUEUED
+01:46:58 dbkq9n8nceqs73amem10 QUEUED
+01:47:58 dbkq9n8nceqs73amem10 QUEUED
+01:48:58 dbkq9n8nceqs73amem10 QUEUED
+01:49:58 dbkq9n8nceqs73amem10 QUEUED
+01:51:41 dbkq9n8nceqs73amem10 QUEUED
+08:42:23 dbkq9n8nceqs73amem10 DONE
+saved dbkq9n8nceqs73amem10 {'job_id': 'dbkq9n8nceqs73amem10', 'qpu_charge_seconds': 30, 'circuits_execution_s': 28.193718016, 'timestamps': {'created': '2026-11-03T09:09:49.201915Z', 'finished': '2026-11-03T13:09:38.416404Z', 'running': '2026-11-03T13:08:59.228274Z'}, 'fetched': 1793724145.1943848}

@@ -1,0 +1,144 @@
+10/200 trials  124s
+20/200 trials  246s
+30/200 trials  370s
+40/200 trials  494s
+50/200 trials  619s
+60/200 trials  741s
+70/200 trials  865s
+80/200 trials  988s
+90/200 trials  1111s
+100/200 trials  1392s
+110/200 trials  1515s
+120/200 trials  1638s
+130/200 trials  1761s
+140/200 trials  1884s
+150/200 trials  2007s
+160/200 trials  2130s
+170/200 trials  2253s
+180/200 trials  2376s
+190/200 trials  2499s
+200/200 trials  2622s
+{
+ "drift": {
+  "trials": 200,
+  "test_ler": 0.0284383,
+  "0.002": {
+   "certified": 200,
+   "covered": 84,
+   "coverage": 0.42,
+   "ci95": [
+    0.3537348235017175,
+    0.48928053744521394
+   ],
+   "coverage_vs_alpha_eff": 0.15,
+   "mean_accept": 0.79265905,
+   "mean_acc_ler": 0.0022641980619588936,
+   "worst_acc_ler": 0.004844004683303106
+  },
+  "0.005": {
+   "certified": 200,
+   "covered": 15,
+   "coverage": 0.075,
+   "ci95": [
+    0.045974507057252416,
+    0.12004459797332034
+   ],
+   "coverage_vs_alpha_eff": 0.0,
+   "mean_accept": 0.89537485,
+   "mean_acc_ler": 0.006670122758909773,
+   "worst_acc_ler": 0.011064933408445913
+  }
+ },
+ "drift+mon": {
+  "trials": 200,
+  "test_ler": 0.028431499999999995,
+  "batch_alarm_rate": 1.0,
+  "0.002": {
+   "certified": 200,
+   "covered": 200,
+   "coverage": 1.0,
+   "ci95": [
+    0.9811539940816791,
+    1.0
+   ],
+   "coverage_vs_alpha_eff": 1.0,
+   "mean_accept": 0.0,
+   "mean_acc_ler": 0.0,
+   "worst_acc_ler": 0.0
+  },
+  "0.005": {
+   "certified": 200,
+   "covered": 200,
+   "coverage": 1.0,
+   "ci95": [
+    0.9811539940816791,
+    1.0
+   ],
+   "coverage_vs_alpha_eff": 1.0,
+   "mean_accept": 0.0,
+   "mean_acc_ler": 0.0,
+   "worst_acc_ler": 0.0
+  }
+ },
+ "iid": {
+  "trials": 200,
+  "test_ler": 0.014018649999999999,
+  "batch_alarm_rate": 0.0,
+  "0.002": {
+   "certified": 200,
+   "covered": 197,
+   "coverage": 0.985,
+   "ci95": [
+    0.9568335194437211,
+    0.9948858548155076
+   ],
+   "coverage_vs_alpha_eff": 0.905,
+   "mean_accept": 0.87227385,
+   "mean_acc_ler": 0.001038259186777115,
+   "worst_acc_ler": 0.0024166630543153147
+  },
+  "0.005": {
+   "certified": 200,
+   "covered": 199,
+   "coverage": 0.995,
+   "ci95": [
+    0.9722256001302286,
+    0.999116854010634
+   ],
+   "coverage_vs_alpha_eff": 0.91,
+   "mean_accept": 0.94101265,
+   "mean_acc_ler": 0.0031560718609795983,
+   "worst_acc_ler": 0.005821528280426016
+  }
+ },
+ "mismatch": {
+  "trials": 200,
+  "test_ler": 0.022209499999999997,
+  "0.002": {
+   "certified": 183,
+   "covered": 178,
+   "coverage": 0.9726775956284153,
+   "ci95": [
+    0.937643570586623,
+    0.9882744262620445
+   ],
+   "coverage_vs_alpha_eff": 0.8907103825136612,
+   "mean_accept": 0.7855569398907104,
+   "mean_acc_ler": 0.001102336475662118,
+   "worst_acc_ler": 0.0021163266276691874
+  },
+  "0.005": {
+   "certified": 200,
+   "covered": 196,
+   "coverage": 0.98,
+   "ci95": [
+    0.9497121344948062,
+    0.9921956998236058
+   ],
+   "coverage_vs_alpha_eff": 0.91,
+   "mean_accept": 0.8751858999999999,
+   "mean_acc_ler": 0.0031842233099193097,
+   "worst_acc_ler": 0.005636009531166697
+  }
+ }
+}

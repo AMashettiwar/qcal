@@ -1,0 +1,29 @@
+{
+ "n": 5,
+ "rounds": 10,
+ "chain": [
+  92,
+  91,
+  98,
+  111,
+  110,
+  109,
+  118,
+  129,
+  128
+ ],
+ "res": {
+  "0": {
+   "det_rate": 0.015875,
+   "ler_pymatching": 0.0,
+   "ler_majority": 0.0,
+   "depth": 100
+  },
+  "1": {
+   "det_rate": 0.017511363636363637,
+   "ler_pymatching": 0.0,
+   "ler_majority": 0.0,
+   "depth": 100
+  }
+ }
+}
