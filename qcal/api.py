@@ -8,6 +8,9 @@ Security / ops (env vars):
   QCAL_RATE_PER_MIN   per-client request budget per minute (default 120)
   QCAL_MAX_BODY_MB    max request body size (default 200)
   QCAL_SHIFT_P        KS p-value below which /decode flags a distribution shift and refuses (default 0.001)
+  QCAL_LOCAL_P        per-detector check: refuse a batch when any single detector fires more often than in calibration,
+                      Bonferroni-corrected p-value below this (default 0 = off; 0.001 is the setting tested in
+                      docs/VALIDATION.md section 2c). Off by default because on real Willow data it halves the accept rate.
 Calibration = cumulative pool of all windows so far -> random split 50% head fit / 25% isotonic /
 25% Learn-then-Test, certified at alpha_eff = margin * alpha (default margin 0.8, delta 0.1).
 """
@@ -18,7 +21,7 @@ import numpy as np
 import stim
 from fastapi import FastAPI, HTTPException, Request
 from fastapi.responses import JSONResponse
-from scipy.stats import ks_2samp
+from scipy.stats import ks_2samp, binom
 from pydantic import BaseModel, Field, field_validator, model_validator
 from sklearn.linear_model import LogisticRegression
 from sklearn.isotonic import IsotonicRegression
@@ -151,13 +154,13 @@ class Store:
     def has_window(self, d, w):
         return self.db.execute("SELECT 1 FROM windows WHERE device_id=? AND window_id=?", (d, w)).fetchone() is not None
 
-    def put_window(self, d, w, F, y):
-        self.db.execute("INSERT INTO windows VALUES(?,?,?,?)", (d, w, time.time_ns(), _npz(F=F, y=y)))
+    def put_window(self, d, w, F, y, dc):
+        self.db.execute("INSERT INTO windows VALUES(?,?,?,?)", (d, w, time.time_ns(), _npz(F=F, y=y, dc=dc)))
 
     def windows(self, d):
         out = []
         for w, blob in self.db.execute("SELECT window_id, data FROM windows WHERE device_id=? ORDER BY seq", (d,)):
-            z = np.load(io.BytesIO(blob)); out.append((w, z["F"], z["y"]))
+            z = np.load(io.BytesIO(blob)); out.append((w, z["F"], z["y"], z["dc"] if "dc" in z else None))
         return out
 
     def put_profile(self, d, w, prof):
@@ -191,7 +194,7 @@ def _drift_exp(dem):
         return None
 
 
-def _fit_profile(F, y, head, alphas, delta, margin, seed, drift_exp=None):
+def _fit_profile(F, y, head, alphas, delta, margin, seed, drift_exp=None, det_counts=None, n_shots=None):
     n = len(y)
     idx = np.random.default_rng(seed).permutation(n)
     a, b = n // 2, (3 * n) // 4
@@ -233,7 +236,8 @@ def _fit_profile(F, y, head, alphas, delta, margin, seed, drift_exp=None):
                     lad.append([rr, float(tr_)])
                 certs[str(al)]["drift_ladder"] = lad
     ref = np.sort(s_ca)[np.linspace(0, len(s_ca) - 1, min(2000, len(s_ca))).astype(int)]
-    return {"ref_scores": ref.tolist(), "sw_mean": float(F[:, 2].mean()), "drift_exp": drift_exp, "head": head, "cols": cols, "mu": mu.tolist(), "sd": sd.tolist(),
+    return {"ref_scores": ref.tolist(), "sw_mean": float(F[:, 2].mean()), "drift_exp": drift_exp,
+            "det_counts": None if det_counts is None else np.asarray(det_counts).astype(int).tolist(), "det_shots": n_shots, "head": head, "cols": cols, "mu": mu.tolist(), "sd": sd.tolist(),
             "coef": lr.coef_[0].tolist(), "intercept": float(lr.intercept_[0]),
             "iso_x": iso.X_thresholds_.tolist(), "iso_y": iso.y_thresholds_.tolist(), "gmax": gmax,
             "delta": delta, "margin": margin, "pool_size": int(n), "cal_size": int(len(ca)),
@@ -263,6 +267,19 @@ def _drift_threshold(prof, cert, sw):
     return None, {**info, "refused": f"syndrome weight is {rr:.3f}x calibration; no certified threshold that far out. Recalibrate."}
 
 
+def _local_shift(prof, counts, n, level):
+    """Per-detector check for drift in one place (a bad qubit or a bad round), which barely moves the mean
+    syndrome weight. For each detector, conditional on its total count in calibration + batch, the batch's share is
+    Binomial(total, n / (n + n_cal)) if nothing changed; one-sided test for 'fires more often now', Bonferroni over detectors."""
+    if not level or prof.get("det_counts") is None or n < 200:
+        return {"checked": False, "detected": False}
+    kc = np.asarray(prof["det_counts"]); kb = np.asarray(counts); tot = kc + kb
+    pv = binom.sf(kb - 1, tot, n / (n + prof["det_shots"]))
+    j = int(np.argmin(pv)); padj = float(min(1.0, pv[j] * len(pv)))
+    return {"checked": True, "p_adjusted": padj, "threshold": level, "detected": padj < level, "detector": j,
+            "rate_ratio": float((kb[j] / n) / max(kc[j] / prof["det_shots"], 1e-12))}
+
+
 # ---------------- app ----------------
 log = logging.getLogger("qcal")
 
@@ -273,13 +290,14 @@ def _setup_logging():
         log.addHandler(h); log.setLevel(logging.INFO); log.propagate = False
 
 
-def create_app(store_dir=None, api_key=None, rate_per_min=None, max_body_mb=None, shift_p=None):
+def create_app(store_dir=None, api_key=None, rate_per_min=None, max_body_mb=None, shift_p=None, local_p=None):
     _setup_logging()
     S = Store(store_dir or os.environ.get("QCAL_STORE", "qcal_store"))
     KEY = api_key if api_key is not None else os.environ.get("QCAL_API_KEY", "")
     RATE = int(rate_per_min or os.environ.get("QCAL_RATE_PER_MIN", 120))
     MAXB = float(max_body_mb or os.environ.get("QCAL_MAX_BODY_MB", 200)) * 1e6
     SHIFT_P = float(shift_p if shift_p is not None else os.environ.get("QCAL_SHIFT_P", 1e-3))
+    LOCAL_P = float(local_p if local_p is not None else os.environ.get("QCAL_LOCAL_P", 0))
     stats = {"started": time.time(), "requests": defaultdict(int), "status": defaultdict(int), "shots_decoded": 0,
              "shots_accepted": 0, "shift_refusals": 0, "auth_failures": 0, "rate_limited": 0, "latency_ms_sum": defaultdict(float)}
     hits = defaultdict(deque); hl = threading.Lock()
@@ -357,9 +375,10 @@ def create_app(store_dir=None, api_key=None, rate_per_min=None, max_body_mb=None
             raise HTTPException(409, f"window '{r.window_id}' already stored for device '{r.device_id}'")
         pred, F = _features(m, dets)
         y = (pred != np.array(r.logical_flips, dtype=np.uint8)).astype(np.int64)
-        S.put_window(r.device_id, r.window_id, F, y)
+        S.put_window(r.device_id, r.window_id, F, y, dets.sum(0).astype(np.int64))
         wins = S.windows(r.device_id)
         F_all, y_all = np.concatenate([w[1] for w in wins]), np.concatenate([w[2] for w in wins])
+        dc_all = None if any(w[3] is None for w in wins) else np.sum([w[3] for w in wins], axis=0)
         base = {"device_id": r.device_id, "window_id": r.window_id, "windows_used": [w[0] for w in wins],
                 "batch_size": len(y), "batch_ler": float(y.mean())}
         if len(y_all) < MIN_POOL or y_all.sum() < 10:
@@ -369,7 +388,8 @@ def create_app(store_dir=None, api_key=None, rate_per_min=None, max_body_mb=None
                               f"Send more calibration windows."}
         else:
             prof = {**base, "status": "ok", **_fit_profile(F_all, y_all, r.head, r.alphas, r.delta, r.margin, r.seed,
-                                                               drift_exp=_drift_exp(stim.DetectorErrorModel(info["dem"])))}
+                                                               drift_exp=_drift_exp(stim.DetectorErrorModel(info["dem"])),
+                                                               det_counts=dc_all, n_shots=int(len(y_all)))}
         prof["fitted_at"] = time.time()
         S.put_profile(r.device_id, r.window_id, prof); S.db.commit()
         return _public(prof)
@@ -391,13 +411,18 @@ def create_app(store_dir=None, api_key=None, rate_per_min=None, max_body_mb=None
             ksp = float(ks_2samp(s, np.array(prof["ref_scores"])).pvalue)
             shift = {"checked": True, "ks_p": ksp, "threshold": SHIFT_P, "detected": ksp < SHIFT_P,
                      "batch_mean_p": float(p.mean())}
-        refused = shift.get("detected", False)
+        local = _local_shift(prof, dets.sum(0), len(dets), LOCAL_P)
+        refused = shift.get("detected", False) or local["detected"]
         thr, drift = _drift_threshold(prof, cert, F[:, 2])
         refused = refused or ("refused" in drift)
         accept = (s <= thr) if (thr is not None and not refused) else np.zeros(len(p), bool)
         stats["shots_decoded"] += len(p); stats["shots_accepted"] += int(accept.sum()); stats["shift_refusals"] += int(refused)
         if "refused" in drift:
             guarantee = "none: " + drift["refused"]
+        elif local["detected"]:
+            guarantee = (f"none: detector {local['detector']} fires {local['rate_ratio']:.2f}x as often as in calibration "
+                         f"(corrected p={local['p_adjusted']:.2g} < {LOCAL_P}), a sign that one part of the device changed; "
+                         "everything rejected. Send a fresh labeled window to /calibrate.")
         elif refused:
             guarantee = ("none: this batch's syndrome statistics differ from the calibration data (KS p="
                          f"{shift['ks_p']:.2g} < {SHIFT_P}); everything rejected. Send a fresh labeled window to /calibrate.")
@@ -409,10 +434,11 @@ def create_app(store_dir=None, api_key=None, rate_per_min=None, max_body_mb=None
         return {"device_id": r.device_id, "n_shots": len(p),
                 "correction": pred.astype(int).tolist(),
                 "p_logical_error": np.round(p, 6).tolist(), "accept": accept.tolist(),
-                "accept_rate": float(accept.mean()), "shift": shift, "drift_correction": drift,
+                "accept_rate": float(accept.mean()), "shift": shift, "local_shift": local, "drift_correction": drift,
                 "certificate": {"alpha": r.alpha, "alpha_eff": cert["alpha_eff"], "delta": prof["delta"],
                                 "certified": cert["certified"] and not refused, "threshold": thr,
-                                "reason": (drift.get("refused") or ("distribution shift detected" if refused else cert.get("reason"))),
+                                "reason": (drift.get("refused") or ("drift in one detector" if local["detected"] else None)
+                                           or ("distribution shift detected" if refused else cert.get("reason"))),
                                 "calibration_size": prof["cal_size"],
                                 "pool_size": prof["pool_size"], "windows_used": prof["windows_used"], "head": prof["head"],
                                 "guarantee": guarantee}}
@@ -427,4 +453,4 @@ def create_app(store_dir=None, api_key=None, rate_per_min=None, max_body_mb=None
 
 
 def _public(p):
-    return {k: v for k, v in p.items() if k not in ("iso_x", "iso_y", "mu", "sd", "coef", "intercept", "cols", "gmax", "ref_scores")}
+    return {k: v for k, v in p.items() if k not in ("iso_x", "iso_y", "mu", "sd", "coef", "intercept", "cols", "gmax", "ref_scores", "det_counts")}

@@ -42,3 +42,45 @@ def majority_flip(meas, n, logical):
     """Baseline decoder: majority vote of the final data readout only (ignores syndromes)."""
     data = meas[:, -n:]
     return ((data.sum(1) > n // 2).astype(np.uint8) != logical).astype(np.uint8)
+
+
+def fit_dem(circ, dets, p_min=1e-5):
+    """Detector error model with the same graph as `circ` but every edge probability fitted from data.
+
+    Pair edges use the standard two-point correlation estimate
+        p_ij = 1/2 - 1/2 sqrt(1 - 4 (<x_i x_j> - <x_i><x_j>) / (1 - 2<x_i> - 2<x_j> + 4<x_i x_j>)),
+    and boundary edges take whatever single-detector rate the pair edges do not explain:
+        p_i = 1/2 - 1/2 (1 - 2<x_i>) / prod_j (1 - 2 p_ij).
+    Only the graph (which detectors an error can flip, and whether it flips the logical) comes from `circ`.
+    """
+    edges = {}
+    for inst in circ.detector_error_model(decompose_errors=True).flattened():
+        if inst.type != "error":
+            continue
+        part = []
+        for t in inst.targets_copy() + [stim.DemTarget.separator()]:
+            if t.is_separator():
+                dd = tuple(sorted(x.val for x in part if x.is_relative_detector_id()))
+                obs = any(x.is_logical_observable_id() for x in part)
+                if dd: edges.setdefault(dd, obs)
+                part = []
+            else:
+                part.append(t)
+    x = dets.astype(float); m = x.mean(0); mm = x.T @ x / len(x)
+    p = {}
+    for e in edges:
+        if len(e) == 2:
+            i, j = e; den = 1 - 2 * m[i] - 2 * m[j] + 4 * mm[i, j]
+            v = 1 - 4 * (mm[i, j] - m[i] * m[j]) / den if den > 0 else 1.0
+            p[e] = 0.5 - 0.5 * np.sqrt(min(max(v, 0.0), 1.0))
+    for e in edges:
+        if len(e) == 1:
+            i = e[0]; prod = np.prod([1 - 2 * p[f] for f in p if i in f])
+            p[e] = 0.5 - 0.5 * (1 - 2 * m[i]) / prod
+    lines = []
+    for e, obs in edges.items():
+        q = float(np.clip(p[e], p_min, 0.45))
+        lines.append(f"error({q:.6g}) " + " ".join(f"D{i}" for i in e) + (" L0" if obs else ""))
+    coords = circ.get_detector_coordinates()
+    lines += [f"detector({', '.join(map(str, coords[i]))}) D{i}" for i in range(circ.num_detectors)]
+    return stim.DetectorErrorModel("\n".join(lines))

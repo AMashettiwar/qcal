@@ -79,3 +79,40 @@ def summarize(rows):
                          "mean_acc_ler": float(np.mean([c["acc_ler"] for c in C])) if C else float("nan"),
                          "worst_acc_ler": float(np.max([c["acc_ler"] for c in C])) if C else float("nan")}
     return S
+
+
+NOISE = ("DEPOLARIZE1", "DEPOLARIZE2", "X_ERROR", "Z_ERROR", "Y_ERROR")
+
+
+def scale_noise(circ, factor, qubits=None, rounds=None):
+    """Copy of `circ` with noise multiplied by `factor` only on some qubits and/or some rounds.
+
+    qubits: set of qubit indices (a two-qubit error is scaled if either qubit is in the set); None = all.
+    rounds: set of round indices; round k = everything after the k-th ancilla measurement (MR) and up to the next one,
+            so round 0 is before the first MR and the last round contains the final data readout; None = all.
+    """
+    out = stim.Circuit(); k = 0
+    for inst in circ.flattened():
+        name = inst.name
+        if name in NOISE and (rounds is None or k in rounds):
+            t = inst.targets_copy(); step = 2 if name == "DEPOLARIZE2" else 1; p = inst.gate_args_copy()[0]
+            hit, miss = [], []
+            for i in range(0, len(t), step):
+                g = t[i:i + step]
+                (hit if qubits is None or any(x.value in qubits for x in g) else miss).extend(g)
+            if miss: out.append(name, miss, p)
+            if hit: out.append(name, hit, min(p * factor, 0.5 if name == "X_ERROR" else 0.75 if name == "DEPOLARIZE1" else 0.9375))
+        else:
+            out.append(inst)
+        if name == "MR": k += 1
+    return out
+
+
+def center_qubits(circ, radius=0.0, kind="data"):
+    """Qubits within `radius` of the data (or ancilla) qubit closest to the patch centre."""
+    co = circ.get_final_qubit_coordinates(); flat = circ.flattened()
+    meas = {"data": "M", "anc": "MR"}[kind]
+    pool = sorted({t.value for inst in flat if inst.name == meas for t in inst.targets_copy()})
+    c = np.mean([co[q] for q in co], axis=0)
+    q0 = min(pool, key=lambda q: np.linalg.norm(np.array(co[q]) - c))
+    return {q for q in co if np.linalg.norm(np.array(co[q]) - np.array(co[q0])) <= radius + 1e-9}

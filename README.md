@@ -21,7 +21,7 @@ Quantum computers make mistakes, and a decoder cleans them up. Some runs are eas
 
 That is roughly 30 times fewer errors than the decoder alone, at the cost of discarding about half the runs. All 12 certificates qcal issued on this chip held.
 
-**Where it failed, or refused.** On the 5-qubit code the chip drifted during the day and the decoder's error rate rose about 3 times. qcal noticed the shift and refused every batch instead of passing bad data through. Had it kept going, the 1% error cap would have broken. Refusing was correct, but it means that case produced no usable runs until you recalibrate. Also, on the state-0 runs plain majority vote beat PyMatching, because my error model for this chip was only a placeholder.
+**Where it failed, or refused.** On the 5-qubit code the chip drifted during the day and the decoder's error rate rose about 3 times. qcal noticed the shift and refused every batch instead of passing bad data through. Had it kept going, the 1% error cap would have broken. Refusing was correct, but it means that case produced no usable runs until you recalibrate. Also, on the state-0 runs plain majority vote beat PyMatching. I fitted a proper error model from the calibration jobs. It cut PyMatching's error on state 1 by about 20%, but majority vote still wins on state 0 (details in `docs/IBM_PILOT.md`).
 
 **Google Willow surface-code data:** the error cap held in 471 of 485 settings (97.1%). At distance 7, the error rate fell from 2.67% to 0.30% while keeping 84% of runs.
 
@@ -29,7 +29,7 @@ That is roughly 30 times fewer errors than the decoder alone, at the cost of dis
 
 - The IBM result is one chip on one day, with a bit-flip repetition code only.
 - Nobody else has reproduced it.
-- Uneven drift, such as a single bad qubit, is untested.
+- Uneven drift (one bad qubit, region or round) is tested only in simulation. The default settings hold in 46 of 48 cases. The two misses are one qubit at 3× noise on the d=3 and d=5 codes at the tightest cap: coverage was 94.4% and 90.5%, but the error bars dip below my 85% floor. See `docs/VALIDATION.md` 2c.
 - It is not real-time: it scores batches, not a live stream.
 
 ## Try it

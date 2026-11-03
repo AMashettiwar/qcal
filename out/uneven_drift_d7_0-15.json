@@ -1,0 +1,832 @@
+{
+ "d": 7,
+ "trials": 15,
+ "scenarios": {
+  "iid": {
+   "ler": 0.010064666666666666,
+   "sw_ratio": 0.9995834906483595,
+   "ks_alarm": 0.0,
+   "local_alarm": 0.0013333333333333333
+  },
+  "q3": {
+   "ler": 0.012580666666666664,
+   "sw_ratio": 1.0311383298305672,
+   "ks_alarm": 0.12133333333333333,
+   "local_alarm": 0.9973333333333334
+  },
+  "q5": {
+   "ler": 0.014981333333333334,
+   "sw_ratio": 1.06184933935677,
+   "ks_alarm": 0.9786666666666668,
+   "local_alarm": 1.0
+  },
+  "q10": {
+   "ler": 0.020764,
+   "sw_ratio": 1.1311743509749221,
+   "ks_alarm": 1.0,
+   "local_alarm": 1.0
+  },
+  "a10": {
+   "ler": 0.02599,
+   "sw_ratio": 1.1320782478261429,
+   "ks_alarm": 1.0,
+   "local_alarm": 1.0
+  },
+  "reg3": {
+   "ler": 0.02717666666666667,
+   "sw_ratio": 1.2073373562761562,
+   "ks_alarm": 1.0,
+   "local_alarm": 1.0
+  },
+  "rnd3": {
+   "ler": 0.032376,
+   "sw_ratio": 1.2518633974539122,
+   "ks_alarm": 1.0,
+   "local_alarm": 1.0
+  },
+  "rnd5": {
+   "ler": 0.078916,
+   "sw_ratio": 1.4651367633272194,
+   "ks_alarm": 1.0,
+   "local_alarm": 1.0
+  }
+ },
+ "methods": {
+  "ladder": {
+   "iid a=0.002": {
+    "certified_trials": 15,
+    "coverage": 1.0,
+    "ci95": [
+     0.7961107336956521,
+     1.0
+    ],
+    "accept": 0.925972,
+    "refused_batches": 0.0,
+    "worst_acc_ler": 0.001395688169428085,
+    "pass": false
+   },
+   "iid a=0.005": {
+    "certified_trials": 15,
+    "coverage": 1.0,
+    "ci95": [
+     0.7961107336956521,
+     1.0
+    ],
+    "accept": 0.968952,
+    "refused_batches": 0.0,
+    "worst_acc_ler": 0.0036497096589515007,
+    "pass": false
+   },
+   "q3 a=0.002": {
+    "certified_trials": 15,
+    "coverage": 1.0,
+    "ci95": [
+     0.7961107336956521,
+     1.0
+    ],
+    "accept": 0.898792,
+    "refused_batches": 0.0,
+    "worst_acc_ler": 0.0016720078027030792,
+    "pass": false
+   },
+   "q3 a=0.005": {
+    "certified_trials": 15,
+    "coverage": 1.0,
+    "ci95": [
+     0.7961107336956521,
+     1.0
+    ],
+    "accept": 0.9578006666666667,
+    "refused_batches": 0.0,
+    "worst_acc_ler": 0.004446737167913335,
+    "pass": false
+   },
+   "q5 a=0.002": {
+    "certified_trials": 15,
+    "coverage": 1.0,
+    "ci95": [
+     0.7961107336956521,
+     1.0
+    ],
+    "accept": 0.8718153333333334,
+    "refused_batches": 0.0,
+    "worst_acc_ler": 0.001959098379390285,
+    "pass": false
+   },
+   "q5 a=0.005": {
+    "certified_trials": 15,
+    "coverage": 1.0,
+    "ci95": [
+     0.7961107336956521,
+     1.0
+    ],
+    "accept": 0.9451780000000001,
+    "refused_batches": 0.0,
+    "worst_acc_ler": 0.004556687486314296,
+    "pass": false
+   },
+   "q10 a=0.002": {
+    "certified_trials": 15,
+    "coverage": 1.0,
+    "ci95": [
+     0.7961107336956521,
+     1.0
+    ],
+    "accept": 0.7853606666666668,
+    "refused_batches": 0.0,
+    "worst_acc_ler": 0.0017550098074077473,
+    "pass": false
+   },
+   "q10 a=0.005": {
+    "certified_trials": 15,
+    "coverage": 1.0,
+    "ci95": [
+     0.7961107336956521,
+     1.0
+    ],
+    "accept": 0.9105373333333335,
+    "refused_batches": 0.0,
+    "worst_acc_ler": 0.004529949812066831,
+    "pass": false
+   },
+   "a10 a=0.002": {
+    "certified_trials": 15,
+    "coverage": 0.8,
+    "ci95": [
+     0.5481406466534955,
+     0.9295257935638959
+    ],
+    "accept": 0.7657873333333334,
+    "refused_batches": 0.0,
+    "worst_acc_ler": 0.002838950873298674,
+    "pass": false
+   },
+   "a10 a=0.005": {
+    "certified_trials": 15,
+    "coverage": 0.4,
+    "ci95": [
+     0.19824228082594664,
+     0.642535572434923
+    ],
+    "accept": 0.8980666666666668,
+    "refused_batches": 0.0,
+    "worst_acc_ler": 0.0060697860757131725,
+    "pass": false
+   },
+   "reg3 a=0.002": {
+    "certified_trials": 15,
+    "coverage": 0.8666666666666667,
+    "ci95": [
+     0.6211750079348376,
+     0.9626395301086407
+    ],
+    "accept": 0.6748786666666666,
+    "refused_batches": 0.0,
+    "worst_acc_ler": 0.0025686575763395427,
+    "pass": false
+   },
+   "reg3 a=0.005": {
+    "certified_trials": 15,
+    "coverage": 0.9333333333333333,
+    "ci95": [
+     0.7018292244757601,
+     0.9881334113938051
+    ],
+    "accept": 0.8654353333333333,
+    "refused_batches": 0.0,
+    "worst_acc_ler": 0.005008515596988168,
+    "pass": false
+   },
+   "rnd3 a=0.002": {
+    "certified_trials": 15,
+    "coverage": 0.7333333333333333,
+    "ci95": [
+     0.4804911034231324,
+     0.8910272389681718
+    ],
+    "accept": 0.6116473333333334,
+    "refused_batches": 0.0,
+    "worst_acc_ler": 0.0025333772452055836,
+    "pass": false
+   },
+   "rnd3 a=0.005": {
+    "certified_trials": 15,
+    "coverage": 0.7333333333333333,
+    "ci95": [
+     0.4804911034231324,
+     0.8910272389681718
+    ],
+    "accept": 0.8265666666666667,
+    "refused_batches": 0.0,
+    "worst_acc_ler": 0.0057129720098856255,
+    "pass": false
+   },
+   "rnd5 a=0.002": {
+    "certified_trials": 15,
+    "coverage": 0.5333333333333333,
+    "ci95": [
+     0.3011663015105079,
+     0.7519077474025355
+    ],
+    "accept": 0.2897553333333333,
+    "refused_batches": 0.332,
+    "worst_acc_ler": 0.006173167064650217,
+    "pass": false
+   },
+   "rnd5 a=0.005": {
+    "certified_trials": 15,
+    "coverage": 0.4666666666666667,
+    "ci95": [
+     0.24809225259746442,
+     0.6988336984894921
+    ],
+    "accept": 0.5199819999999999,
+    "refused_batches": 0.0,
+    "worst_acc_ler": 0.011499512857606801,
+    "pass": false
+   }
+  },
+  "ladder+ks": {
+   "iid a=0.002": {
+    "certified_trials": 15,
+    "coverage": 1.0,
+    "ci95": [
+     0.7961107336956521,
+     1.0
+    ],
+    "accept": 0.925972,
+    "refused_batches": 0.0,
+    "worst_acc_ler": 0.001395688169428085,
+    "pass": false
+   },
+   "iid a=0.005": {
+    "certified_trials": 15,
+    "coverage": 1.0,
+    "ci95": [
+     0.7961107336956521,
+     1.0
+    ],
+    "accept": 0.968952,
+    "refused_batches": 0.0,
+    "worst_acc_ler": 0.0036497096589515007,
+    "pass": false
+   },
+   "q3 a=0.002": {
+    "certified_trials": 15,
+    "coverage": 1.0,
+    "ci95": [
+     0.7961107336956521,
+     1.0
+    ],
+    "accept": 0.7912753333333332,
+    "refused_batches": 0.12133333333333333,
+    "worst_acc_ler": 0.0017119698134302286,
+    "pass": false
+   },
+   "q3 a=0.005": {
+    "certified_trials": 15,
+    "coverage": 1.0,
+    "ci95": [
+     0.7961107336956521,
+     1.0
+    ],
+    "accept": 0.8416293333333335,
+    "refused_batches": 0.12133333333333333,
+    "worst_acc_ler": 0.004490047062345135,
+    "pass": false
+   },
+   "q5 a=0.002": {
+    "certified_trials": 15,
+    "coverage": 1.0,
+    "ci95": [
+     0.7961107336956521,
+     1.0
+    ],
+    "accept": 0.019083333333333334,
+    "refused_batches": 0.9786666666666668,
+    "worst_acc_ler": 0.001697792869269949,
+    "pass": false
+   },
+   "q5 a=0.005": {
+    "certified_trials": 15,
+    "coverage": 1.0,
+    "ci95": [
+     0.7961107336956521,
+     1.0
+    ],
+    "accept": 0.020210000000000002,
+    "refused_batches": 0.9786666666666668,
+    "worst_acc_ler": 0.003915426781519186,
+    "pass": false
+   },
+   "q10 a=0.002": {
+    "certified_trials": 15,
+    "coverage": 1.0,
+    "ci95": [
+     0.7961107336956521,
+     1.0
+    ],
+    "accept": 0.0,
+    "refused_batches": 1.0,
+    "worst_acc_ler": 0.0,
+    "pass": false
+   },
+   "q10 a=0.005": {
+    "certified_trials": 15,
+    "coverage": 1.0,
+    "ci95": [
+     0.7961107336956521,
+     1.0
+    ],
+    "accept": 0.0,
+    "refused_batches": 1.0,
+    "worst_acc_ler": 0.0,
+    "pass": false
+   },
+   "a10 a=0.002": {
+    "certified_trials": 15,
+    "coverage": 1.0,
+    "ci95": [
+     0.7961107336956521,
+     1.0
+    ],
+    "accept": 0.0,
+    "refused_batches": 1.0,
+    "worst_acc_ler": 0.0,
+    "pass": false
+   },
+   "a10 a=0.005": {
+    "certified_trials": 15,
+    "coverage": 1.0,
+    "ci95": [
+     0.7961107336956521,
+     1.0
+    ],
+    "accept": 0.0,
+    "refused_batches": 1.0,
+    "worst_acc_ler": 0.0,
+    "pass": false
+   },
+   "reg3 a=0.002": {
+    "certified_trials": 15,
+    "coverage": 1.0,
+    "ci95": [
+     0.7961107336956521,
+     1.0
+    ],
+    "accept": 0.0,
+    "refused_batches": 1.0,
+    "worst_acc_ler": 0.0,
+    "pass": false
+   },
+   "reg3 a=0.005": {
+    "certified_trials": 15,
+    "coverage": 1.0,
+    "ci95": [
+     0.7961107336956521,
+     1.0
+    ],
+    "accept": 0.0,
+    "refused_batches": 1.0,
+    "worst_acc_ler": 0.0,
+    "pass": false
+   },
+   "rnd3 a=0.002": {
+    "certified_trials": 15,
+    "coverage": 1.0,
+    "ci95": [
+     0.7961107336956521,
+     1.0
+    ],
+    "accept": 0.0,
+    "refused_batches": 1.0,
+    "worst_acc_ler": 0.0,
+    "pass": false
+   },
+   "rnd3 a=0.005": {
+    "certified_trials": 15,
+    "coverage": 1.0,
+    "ci95": [
+     0.7961107336956521,
+     1.0
+    ],
+    "accept": 0.0,
+    "refused_batches": 1.0,
+    "worst_acc_ler": 0.0,
+    "pass": false
+   },
+   "rnd5 a=0.002": {
+    "certified_trials": 15,
+    "coverage": 1.0,
+    "ci95": [
+     0.7961107336956521,
+     1.0
+    ],
+    "accept": 0.0,
+    "refused_batches": 1.0,
+    "worst_acc_ler": 0.0,
+    "pass": false
+   },
+   "rnd5 a=0.005": {
+    "certified_trials": 15,
+    "coverage": 1.0,
+    "ci95": [
+     0.7961107336956521,
+     1.0
+    ],
+    "accept": 0.0,
+    "refused_batches": 1.0,
+    "worst_acc_ler": 0.0,
+    "pass": false
+   }
+  },
+  "ladder+local": {
+   "iid a=0.002": {
+    "certified_trials": 15,
+    "coverage": 1.0,
+    "ci95": [
+     0.7961107336956521,
+     1.0
+    ],
+    "accept": 0.9247133333333334,
+    "refused_batches": 0.0013333333333333333,
+    "worst_acc_ler": 0.001395688169428085,
+    "pass": false
+   },
+   "iid a=0.005": {
+    "certified_trials": 15,
+    "coverage": 1.0,
+    "ci95": [
+     0.7961107336956521,
+     1.0
+    ],
+    "accept": 0.9676446666666667,
+    "refused_batches": 0.0013333333333333333,
+    "worst_acc_ler": 0.0036409159668248916,
+    "pass": false
+   },
+   "q3 a=0.002": {
+    "certified_trials": 15,
+    "coverage": 1.0,
+    "ci95": [
+     0.7961107336956521,
+     1.0
+    ],
+    "accept": 0.0024233333333333333,
+    "refused_batches": 0.9973333333333334,
+    "worst_acc_ler": 0.0016313213703099511,
+    "pass": false
+   },
+   "q3 a=0.005": {
+    "certified_trials": 15,
+    "coverage": 1.0,
+    "ci95": [
+     0.7961107336956521,
+     1.0
+    ],
+    "accept": 0.0025273333333333333,
+    "refused_batches": 0.9973333333333334,
+    "worst_acc_ler": 0.0026483050847457626,
+    "pass": false
+   },
+   "q5 a=0.002": {
+    "certified_trials": 15,
+    "coverage": 1.0,
+    "ci95": [
+     0.7961107336956521,
+     1.0
+    ],
+    "accept": 0.0,
+    "refused_batches": 1.0,
+    "worst_acc_ler": 0.0,
+    "pass": false
+   },
+   "q5 a=0.005": {
+    "certified_trials": 15,
+    "coverage": 1.0,
+    "ci95": [
+     0.7961107336956521,
+     1.0
+    ],
+    "accept": 0.0,
+    "refused_batches": 1.0,
+    "worst_acc_ler": 0.0,
+    "pass": false
+   },
+   "q10 a=0.002": {
+    "certified_trials": 15,
+    "coverage": 1.0,
+    "ci95": [
+     0.7961107336956521,
+     1.0
+    ],
+    "accept": 0.0,
+    "refused_batches": 1.0,
+    "worst_acc_ler": 0.0,
+    "pass": false
+   },
+   "q10 a=0.005": {
+    "certified_trials": 15,
+    "coverage": 1.0,
+    "ci95": [
+     0.7961107336956521,
+     1.0
+    ],
+    "accept": 0.0,
+    "refused_batches": 1.0,
+    "worst_acc_ler": 0.0,
+    "pass": false
+   },
+   "a10 a=0.002": {
+    "certified_trials": 15,
+    "coverage": 1.0,
+    "ci95": [
+     0.7961107336956521,
+     1.0
+    ],
+    "accept": 0.0,
+    "refused_batches": 1.0,
+    "worst_acc_ler": 0.0,
+    "pass": false
+   },
+   "a10 a=0.005": {
+    "certified_trials": 15,
+    "coverage": 1.0,
+    "ci95": [
+     0.7961107336956521,
+     1.0
+    ],
+    "accept": 0.0,
+    "refused_batches": 1.0,
+    "worst_acc_ler": 0.0,
+    "pass": false
+   },
+   "reg3 a=0.002": {
+    "certified_trials": 15,
+    "coverage": 1.0,
+    "ci95": [
+     0.7961107336956521,
+     1.0
+    ],
+    "accept": 0.0,
+    "refused_batches": 1.0,
+    "worst_acc_ler": 0.0,
+    "pass": false
+   },
+   "reg3 a=0.005": {
+    "certified_trials": 15,
+    "coverage": 1.0,
+    "ci95": [
+     0.7961107336956521,
+     1.0
+    ],
+    "accept": 0.0,
+    "refused_batches": 1.0,
+    "worst_acc_ler": 0.0,
+    "pass": false
+   },
+   "rnd3 a=0.002": {
+    "certified_trials": 15,
+    "coverage": 1.0,
+    "ci95": [
+     0.7961107336956521,
+     1.0
+    ],
+    "accept": 0.0,
+    "refused_batches": 1.0,
+    "worst_acc_ler": 0.0,
+    "pass": false
+   },
+   "rnd3 a=0.005": {
+    "certified_trials": 15,
+    "coverage": 1.0,
+    "ci95": [
+     0.7961107336956521,
+     1.0
+    ],
+    "accept": 0.0,
+    "refused_batches": 1.0,
+    "worst_acc_ler": 0.0,
+    "pass": false
+   },
+   "rnd5 a=0.002": {
+    "certified_trials": 15,
+    "coverage": 1.0,
+    "ci95": [
+     0.7961107336956521,
+     1.0
+    ],
+    "accept": 0.0,
+    "refused_batches": 1.0,
+    "worst_acc_ler": 0.0,
+    "pass": false
+   },
+   "rnd5 a=0.005": {
+    "certified_trials": 15,
+    "coverage": 1.0,
+    "ci95": [
+     0.7961107336956521,
+     1.0
+    ],
+    "accept": 0.0,
+    "refused_batches": 1.0,
+    "worst_acc_ler": 0.0,
+    "pass": false
+   }
+  },
+  "ladder+ks+local": {
+   "iid a=0.002": {
+    "certified_trials": 15,
+    "coverage": 1.0,
+    "ci95": [
+     0.7961107336956521,
+     1.0
+    ],
+    "accept": 0.9247133333333334,
+    "refused_batches": 0.0013333333333333333,
+    "worst_acc_ler": 0.001395688169428085,
+    "pass": false
+   },
+   "iid a=0.005": {
+    "certified_trials": 15,
+    "coverage": 1.0,
+    "ci95": [
+     0.7961107336956521,
+     1.0
+    ],
+    "accept": 0.9676446666666667,
+    "refused_batches": 0.0013333333333333333,
+    "worst_acc_ler": 0.0036409159668248916,
+    "pass": false
+   },
+   "q3 a=0.002": {
+    "certified_trials": 15,
+    "coverage": 1.0,
+    "ci95": [
+     0.7961107336956521,
+     1.0
+    ],
+    "accept": 0.0024233333333333333,
+    "refused_batches": 0.9973333333333334,
+    "worst_acc_ler": 0.0016313213703099511,
+    "pass": false
+   },
+   "q3 a=0.005": {
+    "certified_trials": 15,
+    "coverage": 1.0,
+    "ci95": [
+     0.7961107336956521,
+     1.0
+    ],
+    "accept": 0.0025273333333333333,
+    "refused_batches": 0.9973333333333334,
+    "worst_acc_ler": 0.0026483050847457626,
+    "pass": false
+   },
+   "q5 a=0.002": {
+    "certified_trials": 15,
+    "coverage": 1.0,
+    "ci95": [
+     0.7961107336956521,
+     1.0
+    ],
+    "accept": 0.0,
+    "refused_batches": 1.0,
+    "worst_acc_ler": 0.0,
+    "pass": false
+   },
+   "q5 a=0.005": {
+    "certified_trials": 15,
+    "coverage": 1.0,
+    "ci95": [
+     0.7961107336956521,
+     1.0
+    ],
+    "accept": 0.0,
+    "refused_batches": 1.0,
+    "worst_acc_ler": 0.0,
+    "pass": false
+   },
+   "q10 a=0.002": {
+    "certified_trials": 15,
+    "coverage": 1.0,
+    "ci95": [
+     0.7961107336956521,
+     1.0
+    ],
+    "accept": 0.0,
+    "refused_batches": 1.0,
+    "worst_acc_ler": 0.0,
+    "pass": false
+   },
+   "q10 a=0.005": {
+    "certified_trials": 15,
+    "coverage": 1.0,
+    "ci95": [
+     0.7961107336956521,
+     1.0
+    ],
+    "accept": 0.0,
+    "refused_batches": 1.0,
+    "worst_acc_ler": 0.0,
+    "pass": false
+   },
+   "a10 a=0.002": {
+    "certified_trials": 15,
+    "coverage": 1.0,
+    "ci95": [
+     0.7961107336956521,
+     1.0
+    ],
+    "accept": 0.0,
+    "refused_batches": 1.0,
+    "worst_acc_ler": 0.0,
+    "pass": false
+   },
+   "a10 a=0.005": {
+    "certified_trials": 15,
+    "coverage": 1.0,
+    "ci95": [
+     0.7961107336956521,
+     1.0
+    ],
+    "accept": 0.0,
+    "refused_batches": 1.0,
+    "worst_acc_ler": 0.0,
+    "pass": false
+   },
+   "reg3 a=0.002": {
+    "certified_trials": 15,
+    "coverage": 1.0,
+    "ci95": [
+     0.7961107336956521,
+     1.0
+    ],
+    "accept": 0.0,
+    "refused_batches": 1.0,
+    "worst_acc_ler": 0.0,
+    "pass": false
+   },
+   "reg3 a=0.005": {
+    "certified_trials": 15,
+    "coverage": 1.0,
+    "ci95": [
+     0.7961107336956521,
+     1.0
+    ],
+    "accept": 0.0,
+    "refused_batches": 1.0,
+    "worst_acc_ler": 0.0,
+    "pass": false
+   },
+   "rnd3 a=0.002": {
+    "certified_trials": 15,
+    "coverage": 1.0,
+    "ci95": [
+     0.7961107336956521,
+     1.0
+    ],
+    "accept": 0.0,
+    "refused_batches": 1.0,
+    "worst_acc_ler": 0.0,
+    "pass": false
+   },
+   "rnd3 a=0.005": {
+    "certified_trials": 15,
+    "coverage": 1.0,
+    "ci95": [
+     0.7961107336956521,
+     1.0
+    ],
+    "accept": 0.0,
+    "refused_batches": 1.0,
+    "worst_acc_ler": 0.0,
+    "pass": false
+   },
+   "rnd5 a=0.002": {
+    "certified_trials": 15,
+    "coverage": 1.0,
+    "ci95": [
+     0.7961107336956521,
+     1.0
+    ],
+    "accept": 0.0,
+    "refused_batches": 1.0,
+    "worst_acc_ler": 0.0,
+    "pass": false
+   },
+   "rnd5 a=0.005": {
+    "certified_trials": 15,
+    "coverage": 1.0,
+    "ci95": [
+     0.7961107336956521,
+     1.0
+    ],
+    "accept": 0.0,
+    "refused_batches": 1.0,
+    "worst_acc_ler": 0.0,
+    "pass": false
+   }
+  }
+ }
+}

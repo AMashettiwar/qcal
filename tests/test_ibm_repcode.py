@@ -30,3 +30,21 @@ def test_qiskit_circuit_matches_stim_record():
     for L in (0, 1):
         r = BackendSamplerV2(backend=AerSimulator()).run([qiskit_circuit(3, 3, L)], shots=100).result()[0]
         d, o = to_detections(stim_circuit(3, 3, L), bits(r, 3, 3)); assert d.sum() == 0 and o.sum() == 0
+
+
+def test_fit_dem_recovers_uneven_rates():
+    """Data from a circuit with uneven noise; fitting the placeholder graph to it should recover the true edge rates."""
+    from qcal.repcode import fit_dem
+    true = stim_circuit(3, 5, 0, p2=0.002, pm=0.04, pr=0.002, pidle=0.01)
+    d, o = to_detections(true, true.compile_sampler(seed=3).sample(200_000).astype(np.uint8))
+    fitted = fit_dem(stim_circuit(3, 5, 0), d)
+    ref = {tuple(sorted(t.val for t in e.targets_copy() if t.is_relative_detector_id())): e.args_copy()[0]
+           for e in true.detector_error_model(decompose_errors=True).flattened() if e.type == "error"}
+    for e in fitted.flattened():
+        if e.type != "error": continue
+        k = tuple(t.val for t in e.targets_copy() if t.is_relative_detector_id())
+        if k in ref and ref[k] > 0.005:
+            assert abs(e.args_copy()[0] - ref[k]) < 0.25 * ref[k] + 0.002, (k, e.args_copy()[0], ref[k])
+    old = (DemSoftMatcher(stim_circuit(3, 5, 0).detector_error_model(decompose_errors=True)).decode(d)[0] != o).mean()
+    new = (DemSoftMatcher(fitted).decode(d)[0] != o).mean()
+    assert new <= old
