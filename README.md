@@ -291,7 +291,7 @@ qcal serve --store qcal_store --port 8000     # interactive docs: http://127.0.0
 - **`GET /metrics`:** uptime, request and status counts, shots decoded/accepted, shift refusals, auth failures, rate-limited count, mean latency.
 - **Python client:** `from qcal.client import QcalClient` (`calibrate`, `decode`, `profiles`, `metrics`, `health`; raises `QcalError` with the server's reason).
 - **Docker:** `Dockerfile` + `docker-compose.yml` (binds 127.0.0.1 only, needs `QCAL_API_KEY`). Written but **not built here** (no Docker on the build machine).
-- **Tests:** `python run_tests.py`; CI workflow for Linux + Windows in `.github/workflows/ci.yml` (not run on GitHub; nothing was pushed).
+- **Tests:** `python run_tests.py` (the same suite runs under `pytest -q tests`).
 
 ### Windows quickstart (PowerShell, one line at a time)
 
