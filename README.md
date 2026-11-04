@@ -25,6 +25,8 @@ That is roughly 30 times fewer errors than the decoder alone, at the cost of dis
 
 **Google Willow surface-code data:** the error cap held in 471 of 485 settings (97.1%). At distance 7, the error rate fell from 2.67% to 0.30% while keeping 84% of runs.
 
+**More public Google data (588 experiments on 3 chips, none used in development):** the cap held in 99.2% of 12,496 certified settings, but not reliably when calibrated on one acquisition and run on another, and qcal keeps only about 2 points more runs than a certified plain-gap cutoff ([details](docs/SOLID_EVIDENCE.md)).
+
 ## What it does not do yet
 
 - The IBM results are two chips on one day, with a bit-flip repetition code only. On a second chip (`ibm_marrakesh`, [replication](docs/IBM_REPLICATION.md)) every certificate held again, but the chip drifted so much that qcal refused most batches, and majority vote still won on state 0.
