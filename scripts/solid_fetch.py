@@ -5,7 +5,7 @@ with PyMatching on its published DEM and cached as features F = [gap, matching w
 y = 1 if the decoder was wrong. For W72 the next sample is also decoded with this sample's DEM (cross-acquisition).
 Usage: python scripts/solid_fetch.py [S|W105|W72 ...]"""
 import os, sys, json, threading
-from concurrent.futures import ThreadPoolExecutor
+from multiprocessing.pool import ThreadPool
 import numpy as np
 import stim
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__))); sys.path.insert(0, ROOT); os.chdir(ROOT)
@@ -57,8 +57,8 @@ def fetch(ds):
                 os.makedirs(os.path.dirname(os.path.join(dest, name, f)), exist_ok=True)
                 open(os.path.join(dest, name, f), "wb").write(data)
         return name
-    with ThreadPoolExecutor(6) as pool:
-        for i, n in enumerate(pool.map(get, ex)):
+    with ThreadPool(6) as pool:
+        for i, n in enumerate(pool.imap(get, ex)):
             if i % 50 == 0: print(ds, "fetched", i, n, flush=True)
     json.dump([e[0] for e in ex], open(f"{dest}/experiments.json", "w"))
     return dest, ex
