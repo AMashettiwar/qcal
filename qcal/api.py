@@ -11,7 +11,7 @@ Security / ops (env vars):
   QCAL_LOCAL_P        per-detector check: refuse a batch when any single detector fires more often than in calibration,
                       Bonferroni-corrected p-value below this (default 0 = off; 0.001 is the setting tested in
                       docs/VALIDATION.md section 2c). Off by default because on real Willow data it halves the accept rate.
-Calibration = cumulative pool of all windows so far -> random split 50% head fit / 25% isotonic /
+Calibration = pool of all windows so far (or those from pool_from on) -> random split 50% head fit / 25% isotonic /
 25% Learn-then-Test, certified at alpha_eff = margin * alpha (default margin 0.8, delta 0.1).
 """
 import hashlib, hmac, io, json, logging, os, re, sqlite3, threading, time, uuid
@@ -54,6 +54,9 @@ class CalibrateRequest(BaseModel):
     delta: float = Field(default=0.1, gt=0, lt=0.5)
     margin: float = Field(default=0.8, gt=0, le=1)
     seed: int = 0
+    pool_from: str | None = Field(default=None, pattern=_ID, description=(
+        "fit only on windows from this window_id on, in arrival order (it may be this request's window_id); "
+        "default: every window so far. Used after drift to drop the stale pool, see qcal/recal.py"))
 
     @field_validator("alphas")
     @classmethod
@@ -280,6 +283,41 @@ def _local_shift(prof, counts, n, level):
             "rate_ratio": float((kb[j] / n) / max(kc[j] / prof["det_shots"], 1e-12))}
 
 
+def _batch_decision(prof, cert, s, F, det_sum, shift_p, local_p):
+    """Accept/refuse one decode batch: KS shift monitor, optional per-detector check, syndrome-weight drift ladder."""
+    shift = {"checked": False}
+    if len(s) >= 200 and prof.get("ref_scores"):
+        ksp = float(ks_2samp(s, np.array(prof["ref_scores"])).pvalue)
+        shift = {"checked": True, "ks_p": ksp, "threshold": shift_p, "detected": ksp < shift_p}
+    local = _local_shift(prof, det_sum, len(s), local_p)
+    thr, drift = _drift_threshold(prof, cert, F[:, 2])
+    refused = bool(shift.get("detected", False) or local["detected"] or ("refused" in drift))
+    accept = (s <= thr) if (thr is not None and not refused) else np.zeros(len(s), bool)
+    return accept, thr, refused, shift, local, drift
+
+
+def _select_pool(wins, pool_from):
+    """Windows used for the fit: all of them, or the ones from window `pool_from` on (arrival order)."""
+    if pool_from is None:
+        return wins
+    names = [w[0] for w in wins]
+    if pool_from not in names:
+        raise HTTPException(422, f"pool_from window '{pool_from}' is not stored for this device")
+    return wins[names.index(pool_from):]
+
+
+def _pool_profile(wins, head, alphas, delta, margin, seed, drift_exp):
+    F_all, y_all = np.concatenate([w[1] for w in wins]), np.concatenate([w[2] for w in wins])
+    dc_all = None if any(w[3] is None for w in wins) else np.sum([w[3] for w in wins], axis=0)
+    if len(y_all) < MIN_POOL or y_all.sum() < 10:
+        return {"status": "not_certified", "pool_size": int(len(y_all)),
+                "reason": f"calibration pool has {len(y_all)} shots and {int(y_all.sum())} decoder errors; "
+                          f"need at least {MIN_POOL} shots and 10 errors to fit a calibrated head and certify. "
+                          f"Send more calibration windows."}
+    return {"status": "ok", **_fit_profile(F_all, y_all, head, alphas, delta, margin, seed, drift_exp=drift_exp,
+                                           det_counts=dc_all, n_shots=int(len(y_all)))}
+
+
 # ---------------- app ----------------
 log = logging.getLogger("qcal")
 
@@ -373,23 +411,16 @@ def create_app(store_dir=None, api_key=None, rate_per_min=None, max_body_mb=None
         dets = _parse(r.syndromes, info["num_detectors"])
         if S.has_window(r.device_id, r.window_id):
             raise HTTPException(409, f"window '{r.window_id}' already stored for device '{r.device_id}'")
+        if r.pool_from not in (None, r.window_id) and not S.has_window(r.device_id, r.pool_from):
+            raise HTTPException(422, f"pool_from window '{r.pool_from}' is not stored for device '{r.device_id}'")
         pred, F = _features(m, dets)
         y = (pred != np.array(r.logical_flips, dtype=np.uint8)).astype(np.int64)
         S.put_window(r.device_id, r.window_id, F, y, dets.sum(0).astype(np.int64))
-        wins = S.windows(r.device_id)
-        F_all, y_all = np.concatenate([w[1] for w in wins]), np.concatenate([w[2] for w in wins])
-        dc_all = None if any(w[3] is None for w in wins) else np.sum([w[3] for w in wins], axis=0)
+        wins = _select_pool(S.windows(r.device_id), r.pool_from)
         base = {"device_id": r.device_id, "window_id": r.window_id, "windows_used": [w[0] for w in wins],
-                "batch_size": len(y), "batch_ler": float(y.mean())}
-        if len(y_all) < MIN_POOL or y_all.sum() < 10:
-            prof = {**base, "status": "not_certified", "pool_size": int(len(y_all)),
-                    "reason": f"cumulative calibration pool has {len(y_all)} shots and {int(y_all.sum())} decoder errors; "
-                              f"need at least {MIN_POOL} shots and 10 errors to fit a calibrated head and certify. "
-                              f"Send more calibration windows."}
-        else:
-            prof = {**base, "status": "ok", **_fit_profile(F_all, y_all, r.head, r.alphas, r.delta, r.margin, r.seed,
-                                                               drift_exp=_drift_exp(stim.DetectorErrorModel(info["dem"])),
-                                                               det_counts=dc_all, n_shots=int(len(y_all)))}
+                "pool_from": r.pool_from, "batch_size": len(y), "batch_ler": float(y.mean())}
+        prof = {**base, **_pool_profile(wins, r.head, r.alphas, r.delta, r.margin, r.seed,
+                                        _drift_exp(stim.DetectorErrorModel(info["dem"])))}
         prof["fitted_at"] = time.time()
         S.put_profile(r.device_id, r.window_id, prof); S.db.commit()
         return _public(prof)
@@ -405,17 +436,8 @@ def create_app(store_dir=None, api_key=None, rate_per_min=None, max_body_mb=None
         dets = _parse(r.syndromes, info["num_detectors"])
         pred, F = _features(m, dets)
         p, s = _predict(prof, F)
-        # shift monitor: compare this batch's score distribution with the calibration split (needs >= 200 shots)
-        shift = {"checked": False}
-        if len(s) >= 200 and prof.get("ref_scores"):
-            ksp = float(ks_2samp(s, np.array(prof["ref_scores"])).pvalue)
-            shift = {"checked": True, "ks_p": ksp, "threshold": SHIFT_P, "detected": ksp < SHIFT_P,
-                     "batch_mean_p": float(p.mean())}
-        local = _local_shift(prof, dets.sum(0), len(dets), LOCAL_P)
-        refused = shift.get("detected", False) or local["detected"]
-        thr, drift = _drift_threshold(prof, cert, F[:, 2])
-        refused = refused or ("refused" in drift)
-        accept = (s <= thr) if (thr is not None and not refused) else np.zeros(len(p), bool)
+        accept, thr, refused, shift, local, drift = _batch_decision(prof, cert, s, F, dets.sum(0), SHIFT_P, LOCAL_P)
+        if shift["checked"]: shift["batch_mean_p"] = float(p.mean())
         stats["shots_decoded"] += len(p); stats["shots_accepted"] += int(accept.sum()); stats["shift_refusals"] += int(refused)
         if "refused" in drift:
             guarantee = "none: " + drift["refused"]
@@ -434,7 +456,7 @@ def create_app(store_dir=None, api_key=None, rate_per_min=None, max_body_mb=None
         return {"device_id": r.device_id, "n_shots": len(p),
                 "correction": pred.astype(int).tolist(),
                 "p_logical_error": np.round(p, 6).tolist(), "accept": accept.tolist(),
-                "accept_rate": float(accept.mean()), "shift": shift, "local_shift": local, "drift_correction": drift,
+                "accept_rate": float(accept.mean()), "refused": refused, "shift": shift, "local_shift": local, "drift_correction": drift,
                 "certificate": {"alpha": r.alpha, "alpha_eff": cert["alpha_eff"], "delta": prof["delta"],
                                 "certified": cert["certified"] and not refused, "threshold": thr,
                                 "reason": (drift.get("refused") or ("drift in one detector" if local["detected"] else None)

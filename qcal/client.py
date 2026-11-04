@@ -4,6 +4,7 @@
     c = QcalClient("http://127.0.0.1:8000", api_key="...")   # or env QCAL_API_KEY
     c.calibrate("chip-a", "w0", dets, flips, dem=open("model.dem").read())
     r = c.decode("chip-a", dets, alpha=0.01)
+Automatic recalibration after drift: qcal.recal.Recalibrator.
 `dets` may be a 0/1 numpy array (shots x detectors) or a list of '0'/'1' strings.
 """
 import os
@@ -41,9 +42,10 @@ class QcalClient:
     def metrics(self): return self._req("GET", "/metrics")
     def profiles(self, device_id): return self._req("GET", f"/profiles/{device_id}")
 
-    def calibrate(self, device_id, window_id, dets, logical_flips, dem=None, circuit=None, simulated=None, **opts):
+    def calibrate(self, device_id, window_id, dets, logical_flips, dem=None, circuit=None, simulated=None, pool_from=None, **opts):
         body = {"device_id": device_id, "window_id": window_id, "syndromes": _to01(dets),
                 "logical_flips": [int(x) for x in np.asarray(logical_flips).reshape(-1)], **opts}
+        if pool_from is not None: body["pool_from"] = pool_from
         for k, v in (("dem", dem), ("circuit", circuit), ("simulated", simulated)):
             if v is not None: body[k] = str(v) if k != "simulated" else v
         return self._req("POST", "/calibrate", json=body)
