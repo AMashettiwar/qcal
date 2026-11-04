@@ -1,0 +1,1383 @@
+{
+ "split": "test",
+ "pool": "recent",
+ "window_shots": 4000,
+ "cal_jobs": [
+  "dbl9eft8mdtc73d5nm5g",
+  "dbl9t4l8mdtc73d5onm0",
+  "dbla73e74qds73dq3sl0",
+  "dblah0hkbkrc73cnc970"
+ ],
+ "stream_jobs": [
+  "dblasbm74qds73dq59ng",
+  "dblb699kbkrc73cndjdg"
+ ],
+ "configs": [
+  {
+   "device": "ibm_n3_r5_L0",
+   "n": 3,
+   "logical": 0,
+   "stream_shots": 50000,
+   "majority": 0.00022,
+   "alphas": {
+    "0.002": {
+     "kept_frac": 0.0,
+     "labeled_frac": 0.4,
+     "refused_batches": 15,
+     "n_batches": 25,
+     "all": {
+      "kept": 0,
+      "errors": 0,
+      "ler": null,
+      "wilson95_upper": null,
+      "held": null
+     },
+     "after_recal": {
+      "kept": 0,
+      "errors": 0,
+      "ler": null,
+      "wilson95_upper": null,
+      "held": null
+     },
+     "per_job_kept_frac": [
+      0.0,
+      0.0
+     ],
+     "pymatching_decoded": 0.0015,
+     "recalibrations": 5,
+     "episodes": 1,
+     "gave_up": 1,
+     "labeled_shots": 20000,
+     "pool": "recent",
+     "window_shots": 4000,
+     "events": [
+      {
+       "event": "refused",
+       "reason": "syndrome weight is 3.247x calibration; no certified threshold that far out. Recalibrate."
+      },
+      {
+       "event": "recalibrated",
+       "window": "recal0",
+       "pool_from": "recal0",
+       "pool_size": 4000,
+       "certified": false
+      },
+      {
+       "event": "recalibrated",
+       "window": "recal1",
+       "pool_from": "recal0",
+       "pool_size": 8000,
+       "certified": false
+      },
+      {
+       "event": "recalibrated",
+       "window": "recal2",
+       "pool_from": "recal0",
+       "pool_size": 12000,
+       "certified": false
+      },
+      {
+       "event": "recalibrated",
+       "window": "recal3",
+       "pool_from": "recal0",
+       "pool_size": 16000,
+       "certified": false
+      },
+      {
+       "event": "recalibrated",
+       "window": "recal4",
+       "pool_from": "recal0",
+       "pool_size": 20000,
+       "certified": false
+      }
+     ]
+    },
+    "0.005": {
+     "kept_frac": 0.07994,
+     "labeled_frac": 0.8,
+     "refused_batches": 3,
+     "n_batches": 25,
+     "all": {
+      "kept": 3997,
+      "errors": 2,
+      "ler": 0.0005003752814610958,
+      "wilson95_upper": 0.0018227588144773426,
+      "held": true
+     },
+     "after_recal": {
+      "kept": 3997,
+      "errors": 2,
+      "ler": 0.0005003752814610958,
+      "wilson95_upper": 0.0018227588144773426,
+      "held": true
+     },
+     "per_job_kept_frac": [
+      0.15988,
+      0.0
+     ],
+     "pymatching_decoded": 0.0011,
+     "recalibrations": 10,
+     "episodes": 3,
+     "gave_up": 1,
+     "labeled_shots": 40000,
+     "pool": "recent",
+     "window_shots": 4000,
+     "events": [
+      {
+       "event": "refused",
+       "reason": "syndrome weight is 3.247x calibration; no certified threshold that far out. Recalibrate."
+      },
+      {
+       "event": "recalibrated",
+       "window": "recal0",
+       "pool_from": "recal0",
+       "pool_size": 4000,
+       "certified": false
+      },
+      {
+       "event": "recalibrated",
+       "window": "recal1",
+       "pool_from": "recal0",
+       "pool_size": 8000,
+       "certified": false
+      },
+      {
+       "event": "recalibrated",
+       "window": "recal2",
+       "pool_from": "recal0",
+       "pool_size": 12000,
+       "certified": true
+      },
+      {
+       "event": "refused",
+       "reason": "distribution shift detected"
+      },
+      {
+       "event": "recalibrated",
+       "window": "recal3",
+       "pool_from": "recal3",
+       "pool_size": 4000,
+       "certified": false
+      },
+      {
+       "event": "recalibrated",
+       "window": "recal4",
+       "pool_from": "recal3",
+       "pool_size": 8000,
+       "certified": true
+      },
+      {
+       "event": "refused",
+       "reason": "distribution shift detected"
+      },
+      {
+       "event": "recalibrated",
+       "window": "recal5",
+       "pool_from": "recal5",
+       "pool_size": 4000,
+       "certified": false
+      },
+      {
+       "event": "recalibrated",
+       "window": "recal6",
+       "pool_from": "recal5",
+       "pool_size": 8000,
+       "certified": false
+      },
+      {
+       "event": "recalibrated",
+       "window": "recal7",
+       "pool_from": "recal5",
+       "pool_size": 12000,
+       "certified": false
+      },
+      {
+       "event": "recalibrated",
+       "window": "recal8",
+       "pool_from": "recal5",
+       "pool_size": 16000,
+       "certified": false
+      },
+      {
+       "event": "recalibrated",
+       "window": "recal9",
+       "pool_from": "recal5",
+       "pool_size": 20000,
+       "certified": false
+      }
+     ]
+    },
+    "0.01": {
+     "kept_frac": 0.07994,
+     "labeled_frac": 0.8,
+     "refused_batches": 3,
+     "n_batches": 25,
+     "all": {
+      "kept": 3997,
+      "errors": 2,
+      "ler": 0.0005003752814610958,
+      "wilson95_upper": 0.0018227588144773426,
+      "held": true
+     },
+     "after_recal": {
+      "kept": 3997,
+      "errors": 2,
+      "ler": 0.0005003752814610958,
+      "wilson95_upper": 0.0018227588144773426,
+      "held": true
+     },
+     "per_job_kept_frac": [
+      0.15988,
+      0.0
+     ],
+     "pymatching_decoded": 0.0011,
+     "recalibrations": 10,
+     "episodes": 3,
+     "gave_up": 1,
+     "labeled_shots": 40000,
+     "pool": "recent",
+     "window_shots": 4000,
+     "events": [
+      {
+       "event": "refused",
+       "reason": "syndrome weight is 3.247x calibration; no certified threshold that far out. Recalibrate."
+      },
+      {
+       "event": "recalibrated",
+       "window": "recal0",
+       "pool_from": "recal0",
+       "pool_size": 4000,
+       "certified": false
+      },
+      {
+       "event": "recalibrated",
+       "window": "recal1",
+       "pool_from": "recal0",
+       "pool_size": 8000,
+       "certified": false
+      },
+      {
+       "event": "recalibrated",
+       "window": "recal2",
+       "pool_from": "recal0",
+       "pool_size": 12000,
+       "certified": true
+      },
+      {
+       "event": "refused",
+       "reason": "distribution shift detected"
+      },
+      {
+       "event": "recalibrated",
+       "window": "recal3",
+       "pool_from": "recal3",
+       "pool_size": 4000,
+       "certified": false
+      },
+      {
+       "event": "recalibrated",
+       "window": "recal4",
+       "pool_from": "recal3",
+       "pool_size": 8000,
+       "certified": true
+      },
+      {
+       "event": "refused",
+       "reason": "distribution shift detected"
+      },
+      {
+       "event": "recalibrated",
+       "window": "recal5",
+       "pool_from": "recal5",
+       "pool_size": 4000,
+       "certified": false
+      },
+      {
+       "event": "recalibrated",
+       "window": "recal6",
+       "pool_from": "recal5",
+       "pool_size": 8000,
+       "certified": false
+      },
+      {
+       "event": "recalibrated",
+       "window": "recal7",
+       "pool_from": "recal5",
+       "pool_size": 12000,
+       "certified": false
+      },
+      {
+       "event": "recalibrated",
+       "window": "recal8",
+       "pool_from": "recal5",
+       "pool_size": 16000,
+       "certified": false
+      },
+      {
+       "event": "recalibrated",
+       "window": "recal9",
+       "pool_from": "recal5",
+       "pool_size": 20000,
+       "certified": false
+      }
+     ]
+    },
+    "0.02": {
+     "kept_frac": 0.07994,
+     "labeled_frac": 0.8,
+     "refused_batches": 3,
+     "n_batches": 25,
+     "all": {
+      "kept": 3997,
+      "errors": 2,
+      "ler": 0.0005003752814610958,
+      "wilson95_upper": 0.0018227588144773426,
+      "held": true
+     },
+     "after_recal": {
+      "kept": 3997,
+      "errors": 2,
+      "ler": 0.0005003752814610958,
+      "wilson95_upper": 0.0018227588144773426,
+      "held": true
+     },
+     "per_job_kept_frac": [
+      0.15988,
+      0.0
+     ],
+     "pymatching_decoded": 0.0011,
+     "recalibrations": 10,
+     "episodes": 3,
+     "gave_up": 1,
+     "labeled_shots": 40000,
+     "pool": "recent",
+     "window_shots": 4000,
+     "events": [
+      {
+       "event": "refused",
+       "reason": "syndrome weight is 3.247x calibration; no certified threshold that far out. Recalibrate."
+      },
+      {
+       "event": "recalibrated",
+       "window": "recal0",
+       "pool_from": "recal0",
+       "pool_size": 4000,
+       "certified": false
+      },
+      {
+       "event": "recalibrated",
+       "window": "recal1",
+       "pool_from": "recal0",
+       "pool_size": 8000,
+       "certified": false
+      },
+      {
+       "event": "recalibrated",
+       "window": "recal2",
+       "pool_from": "recal0",
+       "pool_size": 12000,
+       "certified": true
+      },
+      {
+       "event": "refused",
+       "reason": "distribution shift detected"
+      },
+      {
+       "event": "recalibrated",
+       "window": "recal3",
+       "pool_from": "recal3",
+       "pool_size": 4000,
+       "certified": false
+      },
+      {
+       "event": "recalibrated",
+       "window": "recal4",
+       "pool_from": "recal3",
+       "pool_size": 8000,
+       "certified": true
+      },
+      {
+       "event": "refused",
+       "reason": "distribution shift detected"
+      },
+      {
+       "event": "recalibrated",
+       "window": "recal5",
+       "pool_from": "recal5",
+       "pool_size": 4000,
+       "certified": false
+      },
+      {
+       "event": "recalibrated",
+       "window": "recal6",
+       "pool_from": "recal5",
+       "pool_size": 8000,
+       "certified": false
+      },
+      {
+       "event": "recalibrated",
+       "window": "recal7",
+       "pool_from": "recal5",
+       "pool_size": 12000,
+       "certified": false
+      },
+      {
+       "event": "recalibrated",
+       "window": "recal8",
+       "pool_from": "recal5",
+       "pool_size": 16000,
+       "certified": false
+      },
+      {
+       "event": "recalibrated",
+       "window": "recal9",
+       "pool_from": "recal5",
+       "pool_size": 20000,
+       "certified": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "device": "ibm_n3_r5_L1",
+   "n": 3,
+   "logical": 1,
+   "stream_shots": 50000,
+   "majority": 0.1025,
+   "alphas": {
+    "0.002": {
+     "kept_frac": 0.0,
+     "labeled_frac": 0.0,
+     "refused_batches": 25,
+     "n_batches": 25,
+     "all": {
+      "kept": 0,
+      "errors": 0,
+      "ler": null,
+      "wilson95_upper": null,
+      "held": null
+     },
+     "after_recal": {
+      "kept": 0,
+      "errors": 0,
+      "ler": null,
+      "wilson95_upper": null,
+      "held": null
+     },
+     "per_job_kept_frac": [
+      0.0,
+      0.0
+     ],
+     "pymatching_decoded": null,
+     "recalibrations": 0,
+     "episodes": 0,
+     "gave_up": 0,
+     "labeled_shots": 0,
+     "pool": "recent",
+     "window_shots": 4000,
+     "events": []
+    },
+    "0.005": {
+     "kept_frac": 0.0,
+     "labeled_frac": 0.4,
+     "refused_batches": 15,
+     "n_batches": 25,
+     "all": {
+      "kept": 0,
+      "errors": 0,
+      "ler": null,
+      "wilson95_upper": null,
+      "held": null
+     },
+     "after_recal": {
+      "kept": 0,
+      "errors": 0,
+      "ler": null,
+      "wilson95_upper": null,
+      "held": null
+     },
+     "per_job_kept_frac": [
+      0.0,
+      0.0
+     ],
+     "pymatching_decoded": 0.0675,
+     "recalibrations": 5,
+     "episodes": 1,
+     "gave_up": 1,
+     "labeled_shots": 20000,
+     "pool": "recent",
+     "window_shots": 4000,
+     "events": [
+      {
+       "event": "refused",
+       "reason": "distribution shift detected"
+      },
+      {
+       "event": "recalibrated",
+       "window": "recal0",
+       "pool_from": "recal0",
+       "pool_size": 4000,
+       "certified": false
+      },
+      {
+       "event": "recalibrated",
+       "window": "recal1",
+       "pool_from": "recal0",
+       "pool_size": 8000,
+       "certified": false
+      },
+      {
+       "event": "recalibrated",
+       "window": "recal2",
+       "pool_from": "recal0",
+       "pool_size": 12000,
+       "certified": false
+      },
+      {
+       "event": "recalibrated",
+       "window": "recal3",
+       "pool_from": "recal0",
+       "pool_size": 16000,
+       "certified": false
+      },
+      {
+       "event": "recalibrated",
+       "window": "recal4",
+       "pool_from": "recal0",
+       "pool_size": 20000,
+       "certified": false
+      }
+     ]
+    },
+    "0.01": {
+     "kept_frac": 0.05918,
+     "labeled_frac": 0.76,
+     "refused_batches": 3,
+     "n_batches": 25,
+     "all": {
+      "kept": 2959,
+      "errors": 21,
+      "ler": 0.0070969922271037515,
+      "wilson95_upper": 0.01082559286344353,
+      "held": true
+     },
+     "after_recal": {
+      "kept": 2959,
+      "errors": 21,
+      "ler": 0.0070969922271037515,
+      "wilson95_upper": 0.01082559286344353,
+      "held": true
+     },
+     "per_job_kept_frac": [
+      0.11836,
+      0.0
+     ],
+     "pymatching_decoded": 0.06825,
+     "recalibrations": 9,
+     "episodes": 3,
+     "gave_up": 0,
+     "labeled_shots": 38000,
+     "pool": "recent",
+     "window_shots": 4000,
+     "events": [
+      {
+       "event": "refused",
+       "reason": "distribution shift detected"
+      },
+      {
+       "event": "recalibrated",
+       "window": "recal0",
+       "pool_from": "recal0",
+       "pool_size": 4000,
+       "certified": false
+      },
+      {
+       "event": "recalibrated",
+       "window": "recal1",
+       "pool_from": "recal0",
+       "pool_size": 8000,
+       "certified": false
+      },
+      {
+       "event": "recalibrated",
+       "window": "recal2",
+       "pool_from": "recal0",
+       "pool_size": 12000,
+       "certified": false
+      },
+      {
+       "event": "recalibrated",
+       "window": "recal3",
+       "pool_from": "recal0",
+       "pool_size": 16000,
+       "certified": true
+      },
+      {
+       "event": "refused",
+       "reason": "distribution shift detected"
+      },
+      {
+       "event": "recalibrated",
+       "window": "recal4",
+       "pool_from": "recal4",
+       "pool_size": 4000,
+       "certified": false
+      },
+      {
+       "event": "recalibrated",
+       "window": "recal5",
+       "pool_from": "recal4",
+       "pool_size": 8000,
+       "certified": false
+      },
+      {
+       "event": "recalibrated",
+       "window": "recal6",
+       "pool_from": "recal4",
+       "pool_size": 12000,
+       "certified": true
+      },
+      {
+       "event": "refused",
+       "reason": "distribution shift detected"
+      },
+      {
+       "event": "recalibrated",
+       "window": "recal7",
+       "pool_from": "recal7",
+       "pool_size": 4000,
+       "certified": false
+      },
+      {
+       "event": "recalibrated",
+       "window": "recal8",
+       "pool_from": "recal7",
+       "pool_size": 8000,
+       "certified": false
+      }
+     ]
+    },
+    "0.02": {
+     "kept_frac": 0.10918,
+     "labeled_frac": 0.64,
+     "refused_batches": 4,
+     "n_batches": 25,
+     "all": {
+      "kept": 5459,
+      "errors": 36,
+      "ler": 0.006594614398241436,
+      "wilson95_upper": 0.00911582389290925,
+      "held": true
+     },
+     "after_recal": {
+      "kept": 5459,
+      "errors": 36,
+      "ler": 0.006594614398241436,
+      "wilson95_upper": 0.00911582389290925,
+      "held": true
+     },
+     "per_job_kept_frac": [
+      0.09932,
+      0.11904
+     ],
+     "pymatching_decoded": 0.07,
+     "recalibrations": 8,
+     "episodes": 4,
+     "gave_up": 0,
+     "labeled_shots": 32000,
+     "pool": "recent",
+     "window_shots": 4000,
+     "events": [
+      {
+       "event": "refused",
+       "reason": "distribution shift detected"
+      },
+      {
+       "event": "recalibrated",
+       "window": "recal0",
+       "pool_from": "recal0",
+       "pool_size": 4000,
+       "certified": false
+      },
+      {
+       "event": "recalibrated",
+       "window": "recal1",
+       "pool_from": "recal0",
+       "pool_size": 8000,
+       "certified": true
+      },
+      {
+       "event": "refused",
+       "reason": "distribution shift detected"
+      },
+      {
+       "event": "recalibrated",
+       "window": "recal2",
+       "pool_from": "recal2",
+       "pool_size": 4000,
+       "certified": false
+      },
+      {
+       "event": "recalibrated",
+       "window": "recal3",
+       "pool_from": "recal2",
+       "pool_size": 8000,
+       "certified": true
+      },
+      {
+       "event": "refused",
+       "reason": "distribution shift detected"
+      },
+      {
+       "event": "recalibrated",
+       "window": "recal4",
+       "pool_from": "recal4",
+       "pool_size": 4000,
+       "certified": false
+      },
+      {
+       "event": "recalibrated",
+       "window": "recal5",
+       "pool_from": "recal4",
+       "pool_size": 8000,
+       "certified": true
+      },
+      {
+       "event": "refused",
+       "reason": "distribution shift detected"
+      },
+      {
+       "event": "recalibrated",
+       "window": "recal6",
+       "pool_from": "recal6",
+       "pool_size": 4000,
+       "certified": false
+      },
+      {
+       "event": "recalibrated",
+       "window": "recal7",
+       "pool_from": "recal6",
+       "pool_size": 8000,
+       "certified": true
+      }
+     ]
+    }
+   }
+  },
+  {
+   "device": "ibm_n5_r5_L0",
+   "n": 5,
+   "logical": 0,
+   "stream_shots": 50000,
+   "majority": 4e-05,
+   "alphas": {
+    "0.002": {
+     "kept_frac": 0.08,
+     "labeled_frac": 0.4,
+     "refused_batches": 13,
+     "n_batches": 25,
+     "all": {
+      "kept": 4000,
+      "errors": 2,
+      "ler": 0.0005,
+      "wilson95_upper": 0.0018213931638308867,
+      "held": true
+     },
+     "after_recal": {
+      "kept": 0,
+      "errors": 0,
+      "ler": null,
+      "wilson95_upper": null,
+      "held": null
+     },
+     "per_job_kept_frac": [
+      0.16,
+      0.0
+     ],
+     "pymatching_decoded": 0.0003333333333333333,
+     "recalibrations": 5,
+     "episodes": 1,
+     "gave_up": 1,
+     "labeled_shots": 20000,
+     "pool": "recent",
+     "window_shots": 4000,
+     "events": [
+      {
+       "event": "refused",
+       "reason": "distribution shift detected"
+      },
+      {
+       "event": "recalibrated",
+       "window": "recal0",
+       "pool_from": "recal0",
+       "pool_size": 4000,
+       "certified": false
+      },
+      {
+       "event": "recalibrated",
+       "window": "recal1",
+       "pool_from": "recal0",
+       "pool_size": 8000,
+       "certified": false
+      },
+      {
+       "event": "recalibrated",
+       "window": "recal2",
+       "pool_from": "recal0",
+       "pool_size": 12000,
+       "certified": false
+      },
+      {
+       "event": "recalibrated",
+       "window": "recal3",
+       "pool_from": "recal0",
+       "pool_size": 16000,
+       "certified": false
+      },
+      {
+       "event": "recalibrated",
+       "window": "recal4",
+       "pool_from": "recal0",
+       "pool_size": 20000,
+       "certified": false
+      }
+     ]
+    },
+    "0.005": {
+     "kept_frac": 0.08,
+     "labeled_frac": 0.4,
+     "refused_batches": 13,
+     "n_batches": 25,
+     "all": {
+      "kept": 4000,
+      "errors": 2,
+      "ler": 0.0005,
+      "wilson95_upper": 0.0018213931638308867,
+      "held": true
+     },
+     "after_recal": {
+      "kept": 0,
+      "errors": 0,
+      "ler": null,
+      "wilson95_upper": null,
+      "held": null
+     },
+     "per_job_kept_frac": [
+      0.16,
+      0.0
+     ],
+     "pymatching_decoded": 0.0003333333333333333,
+     "recalibrations": 5,
+     "episodes": 1,
+     "gave_up": 1,
+     "labeled_shots": 20000,
+     "pool": "recent",
+     "window_shots": 4000,
+     "events": [
+      {
+       "event": "refused",
+       "reason": "distribution shift detected"
+      },
+      {
+       "event": "recalibrated",
+       "window": "recal0",
+       "pool_from": "recal0",
+       "pool_size": 4000,
+       "certified": false
+      },
+      {
+       "event": "recalibrated",
+       "window": "recal1",
+       "pool_from": "recal0",
+       "pool_size": 8000,
+       "certified": false
+      },
+      {
+       "event": "recalibrated",
+       "window": "recal2",
+       "pool_from": "recal0",
+       "pool_size": 12000,
+       "certified": false
+      },
+      {
+       "event": "recalibrated",
+       "window": "recal3",
+       "pool_from": "recal0",
+       "pool_size": 16000,
+       "certified": false
+      },
+      {
+       "event": "recalibrated",
+       "window": "recal4",
+       "pool_from": "recal0",
+       "pool_size": 20000,
+       "certified": false
+      }
+     ]
+    },
+    "0.01": {
+     "kept_frac": 0.08,
+     "labeled_frac": 0.4,
+     "refused_batches": 13,
+     "n_batches": 25,
+     "all": {
+      "kept": 4000,
+      "errors": 2,
+      "ler": 0.0005,
+      "wilson95_upper": 0.0018213931638308867,
+      "held": true
+     },
+     "after_recal": {
+      "kept": 0,
+      "errors": 0,
+      "ler": null,
+      "wilson95_upper": null,
+      "held": null
+     },
+     "per_job_kept_frac": [
+      0.16,
+      0.0
+     ],
+     "pymatching_decoded": 0.0003333333333333333,
+     "recalibrations": 5,
+     "episodes": 1,
+     "gave_up": 1,
+     "labeled_shots": 20000,
+     "pool": "recent",
+     "window_shots": 4000,
+     "events": [
+      {
+       "event": "refused",
+       "reason": "distribution shift detected"
+      },
+      {
+       "event": "recalibrated",
+       "window": "recal0",
+       "pool_from": "recal0",
+       "pool_size": 4000,
+       "certified": false
+      },
+      {
+       "event": "recalibrated",
+       "window": "recal1",
+       "pool_from": "recal0",
+       "pool_size": 8000,
+       "certified": false
+      },
+      {
+       "event": "recalibrated",
+       "window": "recal2",
+       "pool_from": "recal0",
+       "pool_size": 12000,
+       "certified": false
+      },
+      {
+       "event": "recalibrated",
+       "window": "recal3",
+       "pool_from": "recal0",
+       "pool_size": 16000,
+       "certified": false
+      },
+      {
+       "event": "recalibrated",
+       "window": "recal4",
+       "pool_from": "recal0",
+       "pool_size": 20000,
+       "certified": false
+      }
+     ]
+    },
+    "0.02": {
+     "kept_frac": 0.08,
+     "labeled_frac": 0.4,
+     "refused_batches": 13,
+     "n_batches": 25,
+     "all": {
+      "kept": 4000,
+      "errors": 2,
+      "ler": 0.0005,
+      "wilson95_upper": 0.0018213931638308867,
+      "held": true
+     },
+     "after_recal": {
+      "kept": 0,
+      "errors": 0,
+      "ler": null,
+      "wilson95_upper": null,
+      "held": null
+     },
+     "per_job_kept_frac": [
+      0.16,
+      0.0
+     ],
+     "pymatching_decoded": 0.0003333333333333333,
+     "recalibrations": 5,
+     "episodes": 1,
+     "gave_up": 1,
+     "labeled_shots": 20000,
+     "pool": "recent",
+     "window_shots": 4000,
+     "events": [
+      {
+       "event": "refused",
+       "reason": "distribution shift detected"
+      },
+      {
+       "event": "recalibrated",
+       "window": "recal0",
+       "pool_from": "recal0",
+       "pool_size": 4000,
+       "certified": false
+      },
+      {
+       "event": "recalibrated",
+       "window": "recal1",
+       "pool_from": "recal0",
+       "pool_size": 8000,
+       "certified": false
+      },
+      {
+       "event": "recalibrated",
+       "window": "recal2",
+       "pool_from": "recal0",
+       "pool_size": 12000,
+       "certified": false
+      },
+      {
+       "event": "recalibrated",
+       "window": "recal3",
+       "pool_from": "recal0",
+       "pool_size": 16000,
+       "certified": false
+      },
+      {
+       "event": "recalibrated",
+       "window": "recal4",
+       "pool_from": "recal0",
+       "pool_size": 20000,
+       "certified": false
+      }
+     ]
+    }
+   }
+  },
+  {
+   "device": "ibm_n5_r5_L1",
+   "n": 5,
+   "logical": 1,
+   "stream_shots": 50000,
+   "majority": 0.0627,
+   "alphas": {
+    "0.002": {
+     "kept_frac": 0.0,
+     "labeled_frac": 0.4,
+     "refused_batches": 15,
+     "n_batches": 25,
+     "all": {
+      "kept": 0,
+      "errors": 0,
+      "ler": null,
+      "wilson95_upper": null,
+      "held": null
+     },
+     "after_recal": {
+      "kept": 0,
+      "errors": 0,
+      "ler": null,
+      "wilson95_upper": null,
+      "held": null
+     },
+     "per_job_kept_frac": [
+      0.0,
+      0.0
+     ],
+     "pymatching_decoded": 0.022,
+     "recalibrations": 5,
+     "episodes": 1,
+     "gave_up": 1,
+     "labeled_shots": 20000,
+     "pool": "recent",
+     "window_shots": 4000,
+     "events": [
+      {
+       "event": "refused",
+       "reason": "distribution shift detected"
+      },
+      {
+       "event": "recalibrated",
+       "window": "recal0",
+       "pool_from": "recal0",
+       "pool_size": 4000,
+       "certified": false
+      },
+      {
+       "event": "recalibrated",
+       "window": "recal1",
+       "pool_from": "recal0",
+       "pool_size": 8000,
+       "certified": false
+      },
+      {
+       "event": "recalibrated",
+       "window": "recal2",
+       "pool_from": "recal0",
+       "pool_size": 12000,
+       "certified": false
+      },
+      {
+       "event": "recalibrated",
+       "window": "recal3",
+       "pool_from": "recal0",
+       "pool_size": 16000,
+       "certified": false
+      },
+      {
+       "event": "recalibrated",
+       "window": "recal4",
+       "pool_from": "recal0",
+       "pool_size": 20000,
+       "certified": false
+      }
+     ]
+    },
+    "0.005": {
+     "kept_frac": 0.3369,
+     "labeled_frac": 0.56,
+     "refused_batches": 2,
+     "n_batches": 25,
+     "all": {
+      "kept": 16845,
+      "errors": 86,
+      "ler": 0.0051053725140991395,
+      "wilson95_upper": 0.006300261139672654,
+      "held": false
+     },
+     "after_recal": {
+      "kept": 16845,
+      "errors": 86,
+      "ler": 0.0051053725140991395,
+      "wilson95_upper": 0.006300261139672654,
+      "held": false
+     },
+     "per_job_kept_frac": [
+      0.42348,
+      0.25032
+     ],
+     "pymatching_decoded": 0.019045454545454546,
+     "recalibrations": 7,
+     "episodes": 2,
+     "gave_up": 0,
+     "labeled_shots": 28000,
+     "pool": "recent",
+     "window_shots": 4000,
+     "events": [
+      {
+       "event": "refused",
+       "reason": "distribution shift detected"
+      },
+      {
+       "event": "recalibrated",
+       "window": "recal0",
+       "pool_from": "recal0",
+       "pool_size": 4000,
+       "certified": false
+      },
+      {
+       "event": "recalibrated",
+       "window": "recal1",
+       "pool_from": "recal0",
+       "pool_size": 8000,
+       "certified": false
+      },
+      {
+       "event": "recalibrated",
+       "window": "recal2",
+       "pool_from": "recal0",
+       "pool_size": 12000,
+       "certified": true
+      },
+      {
+       "event": "refused",
+       "reason": "distribution shift detected"
+      },
+      {
+       "event": "recalibrated",
+       "window": "recal3",
+       "pool_from": "recal3",
+       "pool_size": 4000,
+       "certified": false
+      },
+      {
+       "event": "recalibrated",
+       "window": "recal4",
+       "pool_from": "recal3",
+       "pool_size": 8000,
+       "certified": false
+      },
+      {
+       "event": "recalibrated",
+       "window": "recal5",
+       "pool_from": "recal3",
+       "pool_size": 12000,
+       "certified": false
+      },
+      {
+       "event": "recalibrated",
+       "window": "recal6",
+       "pool_from": "recal3",
+       "pool_size": 16000,
+       "certified": true
+      }
+     ]
+    },
+    "0.01": {
+     "kept_frac": 0.54608,
+     "labeled_frac": 0.32,
+     "refused_batches": 2,
+     "n_batches": 25,
+     "all": {
+      "kept": 27304,
+      "errors": 158,
+      "ler": 0.0057866979197187226,
+      "wilson95_upper": 0.006758542645775333,
+      "held": true
+     },
+     "after_recal": {
+      "kept": 27304,
+      "errors": 158,
+      "ler": 0.0057866979197187226,
+      "wilson95_upper": 0.006758542645775333,
+      "held": true
+     },
+     "per_job_kept_frac": [
+      0.58004,
+      0.51212
+     ],
+     "pymatching_decoded": 0.022705882352941176,
+     "recalibrations": 4,
+     "episodes": 2,
+     "gave_up": 0,
+     "labeled_shots": 16000,
+     "pool": "recent",
+     "window_shots": 4000,
+     "events": [
+      {
+       "event": "refused",
+       "reason": "distribution shift detected"
+      },
+      {
+       "event": "recalibrated",
+       "window": "recal0",
+       "pool_from": "recal0",
+       "pool_size": 4000,
+       "certified": false
+      },
+      {
+       "event": "recalibrated",
+       "window": "recal1",
+       "pool_from": "recal0",
+       "pool_size": 8000,
+       "certified": true
+      },
+      {
+       "event": "refused",
+       "reason": "distribution shift detected"
+      },
+      {
+       "event": "recalibrated",
+       "window": "recal2",
+       "pool_from": "recal2",
+       "pool_size": 4000,
+       "certified": false
+      },
+      {
+       "event": "recalibrated",
+       "window": "recal3",
+       "pool_from": "recal2",
+       "pool_size": 8000,
+       "certified": true
+      }
+     ]
+    },
+    "0.02": {
+     "kept_frac": 0.50668,
+     "labeled_frac": 0.32,
+     "refused_batches": 4,
+     "n_batches": 25,
+     "all": {
+      "kept": 25334,
+      "errors": 335,
+      "ler": 0.013223336227994001,
+      "wilson95_upper": 0.014705611045915223,
+      "held": true
+     },
+     "after_recal": {
+      "kept": 25334,
+      "errors": 335,
+      "ler": 0.013223336227994001,
+      "wilson95_upper": 0.014705611045915223,
+      "held": true
+     },
+     "per_job_kept_frac": [
+      0.51456,
+      0.4988
+     ],
+     "pymatching_decoded": 0.022176470588235294,
+     "recalibrations": 4,
+     "episodes": 4,
+     "gave_up": 0,
+     "labeled_shots": 16000,
+     "pool": "recent",
+     "window_shots": 4000,
+     "events": [
+      {
+       "event": "refused",
+       "reason": "distribution shift detected"
+      },
+      {
+       "event": "recalibrated",
+       "window": "recal0",
+       "pool_from": "recal0",
+       "pool_size": 4000,
+       "certified": true
+      },
+      {
+       "event": "refused",
+       "reason": "distribution shift detected"
+      },
+      {
+       "event": "recalibrated",
+       "window": "recal1",
+       "pool_from": "recal1",
+       "pool_size": 4000,
+       "certified": true
+      },
+      {
+       "event": "refused",
+       "reason": "distribution shift detected"
+      },
+      {
+       "event": "recalibrated",
+       "window": "recal2",
+       "pool_from": "recal2",
+       "pool_size": 4000,
+       "certified": true
+      },
+      {
+       "event": "refused",
+       "reason": "distribution shift detected"
+      },
+      {
+       "event": "recalibrated",
+       "window": "recal3",
+       "pool_from": "recal3",
+       "pool_size": 4000,
+       "certified": true
+      }
+     ]
+    }
+   }
+  }
+ ]
+}
