@@ -36,7 +36,8 @@ That is roughly 30 times fewer errors than the decoder alone, at the cost of dis
 ## Try it
 
 ```bash
-pip install -e .
+git clone https://github.com/AMashettiwar/qcal && cd qcal
+pip install -e ".[dev]"
 pytest -q tests
 qcal bench --distance 5 --p 0.005 --alpha 0.001
 ```
@@ -45,7 +46,7 @@ To run it as a service (interactive docs at `http://127.0.0.1:8000/docs`):
 
 ```bash
 qcal serve --port 8000
-python examples/api_demo.py
+python examples/api_demo.py --url http://127.0.0.1:8000
 ```
 
 ## How it works, briefly
