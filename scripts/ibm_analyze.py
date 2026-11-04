@@ -3,8 +3,9 @@
 test shots: majority vote of final data readout, and plain PyMatching (accept everything).
 usage: python scripts/ibm_analyze.py [N_TEST_JOBS=2] [placeholder|fitted] [OUT_JSON] [LOCAL_P=0]
   placeholder  decoder model with the fixed uniform rates in qcal/repcode.py (out/ibm_results.json)
-  fitted       same graph, edge rates fitted from the calibration jobs' detection events only (out/ibm_results_fitted.json)"""
-import sys, json, glob, tempfile, numpy as np
+  fitted       same graph, edge rates fitted from the calibration jobs' detection events only (out/ibm_results_fitted.json)
+Data directory: QCAL_IBM_OUT (default out/ibm)."""
+import sys, os, json, glob, tempfile, numpy as np
 import os as _os, sys as _sys; ROOT = _os.path.dirname(_os.path.dirname(_os.path.abspath(__file__))); _sys.path.insert(0, ROOT); _os.chdir(ROOT)
 from fastapi.testclient import TestClient
 from qcal.api import create_app
@@ -15,9 +16,10 @@ MODE = sys.argv[2] if len(sys.argv) > 2 else "placeholder"
 assert MODE in ("placeholder", "fitted")
 OUT = sys.argv[3] if len(sys.argv) > 3 else ("out/ibm_results.json" if MODE == "placeholder" else "out/ibm_results_fitted.json")
 LOCAL_P = float(sys.argv[4]) if len(sys.argv) > 4 else 0.0
+DATA = os.environ.get("QCAL_IBM_OUT", "out/ibm")
 ALPHAS = [0.002, 0.005, 0.01, 0.02]; B = 2000
-recs = sorted([json.load(open(f)) for f in glob.glob("out/ibm/*.json") if not f.endswith("failed.json")], key=lambda r: r["submitted"])
-recs = [r for r in recs if r["tag"].startswith("main")]
+recs = sorted([json.load(open(f)) for f in glob.glob(f"{DATA}/*.json") if not f.endswith("failed.json")], key=lambda r: r["submitted"])
+recs = [r for r in recs if r["tag"].startswith("main") and os.path.exists(f"{DATA}/{r['job_id']}.npz")]
 assert len(recs) > NT, f"only {len(recs)} main jobs fetched"
 cal_jobs, test_jobs = recs[:-NT], recs[-NT:]
 c = TestClient(create_app(tempfile.mkdtemp(), api_key="", rate_per_min=10**6, local_p=LOCAL_P))
@@ -25,7 +27,7 @@ out = {"model": MODE, "cal_jobs": [r["job_id"] for r in cal_jobs], "test_jobs": 
 for i, p in enumerate(recs[0]["pubs"]):
     n, R, L = p["n"], p["rounds"], p["logical"]; circ = stim_circuit(n, R, L); dev = f"ibm_n{n}_r{R}_L{L}"
     def load(r):
-        m = np.load(f"out/ibm/{r['job_id']}.npz")[f"m{i}"]; d, o = to_detections(circ, m); return m, d, o
+        m = np.load(f"{DATA}/{r['job_id']}.npz")[f"m{i}"]; d, o = to_detections(circ, m); return m, d, o
     S = lambda d: ["".join(map(str, row)) for row in d]
     model = {"circuit": str(circ)}
     if MODE == "fitted":   # fitted on calibration jobs only; test jobs are never looked at here

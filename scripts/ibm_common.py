@@ -3,7 +3,7 @@ import os, json, time, numpy as np
 from qiskit import QuantumCircuit, ClassicalRegister, QuantumRegister, transpile
 
 BACKEND = os.environ.get("QCAL_IBM_BACKEND", "ibm_kingston")
-OUT = "out/ibm"
+OUT = os.environ.get("QCAL_IBM_OUT", "out/ibm")
 
 
 def service():
