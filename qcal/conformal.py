@@ -24,18 +24,17 @@ def ltt_threshold(score, y, alpha, delta=0.1, n_grid=400, grid=None, power_facto
     # certified (even with 0 errors), so they are dropped from the fixed sequence.
     # power_factor>1 starts the sequence where a test has real power (still label-independent).
     k_min = min(len(y), power_factor * int(np.ceil(np.log(delta) / np.log1p(-alpha))))
-    best = None
-    for t in grid:  # fixed sequence: strictest -> loosest; stop at first failure
-        k = np.searchsorted(s_sorted, t, side="right")
-        if k < k_min:
-            continue
-        errs = cum_err[k]
-        # H0: conditional risk > alpha. Valid p-value via binomial tail on accepted shots.
-        pval = binom.cdf(errs, k, alpha)
-        if pval <= delta:
-            best = t
-        else:
-            break
+    # fixed sequence: strictest -> loosest; stop at the first failure.
+    # H0: conditional risk > alpha. Valid p-value via binomial tail on accepted shots.
+    ks = np.searchsorted(s_sorted, grid, side="right")
+    keep = ks >= k_min
+    ts, ks = grid[keep], ks[keep]
+    if len(ks) == 0:
+        return None
+    pval = binom.cdf(cum_err[ks], ks, alpha)
+    fail = np.nonzero(pval > delta)[0]
+    n_pass = fail[0] if len(fail) else len(ks)
+    best = ts[n_pass - 1] if n_pass else None
     return best  # None => can't certify; reject everything
 
 

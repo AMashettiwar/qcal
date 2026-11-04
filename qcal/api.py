@@ -197,6 +197,37 @@ def _drift_exp(dem):
         return None
 
 
+def _certify(s_ca, y_ca, grid, alphas, delta, margin, drift_exp=None):
+    """Learn-then-Test certificate (and drift ladder) for each alpha, from calibration scores s_ca."""
+    n_ca = len(y_ca); certs = {}
+    for al in alphas:
+        ae = margin * al; need = _min_cal(ae, delta)
+        t = ltt_threshold(s_ca, y_ca, ae, delta, grid=grid)
+        if t is None:
+            why = (f"calibration split has {n_ca} shots; certifying alpha_eff={ae:.3g} at delta={delta} needs "
+                   f"at least {need} accepted shots with zero errors (in practice ~5x that)"
+                   if n_ca < 5 * need else
+                   "no threshold passed the Learn-then-Test binomial test (decoder too unreliable at this alpha)")
+            certs[str(al)] = {"certified": False, "reason": why, "alpha_eff": ae}
+        else:
+            acc = s_ca <= t
+            certs[str(al)] = {"certified": True, "threshold": float(t), "alpha_eff": ae,
+                              "cal_accept_rate": float(acc.mean()), "cal_accepted": int(acc.sum()),
+                              "cal_accepted_errors": int(y_ca[acc].sum())}
+            if drift_exp:
+                # label-free drift correction: if a decode batch's mean syndrome weight is r x the calibration
+                # mean, certify at alpha_eff / r^drift_exp instead. Thresholds precomputed for a ladder of r.
+                lad = []
+                for rr in DRIFT_LADDER:
+                    aer = ae / rr ** drift_exp; nd = _min_cal(aer, delta)
+                    pf = max(1, min(5, int(0.4 * n_ca / nd)))  # label-independent start, kept feasible for this cal size
+                    tr_ = ltt_threshold(s_ca, y_ca, aer, delta, grid=grid, power_factor=pf)
+                    if tr_ is None: break
+                    lad.append([rr, float(tr_)])
+                certs[str(al)]["drift_ladder"] = lad
+    return certs
+
+
 def _fit_profile(F, y, head, alphas, delta, margin, seed, drift_exp=None, det_counts=None, n_shots=None):
     n = len(y)
     idx = np.random.default_rng(seed).permutation(n)
@@ -212,32 +243,7 @@ def _fit_profile(F, y, head, alphas, delta, margin, seed, drift_exp=None, det_co
     score = lambda X: iso.predict(raw(X)) - 1e-9 * X[:, 0] / (1 + gmax)
     s_rc, s_ca = score(F[rc]), score(F[ca])
     grid = np.unique(np.quantile(s_rc, np.linspace(0, 1, 2000)))
-    certs = {}
-    for al in alphas:
-        ae = margin * al; need = _min_cal(ae, delta)
-        t = ltt_threshold(s_ca, y[ca], ae, delta, grid=grid)
-        if t is None:
-            why = (f"calibration split has {len(ca)} shots; certifying alpha_eff={ae:.3g} at delta={delta} needs "
-                   f"at least {need} accepted shots with zero errors (in practice ~5x that)"
-                   if len(ca) < 5 * need else
-                   "no threshold passed the Learn-then-Test binomial test (decoder too unreliable at this alpha)")
-            certs[str(al)] = {"certified": False, "reason": why, "alpha_eff": ae}
-        else:
-            acc = s_ca <= t
-            certs[str(al)] = {"certified": True, "threshold": float(t), "alpha_eff": ae,
-                              "cal_accept_rate": float(acc.mean()), "cal_accepted": int(acc.sum()),
-                              "cal_accepted_errors": int(y[ca][acc].sum())}
-            if drift_exp:
-                # label-free drift correction: if a decode batch's mean syndrome weight is r x the calibration
-                # mean, certify at alpha_eff / r^drift_exp instead. Thresholds precomputed for a ladder of r.
-                lad = []
-                for rr in DRIFT_LADDER:
-                    aer = ae / rr ** drift_exp; nd = _min_cal(aer, delta)
-                    pf = max(1, min(5, int(0.4 * len(ca) / nd)))  # label-independent start, kept feasible for this cal size
-                    tr_ = ltt_threshold(s_ca, y[ca], aer, delta, grid=grid, power_factor=pf)
-                    if tr_ is None: break
-                    lad.append([rr, float(tr_)])
-                certs[str(al)]["drift_ladder"] = lad
+    certs = _certify(s_ca, y[ca], grid, alphas, delta, margin, drift_exp)
     ref = np.sort(s_ca)[np.linspace(0, len(s_ca) - 1, min(2000, len(s_ca))).astype(int)]
     return {"ref_scores": ref.tolist(), "sw_mean": float(F[:, 2].mean()), "drift_exp": drift_exp,
             "det_counts": None if det_counts is None else np.asarray(det_counts).astype(int).tolist(), "det_shots": n_shots, "head": head, "cols": cols, "mu": mu.tolist(), "sd": sd.tolist(),
