@@ -101,6 +101,7 @@ n=3 |1>: α=0.005 kept 67.6% at 0.071%; n=5 |1>: 98.8% at 0.18%; caps held in 9/
 ## Caveats
 - **The qubit line changed between campaigns.** The headline calibration mixes 3 jobs on line 1 with 1 job on line 2, and the test is on line 2. The same-line check above gives the same conclusions.
 - Six jobs over about 14 hours, one backend, one day. Each cell is 50k test shots, so these are point results, not a coverage study over many trials.
+- A replication on a second chip (`ibm_marrakesh`) is in `docs/IBM_REPLICATION.md`.
 - The repetition code protects only against bit flips. It is not a full QEC memory.
 - The headline table uses uniform placeholder noise rates. A fitted DEM (section above) helps PyMatching on |1> by about 20% but not on |0>.
 - The simulator (`scripts/ibm_sim.py`, Aer with kingston's noise) is far more optimistic than the chip (≈0.03% vs ≈3% LER on n=3 |1>).

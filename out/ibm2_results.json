@@ -1,0 +1,425 @@
+{
+ "model": "placeholder",
+ "cal_jobs": [
+  "dbl9eft8mdtc73d5nm5g",
+  "dbl9t4l8mdtc73d5onm0",
+  "dbla73e74qds73dq3sl0",
+  "dblah0hkbkrc73cnc970"
+ ],
+ "test_jobs": [
+  "dblasbm74qds73dq59ng",
+  "dblb699kbkrc73cndjdg"
+ ],
+ "configs": [
+  {
+   "device": "ibm_n3_r5_L0",
+   "n": 3,
+   "rounds": 5,
+   "logical": 0,
+   "chain": [
+    46,
+    45,
+    44,
+    43,
+    42
+   ],
+   "cal_pool": 100000,
+   "cal_pool_ler": 0.00088,
+   "status": "ok",
+   "reason": null,
+   "certificates": {
+    "0.002": {
+     "certified": true,
+     "threshold": 0.2580645160336909,
+     "alpha_eff": 0.0016,
+     "cal_accept_rate": 0.99868,
+     "cal_accepted": 24967,
+     "cal_accepted_errors": 22
+    },
+    "0.005": {
+     "certified": true,
+     "threshold": 0.4285714285611824,
+     "alpha_eff": 0.004,
+     "cal_accept_rate": 1.0,
+     "cal_accepted": 25000,
+     "cal_accepted_errors": 36
+    },
+    "0.01": {
+     "certified": true,
+     "threshold": 0.4285714285611824,
+     "alpha_eff": 0.008,
+     "cal_accept_rate": 1.0,
+     "cal_accepted": 25000,
+     "cal_accepted_errors": 36
+    },
+    "0.02": {
+     "certified": true,
+     "threshold": 0.4285714285611824,
+     "alpha_eff": 0.016,
+     "cal_accept_rate": 1.0,
+     "cal_accepted": 25000,
+     "cal_accepted_errors": 36
+    }
+   },
+   "test_shots": 50000,
+   "test_raw_flip": 0.01478,
+   "test_ler_majority": 0.00022,
+   "test_ler_pymatching": 0.00082,
+   "alphas": {
+    "0.002": {
+     "certified_batches": 12,
+     "refused_batches": 13,
+     "n_batches": 25,
+     "accept_rate": 0.47964,
+     "accepted": 23982,
+     "accepted_errors": 6,
+     "accepted_ler": 0.0002501876407305479,
+     "wilson95_upper": 0.0005457897331567035,
+     "cap_held": true
+    },
+    "0.005": {
+     "certified_batches": 12,
+     "refused_batches": 13,
+     "n_batches": 25,
+     "accept_rate": 0.47998,
+     "accepted": 23999,
+     "accepted_errors": 11,
+     "accepted_ler": 0.0004583524313513063,
+     "wilson95_upper": 0.0008206444247952467,
+     "cap_held": true
+    },
+    "0.01": {
+     "certified_batches": 12,
+     "refused_batches": 13,
+     "n_batches": 25,
+     "accept_rate": 0.47998,
+     "accepted": 23999,
+     "accepted_errors": 11,
+     "accepted_ler": 0.0004583524313513063,
+     "wilson95_upper": 0.0008206444247952467,
+     "cap_held": true
+    },
+    "0.02": {
+     "certified_batches": 12,
+     "refused_batches": 13,
+     "n_batches": 25,
+     "accept_rate": 0.47998,
+     "accepted": 23999,
+     "accepted_errors": 11,
+     "accepted_ler": 0.0004583524313513063,
+     "wilson95_upper": 0.0008206444247952467,
+     "cap_held": true
+    }
+   }
+  },
+  {
+   "device": "ibm_n3_r5_L1",
+   "n": 3,
+   "rounds": 5,
+   "logical": 1,
+   "chain": [
+    46,
+    45,
+    44,
+    43,
+    42
+   ],
+   "cal_pool": 100000,
+   "cal_pool_ler": 0.09387,
+   "status": "ok",
+   "reason": null,
+   "certificates": {
+    "0.002": {
+     "certified": false,
+     "reason": "no threshold passed the Learn-then-Test binomial test (decoder too unreliable at this alpha)",
+     "alpha_eff": 0.0016
+    },
+    "0.005": {
+     "certified": true,
+     "threshold": 0.0008312542752971844,
+     "alpha_eff": 0.004,
+     "cal_accept_rate": 0.3868,
+     "cal_accepted": 9670,
+     "cal_accepted_errors": 14
+    },
+    "0.01": {
+     "certified": true,
+     "threshold": 0.07317566133881728,
+     "alpha_eff": 0.008,
+     "cal_accept_rate": 0.41568,
+     "cal_accepted": 10392,
+     "cal_accepted_errors": 53
+    },
+    "0.02": {
+     "certified": true,
+     "threshold": 0.07317566160207872,
+     "alpha_eff": 0.016,
+     "cal_accept_rate": 0.42884,
+     "cal_accepted": 10721,
+     "cal_accepted_errors": 131
+    }
+   },
+   "test_shots": 50000,
+   "test_raw_flip": 0.32258,
+   "test_ler_majority": 0.1025,
+   "test_ler_pymatching": 0.06614,
+   "alphas": {
+    "0.002": {
+     "certified_batches": 0,
+     "refused_batches": 22,
+     "n_batches": 25,
+     "accept_rate": 0.0,
+     "accepted": 0,
+     "accepted_errors": 0,
+     "accepted_ler": null,
+     "wilson95_upper": null,
+     "cap_held": null
+    },
+    "0.005": {
+     "certified_batches": 3,
+     "refused_batches": 22,
+     "n_batches": 25,
+     "accept_rate": 0.04112,
+     "accepted": 2056,
+     "accepted_errors": 3,
+     "accepted_ler": 0.0014591439688715954,
+     "wilson95_upper": 0.0042814901404666355,
+     "cap_held": true
+    },
+    "0.01": {
+     "certified_batches": 3,
+     "refused_batches": 22,
+     "n_batches": 25,
+     "accept_rate": 0.05584,
+     "accepted": 2792,
+     "accepted_errors": 7,
+     "accepted_ler": 0.002507163323782235,
+     "wilson95_upper": 0.005166487314187012,
+     "cap_held": true
+    },
+    "0.02": {
+     "certified_batches": 3,
+     "refused_batches": 22,
+     "n_batches": 25,
+     "accept_rate": 0.05816,
+     "accepted": 2908,
+     "accepted_errors": 19,
+     "accepted_ler": 0.006533700137551582,
+     "wilson95_upper": 0.010182638902424272,
+     "cap_held": true
+    }
+   }
+  },
+  {
+   "device": "ibm_n5_r5_L0",
+   "n": 5,
+   "rounds": 5,
+   "logical": 0,
+   "chain": [
+    41,
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    57,
+    67
+   ],
+   "cal_pool": 100000,
+   "cal_pool_ler": 0.00037,
+   "status": "ok",
+   "reason": null,
+   "certificates": {
+    "0.002": {
+     "certified": true,
+     "threshold": 0.3636363636237808,
+     "alpha_eff": 0.0016,
+     "cal_accept_rate": 0.99996,
+     "cal_accepted": 24999,
+     "cal_accepted_errors": 10
+    },
+    "0.005": {
+     "certified": true,
+     "threshold": 0.3636363636237808,
+     "alpha_eff": 0.004,
+     "cal_accept_rate": 0.99996,
+     "cal_accepted": 24999,
+     "cal_accepted_errors": 10
+    },
+    "0.01": {
+     "certified": true,
+     "threshold": 0.3636363636237808,
+     "alpha_eff": 0.008,
+     "cal_accept_rate": 0.99996,
+     "cal_accepted": 24999,
+     "cal_accepted_errors": 10
+    },
+    "0.02": {
+     "certified": true,
+     "threshold": 0.3636363636237808,
+     "alpha_eff": 0.016,
+     "cal_accept_rate": 0.99996,
+     "cal_accepted": 24999,
+     "cal_accepted_errors": 10
+    }
+   },
+   "test_shots": 50000,
+   "test_raw_flip": 0.00712,
+   "test_ler_majority": 4e-05,
+   "test_ler_pymatching": 0.00024,
+   "alphas": {
+    "0.002": {
+     "certified_batches": 6,
+     "refused_batches": 19,
+     "n_batches": 25,
+     "accept_rate": 0.24,
+     "accepted": 12000,
+     "accepted_errors": 5,
+     "accepted_ler": 0.0004166666666666667,
+     "wilson95_upper": 0.0009751123360251667,
+     "cap_held": true
+    },
+    "0.005": {
+     "certified_batches": 6,
+     "refused_batches": 19,
+     "n_batches": 25,
+     "accept_rate": 0.24,
+     "accepted": 12000,
+     "accepted_errors": 5,
+     "accepted_ler": 0.0004166666666666667,
+     "wilson95_upper": 0.0009751123360251667,
+     "cap_held": true
+    },
+    "0.01": {
+     "certified_batches": 6,
+     "refused_batches": 19,
+     "n_batches": 25,
+     "accept_rate": 0.24,
+     "accepted": 12000,
+     "accepted_errors": 5,
+     "accepted_ler": 0.0004166666666666667,
+     "wilson95_upper": 0.0009751123360251667,
+     "cap_held": true
+    },
+    "0.02": {
+     "certified_batches": 6,
+     "refused_batches": 19,
+     "n_batches": 25,
+     "accept_rate": 0.24,
+     "accepted": 12000,
+     "accepted_errors": 5,
+     "accepted_ler": 0.0004166666666666667,
+     "wilson95_upper": 0.0009751123360251667,
+     "cap_held": true
+    }
+   }
+  },
+  {
+   "device": "ibm_n5_r5_L1",
+   "n": 5,
+   "rounds": 5,
+   "logical": 1,
+   "chain": [
+    41,
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    57,
+    67
+   ],
+   "cal_pool": 100000,
+   "cal_pool_ler": 0.04402,
+   "status": "ok",
+   "reason": null,
+   "certificates": {
+    "0.002": {
+     "certified": true,
+     "threshold": 0.00602409584041354,
+     "alpha_eff": 0.0016,
+     "cal_accept_rate": 0.57736,
+     "cal_accepted": 14434,
+     "cal_accepted_errors": 16
+    },
+    "0.005": {
+     "certified": true,
+     "threshold": 0.03335649717989689,
+     "alpha_eff": 0.004,
+     "cal_accept_rate": 0.73516,
+     "cal_accepted": 18379,
+     "cal_accepted_errors": 62
+    },
+    "0.01": {
+     "certified": true,
+     "threshold": 0.04768392343583233,
+     "alpha_eff": 0.008,
+     "cal_accept_rate": 0.81568,
+     "cal_accepted": 20392,
+     "cal_accepted_errors": 145
+    },
+    "0.02": {
+     "certified": true,
+     "threshold": 0.10526315770112923,
+     "alpha_eff": 0.016,
+     "cal_accept_rate": 0.89672,
+     "cal_accepted": 22418,
+     "cal_accepted_errors": 329
+    }
+   },
+   "test_shots": 50000,
+   "test_raw_flip": 0.18904,
+   "test_ler_majority": 0.0627,
+   "test_ler_pymatching": 0.02326,
+   "alphas": {
+    "0.002": {
+     "certified_batches": 5,
+     "refused_batches": 20,
+     "n_batches": 25,
+     "accept_rate": 0.11938,
+     "accepted": 5969,
+     "accepted_errors": 4,
+     "accepted_ler": 0.0006701289998324678,
+     "wilson95_upper": 0.0017219481666499292,
+     "cap_held": true
+    },
+    "0.005": {
+     "certified_batches": 5,
+     "refused_batches": 20,
+     "n_batches": 25,
+     "accept_rate": 0.14644,
+     "accepted": 7322,
+     "accepted_errors": 19,
+     "accepted_ler": 0.002594919420923245,
+     "wilson95_upper": 0.0040495938298617685,
+     "cap_held": true
+    },
+    "0.01": {
+     "certified_batches": 5,
+     "refused_batches": 20,
+     "n_batches": 25,
+     "accept_rate": 0.16564,
+     "accepted": 8282,
+     "accepted_errors": 50,
+     "accepted_ler": 0.006037189084762135,
+     "wilson95_upper": 0.007949833776143585,
+     "cap_held": true
+    },
+    "0.02": {
+     "certified_batches": 5,
+     "refused_batches": 20,
+     "n_batches": 25,
+     "accept_rate": 0.18182,
+     "accepted": 9091,
+     "accepted_errors": 97,
+     "accepted_ler": 0.010669893301066989,
+     "wilson95_upper": 0.012998262542218055,
+     "cap_held": true
+    }
+   }
+  }
+ ],
+ "local_p": 0.0
+}

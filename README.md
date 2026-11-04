@@ -27,7 +27,7 @@ That is roughly 30 times fewer errors than the decoder alone, at the cost of dis
 
 ## What it does not do yet
 
-- The IBM result is one chip on one day, with a bit-flip repetition code only.
+- The IBM results are two chips on one day, with a bit-flip repetition code only. On a second chip (`ibm_marrakesh`, [replication](docs/IBM_REPLICATION.md)) every certificate held again, but the chip drifted so much that qcal refused most batches, and majority vote still won on state 0.
 - Nobody else has reproduced it.
 - Uneven drift (one bad qubit, region or round) is tested only in simulation. The default settings hold in 46 of 48 cases. The two misses are one qubit at 3× noise on the d=3 and d=5 codes at the tightest cap: coverage was 94.4% and 90.5%, but the error bars dip below my 85% floor. See `docs/VALIDATION.md` 2c.
 - It is not real-time: it scores batches, not a live stream.
@@ -57,11 +57,11 @@ python examples/api_demo.py
 ## More detail
 
 - [Validation report, with numbers and failures](docs/VALIDATION.md)
-- [IBM chip experiment](docs/IBM_PILOT.md)
+- [IBM chip experiment](docs/IBM_PILOT.md) and [replication on a second chip](docs/IBM_REPLICATION.md)
 - [Plain-language explainer](docs/EXPLAINER.md)
 - [Full technical reference](docs/DETAILS.md), including the API, all tables and the experiment history
 
-Everything in `scripts/` regenerates the numbers above. Raw IBM measurement data is in `out/ibm/`.
+Everything in `scripts/` regenerates the numbers above. Raw IBM measurement data is in `out/ibm/` and `out/ibm2/`.
 
 ## Cite, contact, license
 

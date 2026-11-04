@@ -1,0 +1,53 @@
+qiskit_runtime_service._discover_account:WARNING:2026-11-03 18:23:50,652: Loading account with the given token. A saved account will not be used.
+2026-11-03 18:23:53 PST job 0 on ibm_marrakesh: instance usage 182s, remaining 418s, this campaign 0.0s, estimate 41s
+qiskit_runtime_service._discover_account:WARNING:2026-11-03 18:23:54,614: Loading account with the given token. A saved account will not be used.
+submitted dbl9eft8mdtc73d5nm5g
+18:24:00 dbl9eft8mdtc73d5nm5g QUEUED
+18:25:00 dbl9eft8mdtc73d5nm5g DONE
+saved dbl9eft8mdtc73d5nm5g {'job_id': 'dbl9eft8mdtc73d5nm5g', 'qpu_charge_seconds': 31, 'circuits_execution_s': 28.906910976, 'timestamps': {'created': '2026-11-04T02:23:59.67281Z', 'finished': '2026-11-04T02:24:51.159204Z', 'running': '2026-11-04T02:24:00.959424Z'}, 'fetched': 1793759100.6349947}
+2026-11-03 18:25:00 PST job 0 logged: [('dbl9eft8mdtc73d5nm5g', 31)]
+qiskit_runtime_service._discover_account:WARNING:2026-11-03 18:55:02,998: Loading account with the given token. A saved account will not be used.
+2026-11-03 18:55:08 PST job 1 on ibm_marrakesh: instance usage 213s, remaining 387s, this campaign 31.0s, estimate 41s
+qiskit_runtime_service._discover_account:WARNING:2026-11-03 18:55:09,466: Loading account with the given token. A saved account will not be used.
+submitted dbl9t4l8mdtc73d5onm0
+18:55:14 dbl9t4l8mdtc73d5onm0 QUEUED
+18:56:18 dbl9t4l8mdtc73d5onm0 DONE
+saved dbl9t4l8mdtc73d5onm0 {'job_id': 'dbl9t4l8mdtc73d5onm0', 'qpu_charge_seconds': 31, 'circuits_execution_s': 28.906910976, 'timestamps': {'created': '2026-11-04T02:55:14.226638Z', 'finished': '2026-11-04T02:55:51.930864Z', 'running': '2026-11-04T02:55:15.336587Z'}, 'fetched': 1793760979.408354}
+2026-11-03 18:56:19 PST job 1 logged: [('dbl9t4l8mdtc73d5onm0', 31)]
+qiskit_runtime_service._discover_account:WARNING:2026-11-03 19:16:19,691: Loading account with the given token. A saved account will not be used.
+2026-11-03 19:16:22 PST job 2 on ibm_marrakesh: instance usage 244s, remaining 356s, this campaign 62.0s, estimate 41s
+qiskit_runtime_service._discover_account:WARNING:2026-11-03 19:16:24,027: Loading account with the given token. A saved account will not be used.
+submitted dbla73e74qds73dq3sl0
+19:16:29 dbla73e74qds73dq3sl0 QUEUED
+19:17:29 dbla73e74qds73dq3sl0 DONE
+saved dbla73e74qds73dq3sl0 {'job_id': 'dbla73e74qds73dq3sl0', 'qpu_charge_seconds': 31, 'circuits_execution_s': 28.910910976, 'timestamps': {'created': '2026-11-04T03:16:29.06299Z', 'finished': '2026-11-04T03:17:06.751875Z', 'running': '2026-11-04T03:16:30.314849Z'}, 'fetched': 1793762250.0078213}
+2026-11-03 19:17:30 PST job 2 logged: [('dbla73e74qds73dq3sl0', 31)]
+qiskit_runtime_service._discover_account:WARNING:2026-11-03 19:37:30,309: Loading account with the given token. A saved account will not be used.
+2026-11-03 19:37:33 PST job 3 on ibm_marrakesh: instance usage 275s, remaining 325s, this campaign 93.0s, estimate 41s
+qiskit_runtime_service._discover_account:WARNING:2026-11-03 19:37:34,198: Loading account with the given token. A saved account will not be used.
+submitted dblah0hkbkrc73cnc970
+19:37:39 dblah0hkbkrc73cnc970 QUEUED
+19:38:39 dblah0hkbkrc73cnc970 QUEUED
+19:39:39 dblah0hkbkrc73cnc970 QUEUED
+19:40:39 dblah0hkbkrc73cnc970 RUNNING
+19:41:40 dblah0hkbkrc73cnc970 DONE
+saved dblah0hkbkrc73cnc970 {'job_id': 'dblah0hkbkrc73cnc970', 'qpu_charge_seconds': 31, 'circuits_execution_s': 28.910910976, 'timestamps': {'created': '2026-11-04T03:37:38.969889Z', 'finished': '2026-11-04T03:41:19.393389Z', 'running': '2026-11-04T03:40:05.775155Z'}, 'fetched': 1793763700.8073554}
+2026-11-03 19:41:41 PST job 3 logged: [('dblah0hkbkrc73cnc970', 31)]
+qiskit_runtime_service._discover_account:WARNING:2026-11-03 20:01:41,084: Loading account with the given token. A saved account will not be used.
+2026-11-03 20:01:43 PST job 4 on ibm_marrakesh: instance usage 306s, remaining 294s, this campaign 124.0s, estimate 41s
+qiskit_runtime_service._discover_account:WARNING:2026-11-03 20:01:44,827: Loading account with the given token. A saved account will not be used.
+submitted dblasbm74qds73dq59ng
+20:01:50 dblasbm74qds73dq59ng QUEUED
+20:02:50 dblasbm74qds73dq59ng DONE
+saved dblasbm74qds73dq59ng {'job_id': 'dblasbm74qds73dq59ng', 'qpu_charge_seconds': 31, 'circuits_execution_s': 28.910910976, 'timestamps': {'created': '2026-11-04T04:01:50.398488Z', 'finished': '2026-11-04T04:02:29.309513Z', 'running': '2026-11-04T04:01:52.186543Z'}, 'fetched': 1793764971.357286}
+2026-11-03 20:02:51 PST job 4 logged: [('dblasbm74qds73dq59ng', 31)]
+qiskit_runtime_service._discover_account:WARNING:2026-11-03 20:22:51,620: Loading account with the given token. A saved account will not be used.
+2026-11-03 20:22:55 PST job 5 on ibm_marrakesh: instance usage 337s, remaining 263s, this campaign 155.0s, estimate 41s
+qiskit_runtime_service._discover_account:WARNING:2026-11-03 20:22:56,413: Loading account with the given token. A saved account will not be used.
+submitted dblb699kbkrc73cndjdg
+20:23:02 dblb699kbkrc73cndjdg QUEUED
+20:24:02 dblb699kbkrc73cndjdg DONE
+saved dblb699kbkrc73cndjdg {'job_id': 'dblb699kbkrc73cndjdg', 'qpu_charge_seconds': 31, 'circuits_execution_s': 29.19270528, 'timestamps': {'created': '2026-11-04T04:23:01.405458Z', 'finished': '2026-11-04T04:23:39.312483Z', 'running': '2026-11-04T04:23:02.737082Z'}, 'fetched': 1793766242.505714}
+2026-11-03 20:24:02 PST job 5 logged: [('dblb699kbkrc73cndjdg', 31)]
+qiskit_runtime_service._discover_account:WARNING:2026-11-03 20:24:02,740: Loading account with the given token. A saved account will not be used.
+campaign done; usage 368

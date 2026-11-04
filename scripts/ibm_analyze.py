@@ -4,7 +4,7 @@ test shots: majority vote of final data readout, and plain PyMatching (accept ev
 usage: python scripts/ibm_analyze.py [N_TEST_JOBS=2] [placeholder|fitted] [OUT_JSON] [LOCAL_P=0]
   placeholder  decoder model with the fixed uniform rates in qcal/repcode.py (out/ibm_results.json)
   fitted       same graph, edge rates fitted from the calibration jobs' detection events only (out/ibm_results_fitted.json)
-Data directory: QCAL_IBM_OUT (default out/ibm)."""
+Data directory: QCAL_IBM_OUT (default out/ibm). Optional QCAL_IBM_JOBS=id1,id2,... restricts to those jobs."""
 import sys, os, json, glob, tempfile, numpy as np
 import os as _os, sys as _sys; ROOT = _os.path.dirname(_os.path.dirname(_os.path.abspath(__file__))); _sys.path.insert(0, ROOT); _os.chdir(ROOT)
 from fastapi.testclient import TestClient
@@ -20,6 +20,8 @@ DATA = os.environ.get("QCAL_IBM_OUT", "out/ibm")
 ALPHAS = [0.002, 0.005, 0.01, 0.02]; B = 2000
 recs = sorted([json.load(open(f)) for f in glob.glob(f"{DATA}/*.json") if not f.endswith("failed.json")], key=lambda r: r["submitted"])
 recs = [r for r in recs if r["tag"].startswith("main") and os.path.exists(f"{DATA}/{r['job_id']}.npz")]
+if os.environ.get("QCAL_IBM_JOBS"):   # optional subset of job ids (same-line checks); time order is kept
+    keep = os.environ["QCAL_IBM_JOBS"].split(","); recs = [r for r in recs if r["job_id"] in keep]
 assert len(recs) > NT, f"only {len(recs)} main jobs fetched"
 cal_jobs, test_jobs = recs[:-NT], recs[-NT:]
 c = TestClient(create_app(tempfile.mkdtemp(), api_key="", rate_per_min=10**6, local_p=LOCAL_P))

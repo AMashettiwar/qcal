@@ -1,0 +1,424 @@
+{
+ "model": "placeholder",
+ "cal_jobs": [
+  "dbl9eft8mdtc73d5nm5g",
+  "dbl9t4l8mdtc73d5onm0",
+  "dbla73e74qds73dq3sl0",
+  "dblah0hkbkrc73cnc970"
+ ],
+ "test_jobs": [
+  "dblasbm74qds73dq59ng"
+ ],
+ "configs": [
+  {
+   "device": "ibm_n3_r5_L0",
+   "n": 3,
+   "rounds": 5,
+   "logical": 0,
+   "chain": [
+    46,
+    45,
+    44,
+    43,
+    42
+   ],
+   "cal_pool": 100000,
+   "cal_pool_ler": 0.00088,
+   "status": "ok",
+   "reason": null,
+   "certificates": {
+    "0.002": {
+     "certified": true,
+     "threshold": 0.2580645160336909,
+     "alpha_eff": 0.0016,
+     "cal_accept_rate": 0.99868,
+     "cal_accepted": 24967,
+     "cal_accepted_errors": 22
+    },
+    "0.005": {
+     "certified": true,
+     "threshold": 0.4285714285611824,
+     "alpha_eff": 0.004,
+     "cal_accept_rate": 1.0,
+     "cal_accepted": 25000,
+     "cal_accepted_errors": 36
+    },
+    "0.01": {
+     "certified": true,
+     "threshold": 0.4285714285611824,
+     "alpha_eff": 0.008,
+     "cal_accept_rate": 1.0,
+     "cal_accepted": 25000,
+     "cal_accepted_errors": 36
+    },
+    "0.02": {
+     "certified": true,
+     "threshold": 0.4285714285611824,
+     "alpha_eff": 0.016,
+     "cal_accept_rate": 1.0,
+     "cal_accepted": 25000,
+     "cal_accepted_errors": 36
+    }
+   },
+   "test_shots": 25000,
+   "test_raw_flip": 0.02892,
+   "test_ler_majority": 0.0004,
+   "test_ler_pymatching": 0.0012,
+   "alphas": {
+    "0.002": {
+     "certified_batches": 0,
+     "refused_batches": 13,
+     "n_batches": 13,
+     "accept_rate": 0.0,
+     "accepted": 0,
+     "accepted_errors": 0,
+     "accepted_ler": null,
+     "wilson95_upper": null,
+     "cap_held": null
+    },
+    "0.005": {
+     "certified_batches": 0,
+     "refused_batches": 13,
+     "n_batches": 13,
+     "accept_rate": 0.0,
+     "accepted": 0,
+     "accepted_errors": 0,
+     "accepted_ler": null,
+     "wilson95_upper": null,
+     "cap_held": null
+    },
+    "0.01": {
+     "certified_batches": 0,
+     "refused_batches": 13,
+     "n_batches": 13,
+     "accept_rate": 0.0,
+     "accepted": 0,
+     "accepted_errors": 0,
+     "accepted_ler": null,
+     "wilson95_upper": null,
+     "cap_held": null
+    },
+    "0.02": {
+     "certified_batches": 0,
+     "refused_batches": 13,
+     "n_batches": 13,
+     "accept_rate": 0.0,
+     "accepted": 0,
+     "accepted_errors": 0,
+     "accepted_ler": null,
+     "wilson95_upper": null,
+     "cap_held": null
+    }
+   }
+  },
+  {
+   "device": "ibm_n3_r5_L1",
+   "n": 3,
+   "rounds": 5,
+   "logical": 1,
+   "chain": [
+    46,
+    45,
+    44,
+    43,
+    42
+   ],
+   "cal_pool": 100000,
+   "cal_pool_ler": 0.09387,
+   "status": "ok",
+   "reason": null,
+   "certificates": {
+    "0.002": {
+     "certified": false,
+     "reason": "no threshold passed the Learn-then-Test binomial test (decoder too unreliable at this alpha)",
+     "alpha_eff": 0.0016
+    },
+    "0.005": {
+     "certified": true,
+     "threshold": 0.0008312542752971844,
+     "alpha_eff": 0.004,
+     "cal_accept_rate": 0.3868,
+     "cal_accepted": 9670,
+     "cal_accepted_errors": 14
+    },
+    "0.01": {
+     "certified": true,
+     "threshold": 0.07317566133881728,
+     "alpha_eff": 0.008,
+     "cal_accept_rate": 0.41568,
+     "cal_accepted": 10392,
+     "cal_accepted_errors": 53
+    },
+    "0.02": {
+     "certified": true,
+     "threshold": 0.07317566160207872,
+     "alpha_eff": 0.016,
+     "cal_accept_rate": 0.42884,
+     "cal_accepted": 10721,
+     "cal_accepted_errors": 131
+    }
+   },
+   "test_shots": 25000,
+   "test_raw_flip": 0.31052,
+   "test_ler_majority": 0.1058,
+   "test_ler_pymatching": 0.06624,
+   "alphas": {
+    "0.002": {
+     "certified_batches": 0,
+     "refused_batches": 10,
+     "n_batches": 13,
+     "accept_rate": 0.0,
+     "accepted": 0,
+     "accepted_errors": 0,
+     "accepted_ler": null,
+     "wilson95_upper": null,
+     "cap_held": null
+    },
+    "0.005": {
+     "certified_batches": 3,
+     "refused_batches": 10,
+     "n_batches": 13,
+     "accept_rate": 0.08224,
+     "accepted": 2056,
+     "accepted_errors": 3,
+     "accepted_ler": 0.0014591439688715954,
+     "wilson95_upper": 0.0042814901404666355,
+     "cap_held": true
+    },
+    "0.01": {
+     "certified_batches": 3,
+     "refused_batches": 10,
+     "n_batches": 13,
+     "accept_rate": 0.11168,
+     "accepted": 2792,
+     "accepted_errors": 7,
+     "accepted_ler": 0.002507163323782235,
+     "wilson95_upper": 0.005166487314187012,
+     "cap_held": true
+    },
+    "0.02": {
+     "certified_batches": 3,
+     "refused_batches": 10,
+     "n_batches": 13,
+     "accept_rate": 0.11632,
+     "accepted": 2908,
+     "accepted_errors": 19,
+     "accepted_ler": 0.006533700137551582,
+     "wilson95_upper": 0.010182638902424272,
+     "cap_held": true
+    }
+   }
+  },
+  {
+   "device": "ibm_n5_r5_L0",
+   "n": 5,
+   "rounds": 5,
+   "logical": 0,
+   "chain": [
+    41,
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    57,
+    67
+   ],
+   "cal_pool": 100000,
+   "cal_pool_ler": 0.00037,
+   "status": "ok",
+   "reason": null,
+   "certificates": {
+    "0.002": {
+     "certified": true,
+     "threshold": 0.3636363636237808,
+     "alpha_eff": 0.0016,
+     "cal_accept_rate": 0.99996,
+     "cal_accepted": 24999,
+     "cal_accepted_errors": 10
+    },
+    "0.005": {
+     "certified": true,
+     "threshold": 0.3636363636237808,
+     "alpha_eff": 0.004,
+     "cal_accept_rate": 0.99996,
+     "cal_accepted": 24999,
+     "cal_accepted_errors": 10
+    },
+    "0.01": {
+     "certified": true,
+     "threshold": 0.3636363636237808,
+     "alpha_eff": 0.008,
+     "cal_accept_rate": 0.99996,
+     "cal_accepted": 24999,
+     "cal_accepted_errors": 10
+    },
+    "0.02": {
+     "certified": true,
+     "threshold": 0.3636363636237808,
+     "alpha_eff": 0.016,
+     "cal_accept_rate": 0.99996,
+     "cal_accepted": 24999,
+     "cal_accepted_errors": 10
+    }
+   },
+   "test_shots": 25000,
+   "test_raw_flip": 0.00944,
+   "test_ler_majority": 4e-05,
+   "test_ler_pymatching": 0.00032,
+   "alphas": {
+    "0.002": {
+     "certified_batches": 7,
+     "refused_batches": 6,
+     "n_batches": 13,
+     "accept_rate": 0.52,
+     "accepted": 13000,
+     "accepted_errors": 5,
+     "accepted_ler": 0.0003846153846153846,
+     "wilson95_upper": 0.0009001308015946473,
+     "cap_held": true
+    },
+    "0.005": {
+     "certified_batches": 7,
+     "refused_batches": 6,
+     "n_batches": 13,
+     "accept_rate": 0.52,
+     "accepted": 13000,
+     "accepted_errors": 5,
+     "accepted_ler": 0.0003846153846153846,
+     "wilson95_upper": 0.0009001308015946473,
+     "cap_held": true
+    },
+    "0.01": {
+     "certified_batches": 7,
+     "refused_batches": 6,
+     "n_batches": 13,
+     "accept_rate": 0.52,
+     "accepted": 13000,
+     "accepted_errors": 5,
+     "accepted_ler": 0.0003846153846153846,
+     "wilson95_upper": 0.0009001308015946473,
+     "cap_held": true
+    },
+    "0.02": {
+     "certified_batches": 7,
+     "refused_batches": 6,
+     "n_batches": 13,
+     "accept_rate": 0.52,
+     "accepted": 13000,
+     "accepted_errors": 5,
+     "accepted_ler": 0.0003846153846153846,
+     "wilson95_upper": 0.0009001308015946473,
+     "cap_held": true
+    }
+   }
+  },
+  {
+   "device": "ibm_n5_r5_L1",
+   "n": 5,
+   "rounds": 5,
+   "logical": 1,
+   "chain": [
+    41,
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    57,
+    67
+   ],
+   "cal_pool": 100000,
+   "cal_pool_ler": 0.04402,
+   "status": "ok",
+   "reason": null,
+   "certificates": {
+    "0.002": {
+     "certified": true,
+     "threshold": 0.00602409584041354,
+     "alpha_eff": 0.0016,
+     "cal_accept_rate": 0.57736,
+     "cal_accepted": 14434,
+     "cal_accepted_errors": 16
+    },
+    "0.005": {
+     "certified": true,
+     "threshold": 0.03335649717989689,
+     "alpha_eff": 0.004,
+     "cal_accept_rate": 0.73516,
+     "cal_accepted": 18379,
+     "cal_accepted_errors": 62
+    },
+    "0.01": {
+     "certified": true,
+     "threshold": 0.04768392343583233,
+     "alpha_eff": 0.008,
+     "cal_accept_rate": 0.81568,
+     "cal_accepted": 20392,
+     "cal_accepted_errors": 145
+    },
+    "0.02": {
+     "certified": true,
+     "threshold": 0.10526315770112923,
+     "alpha_eff": 0.016,
+     "cal_accept_rate": 0.89672,
+     "cal_accepted": 22418,
+     "cal_accepted_errors": 329
+    }
+   },
+   "test_shots": 25000,
+   "test_raw_flip": 0.17984,
+   "test_ler_majority": 0.04788,
+   "test_ler_pymatching": 0.01524,
+   "alphas": {
+    "0.002": {
+     "certified_batches": 0,
+     "refused_batches": 13,
+     "n_batches": 13,
+     "accept_rate": 0.0,
+     "accepted": 0,
+     "accepted_errors": 0,
+     "accepted_ler": null,
+     "wilson95_upper": null,
+     "cap_held": null
+    },
+    "0.005": {
+     "certified_batches": 0,
+     "refused_batches": 13,
+     "n_batches": 13,
+     "accept_rate": 0.0,
+     "accepted": 0,
+     "accepted_errors": 0,
+     "accepted_ler": null,
+     "wilson95_upper": null,
+     "cap_held": null
+    },
+    "0.01": {
+     "certified_batches": 0,
+     "refused_batches": 13,
+     "n_batches": 13,
+     "accept_rate": 0.0,
+     "accepted": 0,
+     "accepted_errors": 0,
+     "accepted_ler": null,
+     "wilson95_upper": null,
+     "cap_held": null
+    },
+    "0.02": {
+     "certified_batches": 0,
+     "refused_batches": 13,
+     "n_batches": 13,
+     "accept_rate": 0.0,
+     "accepted": 0,
+     "accepted_errors": 0,
+     "accepted_ler": null,
+     "wilson95_upper": null,
+     "cap_held": null
+    }
+   }
+  }
+ ],
+ "local_p": 0.0
+}
