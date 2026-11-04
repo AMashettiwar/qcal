@@ -57,12 +57,11 @@ class Engine:
 def run_trial(args):
     fam, d, f, modes, W = args
     t = int(os.path.basename(f)[1:4]); Z = np.load(f)
-    cal = (Z["cal_F"].astype(float), Z["cal_y"].astype(int)); rows = []
+    cal = (Z["cal_F"].astype(float), Z["cal_y"].astype(int)); rows = []; cache = {}   # fits keyed by the windows they use
     for name, segs in streams(fam, Z).items():
         F = np.concatenate([Z[k + "_F"][a:b] for k, a, b in segs]).astype(float)
         y = np.concatenate([Z[k + "_y"][a:b] for k, a, b in segs]).astype(int)
         drift_from = 0 if name in ("ramp",) else (40_000 if name != "iid" else N)
-        cache = {}
         for mode in modes:
             for a in ALPHAS:
                 eng = Engine(cal, F, y, t, (d + 1) / 2, cache, name)

@@ -1,0 +1,1069 @@
+{
+ "split": "test",
+ "pool": "off",
+ "window_shots": 4000,
+ "cal_jobs": [
+  "dbkpcm8nceqs73amd39g",
+  "dbkpqh5gg49c73dje8p0",
+  "dbkq9n8nceqs73amem10",
+  "dbl408onceqs73amvoeg"
+ ],
+ "stream_jobs": [
+  "dbl52st8ft8s738sahl0",
+  "dbl5i2t8mdtc73d5e900"
+ ],
+ "configs": [
+  {
+   "device": "ibm_n3_r5_L0",
+   "n": 3,
+   "logical": 0,
+   "stream_shots": 50000,
+   "majority": 6e-05,
+   "alphas": {
+    "0.002": {
+     "kept_frac": 0.99998,
+     "labeled_frac": 0.0,
+     "refused_batches": 0,
+     "n_batches": 25,
+     "all": {
+      "kept": 49999,
+      "errors": 28,
+      "ler": 0.0005600112002240045,
+      "wilson95_upper": 0.0008092671723815938,
+      "held": true
+     },
+     "after_recal": {
+      "kept": 0,
+      "errors": 0,
+      "ler": null,
+      "wilson95_upper": null,
+      "held": null
+     },
+     "per_job_kept_frac": [
+      0.99996,
+      1.0
+     ],
+     "pymatching_decoded": 0.00056,
+     "recalibrations": 0,
+     "episodes": 0,
+     "gave_up": 0,
+     "labeled_shots": 0,
+     "pool": "recent",
+     "window_shots": 4000,
+     "events": []
+    },
+    "0.005": {
+     "kept_frac": 0.99998,
+     "labeled_frac": 0.0,
+     "refused_batches": 0,
+     "n_batches": 25,
+     "all": {
+      "kept": 49999,
+      "errors": 28,
+      "ler": 0.0005600112002240045,
+      "wilson95_upper": 0.0008092671723815938,
+      "held": true
+     },
+     "after_recal": {
+      "kept": 0,
+      "errors": 0,
+      "ler": null,
+      "wilson95_upper": null,
+      "held": null
+     },
+     "per_job_kept_frac": [
+      0.99996,
+      1.0
+     ],
+     "pymatching_decoded": 0.00056,
+     "recalibrations": 0,
+     "episodes": 0,
+     "gave_up": 0,
+     "labeled_shots": 0,
+     "pool": "recent",
+     "window_shots": 4000,
+     "events": []
+    },
+    "0.01": {
+     "kept_frac": 0.99998,
+     "labeled_frac": 0.0,
+     "refused_batches": 0,
+     "n_batches": 25,
+     "all": {
+      "kept": 49999,
+      "errors": 28,
+      "ler": 0.0005600112002240045,
+      "wilson95_upper": 0.0008092671723815938,
+      "held": true
+     },
+     "after_recal": {
+      "kept": 0,
+      "errors": 0,
+      "ler": null,
+      "wilson95_upper": null,
+      "held": null
+     },
+     "per_job_kept_frac": [
+      0.99996,
+      1.0
+     ],
+     "pymatching_decoded": 0.00056,
+     "recalibrations": 0,
+     "episodes": 0,
+     "gave_up": 0,
+     "labeled_shots": 0,
+     "pool": "recent",
+     "window_shots": 4000,
+     "events": []
+    },
+    "0.02": {
+     "kept_frac": 0.99998,
+     "labeled_frac": 0.0,
+     "refused_batches": 0,
+     "n_batches": 25,
+     "all": {
+      "kept": 49999,
+      "errors": 28,
+      "ler": 0.0005600112002240045,
+      "wilson95_upper": 0.0008092671723815938,
+      "held": true
+     },
+     "after_recal": {
+      "kept": 0,
+      "errors": 0,
+      "ler": null,
+      "wilson95_upper": null,
+      "held": null
+     },
+     "per_job_kept_frac": [
+      0.99996,
+      1.0
+     ],
+     "pymatching_decoded": 0.00056,
+     "recalibrations": 0,
+     "episodes": 0,
+     "gave_up": 0,
+     "labeled_shots": 0,
+     "pool": "recent",
+     "window_shots": 4000,
+     "events": []
+    }
+   }
+  },
+  {
+   "device": "ibm_n3_r5_L1",
+   "n": 3,
+   "logical": 1,
+   "stream_shots": 50000,
+   "majority": 0.0536,
+   "alphas": {
+    "0.002": {
+     "kept_frac": 0.48644,
+     "labeled_frac": 0.0,
+     "refused_batches": 6,
+     "n_batches": 25,
+     "all": {
+      "kept": 24322,
+      "errors": 29,
+      "ler": 0.001192336156566072,
+      "wilson95_upper": 0.0017118783602383782,
+      "held": true
+     },
+     "after_recal": {
+      "kept": 0,
+      "errors": 0,
+      "ler": null,
+      "wilson95_upper": null,
+      "held": null
+     },
+     "per_job_kept_frac": [
+      0.64948,
+      0.3234
+     ],
+     "pymatching_decoded": 0.03702,
+     "recalibrations": 0,
+     "episodes": 6,
+     "gave_up": 0,
+     "labeled_shots": 0,
+     "pool": "recent",
+     "window_shots": 4000,
+     "events": [
+      {
+       "event": "refused",
+       "reason": "distribution shift detected"
+      },
+      {
+       "event": "refused",
+       "reason": "distribution shift detected"
+      },
+      {
+       "event": "refused",
+       "reason": "distribution shift detected"
+      },
+      {
+       "event": "refused",
+       "reason": "distribution shift detected"
+      },
+      {
+       "event": "refused",
+       "reason": "distribution shift detected"
+      },
+      {
+       "event": "refused",
+       "reason": "distribution shift detected"
+      }
+     ]
+    },
+    "0.005": {
+     "kept_frac": 0.4874,
+     "labeled_frac": 0.0,
+     "refused_batches": 6,
+     "n_batches": 25,
+     "all": {
+      "kept": 24370,
+      "errors": 30,
+      "ler": 0.0012310217480508822,
+      "wilson95_upper": 0.0017568071592965954,
+      "held": true
+     },
+     "after_recal": {
+      "kept": 0,
+      "errors": 0,
+      "ler": null,
+      "wilson95_upper": null,
+      "held": null
+     },
+     "per_job_kept_frac": [
+      0.64948,
+      0.32532
+     ],
+     "pymatching_decoded": 0.03702,
+     "recalibrations": 0,
+     "episodes": 6,
+     "gave_up": 0,
+     "labeled_shots": 0,
+     "pool": "recent",
+     "window_shots": 4000,
+     "events": [
+      {
+       "event": "refused",
+       "reason": "distribution shift detected"
+      },
+      {
+       "event": "refused",
+       "reason": "distribution shift detected"
+      },
+      {
+       "event": "refused",
+       "reason": "distribution shift detected"
+      },
+      {
+       "event": "refused",
+       "reason": "distribution shift detected"
+      },
+      {
+       "event": "refused",
+       "reason": "distribution shift detected"
+      },
+      {
+       "event": "refused",
+       "reason": "distribution shift detected"
+      }
+     ]
+    },
+    "0.01": {
+     "kept_frac": 0.4874,
+     "labeled_frac": 0.0,
+     "refused_batches": 6,
+     "n_batches": 25,
+     "all": {
+      "kept": 24370,
+      "errors": 30,
+      "ler": 0.0012310217480508822,
+      "wilson95_upper": 0.0017568071592965954,
+      "held": true
+     },
+     "after_recal": {
+      "kept": 0,
+      "errors": 0,
+      "ler": null,
+      "wilson95_upper": null,
+      "held": null
+     },
+     "per_job_kept_frac": [
+      0.64948,
+      0.32532
+     ],
+     "pymatching_decoded": 0.03702,
+     "recalibrations": 0,
+     "episodes": 6,
+     "gave_up": 0,
+     "labeled_shots": 0,
+     "pool": "recent",
+     "window_shots": 4000,
+     "events": [
+      {
+       "event": "refused",
+       "reason": "distribution shift detected"
+      },
+      {
+       "event": "refused",
+       "reason": "distribution shift detected"
+      },
+      {
+       "event": "refused",
+       "reason": "distribution shift detected"
+      },
+      {
+       "event": "refused",
+       "reason": "distribution shift detected"
+      },
+      {
+       "event": "refused",
+       "reason": "distribution shift detected"
+      },
+      {
+       "event": "refused",
+       "reason": "distribution shift detected"
+      }
+     ]
+    },
+    "0.02": {
+     "kept_frac": 0.72572,
+     "labeled_frac": 0.0,
+     "refused_batches": 6,
+     "n_batches": 25,
+     "all": {
+      "kept": 36286,
+      "errors": 472,
+      "ler": 0.013007771592349667,
+      "wilson95_upper": 0.014226257406603866,
+      "held": true
+     },
+     "after_recal": {
+      "kept": 0,
+      "errors": 0,
+      "ler": null,
+      "wilson95_upper": null,
+      "held": null
+     },
+     "per_job_kept_frac": [
+      0.96168,
+      0.48976
+     ],
+     "pymatching_decoded": 0.03702,
+     "recalibrations": 0,
+     "episodes": 6,
+     "gave_up": 0,
+     "labeled_shots": 0,
+     "pool": "recent",
+     "window_shots": 4000,
+     "events": [
+      {
+       "event": "refused",
+       "reason": "distribution shift detected"
+      },
+      {
+       "event": "refused",
+       "reason": "distribution shift detected"
+      },
+      {
+       "event": "refused",
+       "reason": "distribution shift detected"
+      },
+      {
+       "event": "refused",
+       "reason": "distribution shift detected"
+      },
+      {
+       "event": "refused",
+       "reason": "distribution shift detected"
+      },
+      {
+       "event": "refused",
+       "reason": "distribution shift detected"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "device": "ibm_n5_r5_L0",
+   "n": 5,
+   "logical": 0,
+   "stream_shots": 50000,
+   "majority": 0.0,
+   "alphas": {
+    "0.002": {
+     "kept_frac": 1.0,
+     "labeled_frac": 0.0,
+     "refused_batches": 0,
+     "n_batches": 25,
+     "all": {
+      "kept": 50000,
+      "errors": 2,
+      "ler": 4e-05,
+      "wilson95_upper": 0.00014585066952240206,
+      "held": true
+     },
+     "after_recal": {
+      "kept": 0,
+      "errors": 0,
+      "ler": null,
+      "wilson95_upper": null,
+      "held": null
+     },
+     "per_job_kept_frac": [
+      1.0,
+      1.0
+     ],
+     "pymatching_decoded": 4e-05,
+     "recalibrations": 0,
+     "episodes": 0,
+     "gave_up": 0,
+     "labeled_shots": 0,
+     "pool": "recent",
+     "window_shots": 4000,
+     "events": []
+    },
+    "0.005": {
+     "kept_frac": 1.0,
+     "labeled_frac": 0.0,
+     "refused_batches": 0,
+     "n_batches": 25,
+     "all": {
+      "kept": 50000,
+      "errors": 2,
+      "ler": 4e-05,
+      "wilson95_upper": 0.00014585066952240206,
+      "held": true
+     },
+     "after_recal": {
+      "kept": 0,
+      "errors": 0,
+      "ler": null,
+      "wilson95_upper": null,
+      "held": null
+     },
+     "per_job_kept_frac": [
+      1.0,
+      1.0
+     ],
+     "pymatching_decoded": 4e-05,
+     "recalibrations": 0,
+     "episodes": 0,
+     "gave_up": 0,
+     "labeled_shots": 0,
+     "pool": "recent",
+     "window_shots": 4000,
+     "events": []
+    },
+    "0.01": {
+     "kept_frac": 1.0,
+     "labeled_frac": 0.0,
+     "refused_batches": 0,
+     "n_batches": 25,
+     "all": {
+      "kept": 50000,
+      "errors": 2,
+      "ler": 4e-05,
+      "wilson95_upper": 0.00014585066952240206,
+      "held": true
+     },
+     "after_recal": {
+      "kept": 0,
+      "errors": 0,
+      "ler": null,
+      "wilson95_upper": null,
+      "held": null
+     },
+     "per_job_kept_frac": [
+      1.0,
+      1.0
+     ],
+     "pymatching_decoded": 4e-05,
+     "recalibrations": 0,
+     "episodes": 0,
+     "gave_up": 0,
+     "labeled_shots": 0,
+     "pool": "recent",
+     "window_shots": 4000,
+     "events": []
+    },
+    "0.02": {
+     "kept_frac": 1.0,
+     "labeled_frac": 0.0,
+     "refused_batches": 0,
+     "n_batches": 25,
+     "all": {
+      "kept": 50000,
+      "errors": 2,
+      "ler": 4e-05,
+      "wilson95_upper": 0.00014585066952240206,
+      "held": true
+     },
+     "after_recal": {
+      "kept": 0,
+      "errors": 0,
+      "ler": null,
+      "wilson95_upper": null,
+      "held": null
+     },
+     "per_job_kept_frac": [
+      1.0,
+      1.0
+     ],
+     "pymatching_decoded": 4e-05,
+     "recalibrations": 0,
+     "episodes": 0,
+     "gave_up": 0,
+     "labeled_shots": 0,
+     "pool": "recent",
+     "window_shots": 4000,
+     "events": []
+    }
+   }
+  },
+  {
+   "device": "ibm_n5_r5_L1",
+   "n": 5,
+   "logical": 1,
+   "stream_shots": 50000,
+   "majority": 0.05646,
+   "alphas": {
+    "0.002": {
+     "kept_frac": 0.0,
+     "labeled_frac": 0.0,
+     "refused_batches": 25,
+     "n_batches": 25,
+     "all": {
+      "kept": 0,
+      "errors": 0,
+      "ler": null,
+      "wilson95_upper": null,
+      "held": null
+     },
+     "after_recal": {
+      "kept": 0,
+      "errors": 0,
+      "ler": null,
+      "wilson95_upper": null,
+      "held": null
+     },
+     "per_job_kept_frac": [
+      0.0,
+      0.0
+     ],
+     "pymatching_decoded": 0.01948,
+     "recalibrations": 0,
+     "episodes": 25,
+     "gave_up": 0,
+     "labeled_shots": 0,
+     "pool": "recent",
+     "window_shots": 4000,
+     "events": [
+      {
+       "event": "refused",
+       "reason": "distribution shift detected"
+      },
+      {
+       "event": "refused",
+       "reason": "distribution shift detected"
+      },
+      {
+       "event": "refused",
+       "reason": "distribution shift detected"
+      },
+      {
+       "event": "refused",
+       "reason": "syndrome weight is 1.525x calibration; no certified threshold that far out. Recalibrate."
+      },
+      {
+       "event": "refused",
+       "reason": "distribution shift detected"
+      },
+      {
+       "event": "refused",
+       "reason": "distribution shift detected"
+      },
+      {
+       "event": "refused",
+       "reason": "distribution shift detected"
+      },
+      {
+       "event": "refused",
+       "reason": "distribution shift detected"
+      },
+      {
+       "event": "refused",
+       "reason": "syndrome weight is 1.561x calibration; no certified threshold that far out. Recalibrate."
+      },
+      {
+       "event": "refused",
+       "reason": "distribution shift detected"
+      },
+      {
+       "event": "refused",
+       "reason": "distribution shift detected"
+      },
+      {
+       "event": "refused",
+       "reason": "distribution shift detected"
+      },
+      {
+       "event": "refused",
+       "reason": "distribution shift detected"
+      },
+      {
+       "event": "refused",
+       "reason": "distribution shift detected"
+      },
+      {
+       "event": "refused",
+       "reason": "distribution shift detected"
+      },
+      {
+       "event": "refused",
+       "reason": "distribution shift detected"
+      },
+      {
+       "event": "refused",
+       "reason": "distribution shift detected"
+      },
+      {
+       "event": "refused",
+       "reason": "distribution shift detected"
+      },
+      {
+       "event": "refused",
+       "reason": "distribution shift detected"
+      },
+      {
+       "event": "refused",
+       "reason": "distribution shift detected"
+      },
+      {
+       "event": "refused",
+       "reason": "distribution shift detected"
+      },
+      {
+       "event": "refused",
+       "reason": "distribution shift detected"
+      },
+      {
+       "event": "refused",
+       "reason": "distribution shift detected"
+      },
+      {
+       "event": "refused",
+       "reason": "distribution shift detected"
+      },
+      {
+       "event": "refused",
+       "reason": "distribution shift detected"
+      }
+     ]
+    },
+    "0.005": {
+     "kept_frac": 0.0,
+     "labeled_frac": 0.0,
+     "refused_batches": 25,
+     "n_batches": 25,
+     "all": {
+      "kept": 0,
+      "errors": 0,
+      "ler": null,
+      "wilson95_upper": null,
+      "held": null
+     },
+     "after_recal": {
+      "kept": 0,
+      "errors": 0,
+      "ler": null,
+      "wilson95_upper": null,
+      "held": null
+     },
+     "per_job_kept_frac": [
+      0.0,
+      0.0
+     ],
+     "pymatching_decoded": 0.01948,
+     "recalibrations": 0,
+     "episodes": 25,
+     "gave_up": 0,
+     "labeled_shots": 0,
+     "pool": "recent",
+     "window_shots": 4000,
+     "events": [
+      {
+       "event": "refused",
+       "reason": "distribution shift detected"
+      },
+      {
+       "event": "refused",
+       "reason": "distribution shift detected"
+      },
+      {
+       "event": "refused",
+       "reason": "distribution shift detected"
+      },
+      {
+       "event": "refused",
+       "reason": "syndrome weight is 1.525x calibration; no certified threshold that far out. Recalibrate."
+      },
+      {
+       "event": "refused",
+       "reason": "distribution shift detected"
+      },
+      {
+       "event": "refused",
+       "reason": "distribution shift detected"
+      },
+      {
+       "event": "refused",
+       "reason": "distribution shift detected"
+      },
+      {
+       "event": "refused",
+       "reason": "distribution shift detected"
+      },
+      {
+       "event": "refused",
+       "reason": "syndrome weight is 1.561x calibration; no certified threshold that far out. Recalibrate."
+      },
+      {
+       "event": "refused",
+       "reason": "distribution shift detected"
+      },
+      {
+       "event": "refused",
+       "reason": "distribution shift detected"
+      },
+      {
+       "event": "refused",
+       "reason": "distribution shift detected"
+      },
+      {
+       "event": "refused",
+       "reason": "distribution shift detected"
+      },
+      {
+       "event": "refused",
+       "reason": "distribution shift detected"
+      },
+      {
+       "event": "refused",
+       "reason": "distribution shift detected"
+      },
+      {
+       "event": "refused",
+       "reason": "distribution shift detected"
+      },
+      {
+       "event": "refused",
+       "reason": "distribution shift detected"
+      },
+      {
+       "event": "refused",
+       "reason": "distribution shift detected"
+      },
+      {
+       "event": "refused",
+       "reason": "distribution shift detected"
+      },
+      {
+       "event": "refused",
+       "reason": "distribution shift detected"
+      },
+      {
+       "event": "refused",
+       "reason": "distribution shift detected"
+      },
+      {
+       "event": "refused",
+       "reason": "distribution shift detected"
+      },
+      {
+       "event": "refused",
+       "reason": "distribution shift detected"
+      },
+      {
+       "event": "refused",
+       "reason": "distribution shift detected"
+      },
+      {
+       "event": "refused",
+       "reason": "distribution shift detected"
+      }
+     ]
+    },
+    "0.01": {
+     "kept_frac": 0.0,
+     "labeled_frac": 0.0,
+     "refused_batches": 25,
+     "n_batches": 25,
+     "all": {
+      "kept": 0,
+      "errors": 0,
+      "ler": null,
+      "wilson95_upper": null,
+      "held": null
+     },
+     "after_recal": {
+      "kept": 0,
+      "errors": 0,
+      "ler": null,
+      "wilson95_upper": null,
+      "held": null
+     },
+     "per_job_kept_frac": [
+      0.0,
+      0.0
+     ],
+     "pymatching_decoded": 0.01948,
+     "recalibrations": 0,
+     "episodes": 25,
+     "gave_up": 0,
+     "labeled_shots": 0,
+     "pool": "recent",
+     "window_shots": 4000,
+     "events": [
+      {
+       "event": "refused",
+       "reason": "distribution shift detected"
+      },
+      {
+       "event": "refused",
+       "reason": "distribution shift detected"
+      },
+      {
+       "event": "refused",
+       "reason": "distribution shift detected"
+      },
+      {
+       "event": "refused",
+       "reason": "syndrome weight is 1.525x calibration; no certified threshold that far out. Recalibrate."
+      },
+      {
+       "event": "refused",
+       "reason": "distribution shift detected"
+      },
+      {
+       "event": "refused",
+       "reason": "distribution shift detected"
+      },
+      {
+       "event": "refused",
+       "reason": "distribution shift detected"
+      },
+      {
+       "event": "refused",
+       "reason": "distribution shift detected"
+      },
+      {
+       "event": "refused",
+       "reason": "syndrome weight is 1.561x calibration; no certified threshold that far out. Recalibrate."
+      },
+      {
+       "event": "refused",
+       "reason": "distribution shift detected"
+      },
+      {
+       "event": "refused",
+       "reason": "distribution shift detected"
+      },
+      {
+       "event": "refused",
+       "reason": "distribution shift detected"
+      },
+      {
+       "event": "refused",
+       "reason": "distribution shift detected"
+      },
+      {
+       "event": "refused",
+       "reason": "distribution shift detected"
+      },
+      {
+       "event": "refused",
+       "reason": "distribution shift detected"
+      },
+      {
+       "event": "refused",
+       "reason": "distribution shift detected"
+      },
+      {
+       "event": "refused",
+       "reason": "distribution shift detected"
+      },
+      {
+       "event": "refused",
+       "reason": "distribution shift detected"
+      },
+      {
+       "event": "refused",
+       "reason": "distribution shift detected"
+      },
+      {
+       "event": "refused",
+       "reason": "distribution shift detected"
+      },
+      {
+       "event": "refused",
+       "reason": "distribution shift detected"
+      },
+      {
+       "event": "refused",
+       "reason": "distribution shift detected"
+      },
+      {
+       "event": "refused",
+       "reason": "distribution shift detected"
+      },
+      {
+       "event": "refused",
+       "reason": "distribution shift detected"
+      },
+      {
+       "event": "refused",
+       "reason": "distribution shift detected"
+      }
+     ]
+    },
+    "0.02": {
+     "kept_frac": 0.0,
+     "labeled_frac": 0.0,
+     "refused_batches": 25,
+     "n_batches": 25,
+     "all": {
+      "kept": 0,
+      "errors": 0,
+      "ler": null,
+      "wilson95_upper": null,
+      "held": null
+     },
+     "after_recal": {
+      "kept": 0,
+      "errors": 0,
+      "ler": null,
+      "wilson95_upper": null,
+      "held": null
+     },
+     "per_job_kept_frac": [
+      0.0,
+      0.0
+     ],
+     "pymatching_decoded": 0.01948,
+     "recalibrations": 0,
+     "episodes": 25,
+     "gave_up": 0,
+     "labeled_shots": 0,
+     "pool": "recent",
+     "window_shots": 4000,
+     "events": [
+      {
+       "event": "refused",
+       "reason": "distribution shift detected"
+      },
+      {
+       "event": "refused",
+       "reason": "distribution shift detected"
+      },
+      {
+       "event": "refused",
+       "reason": "distribution shift detected"
+      },
+      {
+       "event": "refused",
+       "reason": "syndrome weight is 1.525x calibration; no certified threshold that far out. Recalibrate."
+      },
+      {
+       "event": "refused",
+       "reason": "distribution shift detected"
+      },
+      {
+       "event": "refused",
+       "reason": "distribution shift detected"
+      },
+      {
+       "event": "refused",
+       "reason": "distribution shift detected"
+      },
+      {
+       "event": "refused",
+       "reason": "distribution shift detected"
+      },
+      {
+       "event": "refused",
+       "reason": "syndrome weight is 1.561x calibration; no certified threshold that far out. Recalibrate."
+      },
+      {
+       "event": "refused",
+       "reason": "distribution shift detected"
+      },
+      {
+       "event": "refused",
+       "reason": "distribution shift detected"
+      },
+      {
+       "event": "refused",
+       "reason": "distribution shift detected"
+      },
+      {
+       "event": "refused",
+       "reason": "distribution shift detected"
+      },
+      {
+       "event": "refused",
+       "reason": "distribution shift detected"
+      },
+      {
+       "event": "refused",
+       "reason": "distribution shift detected"
+      },
+      {
+       "event": "refused",
+       "reason": "distribution shift detected"
+      },
+      {
+       "event": "refused",
+       "reason": "distribution shift detected"
+      },
+      {
+       "event": "refused",
+       "reason": "distribution shift detected"
+      },
+      {
+       "event": "refused",
+       "reason": "distribution shift detected"
+      },
+      {
+       "event": "refused",
+       "reason": "distribution shift detected"
+      },
+      {
+       "event": "refused",
+       "reason": "distribution shift detected"
+      },
+      {
+       "event": "refused",
+       "reason": "distribution shift detected"
+      },
+      {
+       "event": "refused",
+       "reason": "distribution shift detected"
+      },
+      {
+       "event": "refused",
+       "reason": "distribution shift detected"
+      },
+      {
+       "event": "refused",
+       "reason": "distribution shift detected"
+      }
+     ]
+    }
+   }
+  }
+ ]
+}
