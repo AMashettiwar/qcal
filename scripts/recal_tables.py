@@ -1,6 +1,7 @@
 """Markdown tables and the selection numbers from recal_replay.py / recal_sim.py outputs.
 usage: python scripts/recal_tables.py ibm FILE...      one table per file (circuit x alpha)
-       python scripts/recal_tables.py sim FILE         simulation summary"""
+       python scripts/recal_tables.py sim FILE         simulation summary
+       python scripts/recal_tables.py cmp BASE FILE    net kept per cell vs a baseline file"""
 import json, sys
 import numpy as np
 
@@ -44,5 +45,20 @@ def sim(f):
               f"{[k for k, v in S.items() if k.split('|')[3] == m and not (v['pass'] and v['post_pass'])]}")
 
 
+def cmp(base, f):
+    B = {c["device"]: c for c in json.load(open(base))["configs"]}
+    win, lose, tie = [], [], []
+    for c in json.load(open(f))["configs"]:
+        for a, v in c["alphas"].items():
+            x, y = v["kept_frac"], B[c["device"]]["alphas"][a]["kept_frac"]
+            cell = f"n={c['n']} |{c['logical']}> a={a}: {x:.1%} vs {y:.1%}"
+            (win if x > y else lose if x < y else tie).append(cell)
+    print(f"\n{f} vs {base}: better {len(win)}, worse {len(lose)}, equal {len(tie)}")
+    for w in lose: print("  worse:", w)
+
+
 if __name__ == "__main__":
-    (ibm if sys.argv[1] == "ibm" else sim) and [(ibm if sys.argv[1] == "ibm" else sim)(f) for f in sys.argv[2:]]
+    if sys.argv[1] == "cmp":
+        cmp(sys.argv[2], sys.argv[3])
+    else:
+        [(ibm if sys.argv[1] == "ibm" else sim)(f) for f in sys.argv[2:]]
