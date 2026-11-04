@@ -188,6 +188,16 @@ python scripts/willow_api.py                     # Willow check, includes the dr
 python scripts/ibm_analyze.py 2 fitted out/ibm_results_fitted_local.json 0.001
 ```
 
+### 2d. Recalibrating after drift (opt-in, `qcal/recal.py`)
+
+When the monitor refuses, the optional `Recalibrator` asks for a 4,000-shot labeled window, refits on the windows since the refusal (`pool_from`), and resumes once α certifies again (at most 5 windows per episode). The labeled shots are only used to refit and are counted as lost. I pre-registered the test in `docs/RECALIBRATION.md` and picked the "recent" pool on trials 0–14. Held-out trials 15–119:
+- **Whole-stream coverage:** no new failures. The 8 failing cells are the same ones that fail without it (d = 3, α = 0.002, where only 30 of 105 trials certify).
+- **Shots kept after a recalibration:** coverage 97–100% where many trials recalibrated, but the pass rule fails in 2 cells, both d = 3 at α = 0.005: a10 (1 of 2 trials broke the cap) and q5 (8 of 8 covered, too few trials for the 85% lower bound).
+- **Recovery:** at α = 0.005 on d = 5 and 7 it often doubles net kept shots (step ×1.3: 37.6% → 71.0%). At α = 0.002 it rarely certifies again, spends 20% of the stream on labels and sometimes keeps less (d=7 q3: 85.1% → 52.9%).
+- Mean net kept over all 54 cells: 45.6% → 52.4%.
+
+It stays off by default. On real IBM data it also broke one cap (see `docs/IBM_REPLICATION.md`).
+
 ## 3. Engineering checks
 - The full test suite passes (see the commit).
 - Tests cover API-key auth, rate and size limits, concurrent SQLite writes, the client round trip, and the shift monitor refusing a 2× noisier batch.

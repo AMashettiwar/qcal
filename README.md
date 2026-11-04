@@ -31,6 +31,7 @@ That is roughly 30 times fewer errors than the decoder alone, at the cost of dis
 - Nobody else has reproduced it.
 - Uneven drift (one bad qubit, region or round) is tested only in simulation. The default settings hold in 46 of 48 cases. The two misses are one qubit at 3× noise on the d=3 and d=5 codes at the tightest cap: coverage was 94.4% and 90.5%, but the error bars dip below my 85% floor. See `docs/VALIDATION.md` 2c.
 - It is not real-time: it scores batches, not a live stream.
+- I added an opt-in automatic recalibration after drift. It rescued runs where drift lasted, but on `ibm_marrakesh` it broke one cap (0.511% at a 0.5% cap) and kept fewer runs overall, so it is off by default ([results](docs/RECALIBRATION.md)).
 
 ## Try it
 

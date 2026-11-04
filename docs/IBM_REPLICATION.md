@@ -151,6 +151,13 @@ Calibrated on main0–3, even though main5 used different qubits. `out/ibm2_extr
 
 The shift monitor does not know about qubit lines. It only checks whether the syndrome statistics look like calibration, and on new qubits they sometimes do and sometimes do not. All certificates it issued here still held.
 
+### Extra (pre-registered separately): automatic recalibration
+Afterwards I replayed both chips' test jobs through the opt-in `Recalibrator` (`docs/RECALIBRATION.md`): after a refusal it spends the next 4,000 shots as labels, refits on them, and resumes. This is a replay of the same data, no new QPU time.
+- **It broke one cap here.** n=5 |1> at α = 0.005 kept 33.7% at **0.511% (86/16,845)**, above the 0.5% cap. All other kept-shot cells held, and `ibm_kingston` held everywhere.
+- **It kept less overall on this chip:** mean net kept 22.8% → 13.2%, with 10 of 16 cells worse. The first test job looked 3.2× noisier and the second looked normal again. Recalibrating on the first made the second look like a new shift, so it kept asking for labels (up to 80% of the stream).
+- Where drift lasted, it helped: n=5 |1> at α = 0.01 went from 16.6% to 54.6% kept, at 0.579%.
+- On `ibm_kingston` it rescued n=5 |1>, which had been fully refused (26–75% kept at α = 0.005–0.02, all caps held), but lost on n=3 |1> (48.7% → 36.2%) because of the label cost.
+
 ### What this replication shows, and what it does not
 **What it shows:**
 - **The guarantee held on a second, different chip.** That chip was noisier and less stable. Over both chips, every issued certificate held: 12 cells on `ibm_kingston`, plus 15 primary and 11 fitted cells here.

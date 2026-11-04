@@ -14,6 +14,10 @@ pool="recent": refit on the windows sent since the refusal (the stale pool is dr
 pool="cumulative": append the window to everything sent before.
 If the requested alpha is still not certified after `max_windows` windows, it stops asking for labels (gave_up) and
 later batches are refused until the profile certifies again.
+
+Warning: in my held-out evaluation (docs/RECALIBRATION.md) this broke one cap on real IBM data (0.511% kept error at
+alpha=0.005), lost net kept shots on a chip whose drift came and went, and wasted labels at alpha=0.002. Use it for
+lasting drift at a loose enough alpha, and check the results.
 """
 import numpy as np
 from .client import QcalError
